@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Referral Submission</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header { 
+            background-color: #1a1a1a; 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content { 
+            background-color: #f8f9fa; 
+            padding: 30px; 
+        }
+        .section { 
+            margin-bottom: 25px; 
+            padding: 25px; 
+            background-color: white; 
+            border-radius: 12px; 
+            border-left: 5px solid #1a1a1a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .section-title { 
+            color: #1a1a1a; 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid #e9ecef; 
+            padding-bottom: 8px; 
+        }
+        .urgency-badge { 
+            display: inline-block; 
+            padding: 8px 20px; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .urgent { background-color: #dc3545; color: white; }
+        .soon { background-color: #fd7e14; color: white; }
+        .planning { background-color: #28a745; color: white; }
+        .immediate { 
+            background-color: #dc3545; 
+            color: white; 
+            animation: pulse 2s infinite; 
+        }
+        .field { 
+            margin-bottom: 15px; 
+            display: flex; 
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .label { 
+            font-weight: bold; 
+            color: #1a1a1a; 
+            min-width: 160px; 
+            padding-right: 15px;
+            font-size: 14px;
+        }
+        .value { 
+            flex: 1; 
+            min-width: 250px; 
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .value a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .value a:hover {
+            text-decoration: underline;
+        }
+        .referral-highlight { 
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 20px; 
+            border-radius: 12px; 
+            border-left: 5px solid #ffc107; 
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+        }
+        .referral-highlight strong {
+            color: #856404;
+            font-size: 16px;
+        }
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .status-agreed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-not-agreed {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .footer { 
+            text-align: center; 
+            padding: 25px 20px; 
+            background-color: #1a1a1a; 
+            color: white; 
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer em {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        @keyframes pulse { 
+            0% { opacity: 1; } 
+            50% { opacity: 0.7; } 
+            100% { opacity: 1; } 
+        }
+        @media (max-width: 700px) {
+            body { padding: 10px; }
+            .content { padding: 20px; }
+            .section { padding: 20px; }
+            .field { flex-direction: column; }
+            .label { min-width: auto; margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🤝 New Referral Submission</h1>
+            <p>Journey of Care - Client Referral</p>
+        </div>
+        
+        <div class="content">
+            <div class="urgency-badge urgent">
+                ⏰ URGENT (Within 3 days)
+            </div>
+            
+            <div class="referral-highlight">
+                <strong>🎯 Referral Summary:</strong> Dr. Emily Martinez has referred Margaret Thompson for immediate care services due to recent hospital discharge and mobility concerns.
+            </div>
+            
+            <div class="section">
+                <div class="section-title">👤 Referrer Information</div>
+                <div class="field">
+                    <div class="label">Name:</div>
+                    <div class="value">Dr. Emily Martinez</div>
+                </div>
+                <div class="field">
+                    <div class="label">Email:</div>
+                    <div class="value"><a href="mailto:dr.martinez@medicalpractice.com">dr.martinez@medicalpractice.com</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Phone:</div>
+                    <div class="value"><a href="tel:+1234567890">(123) 456-7890</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Relationship to Client:</div>
+                    <div class="value">Healthcare Provider</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🏥 Client Information</div>
+                <div class="field">
+                    <div class="label">Name:</div>
+                    <div class="value">Margaret Thompson</div>
+                </div>
+                <div class="field">
+                    <div class="label">Phone:</div>
+                    <div class="value"><a href="tel:+1987654321">(198) 765-4321</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Email:</div>
+                    <div class="value"><a href="mailto:margaret.thompson@email.com">margaret.thompson@email.com</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Address:</div>
+                    <div class="value">456 Pine Avenue, Conroe, TX 77302</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🛡️ Care Requirements</div>
+                <div class="field">
+                    <div class="label">Care Needs:</div>
+                    <div class="value">Personal Care Services - Post-surgical care</div>
+                </div>
+                <div class="field">
+                    <div class="label">Timeline:</div>
+                    <div class="value">URGENT (Within 3 days)</div>
+                </div>
+                <div class="field">
+                    <div class="label">Additional Information:</div>
+                    <div class="value">
+                        Patient recently underwent hip replacement surgery and requires assistance with daily activities, medication management, and physical therapy support. She lives alone and has limited family support in the area. 
+                        <br><br>
+                        Mobility is currently limited, and she needs help with bathing, dressing, and meal preparation. Patient is motivated and cooperative with care instructions.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📅 Submission Details</div>
+                <div class="field">
+                    <div class="label">Submitted:</div>
+                    <div class="value">December 19, 2024 at 4:15 PM EST</div>
+                </div>
+                <div class="field">
+                    <div class="label">Terms Agreed:</div>
+                    <div class="value">
+                        <span class="status-indicator status-agreed">✅ Terms and Privacy Policy Accepted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Journey of Care | <a href="tel:8324460705">(832) 446-0705</a> | referrals@journey-of-care.com</p>
+            <p><em>Please contact the referred client within 24 hours</em></p>
+        </div>
+    </div>
+</body>
+</html>

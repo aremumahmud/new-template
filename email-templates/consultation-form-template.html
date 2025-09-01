@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Consultation Request</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header { 
+            background-color: #1a1a1a; 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content { 
+            background-color: #f8f9fa; 
+            padding: 30px; 
+        }
+        .section { 
+            margin-bottom: 25px; 
+            padding: 25px; 
+            background-color: white; 
+            border-radius: 12px; 
+            border-left: 5px solid #1a1a1a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .section-title { 
+            color: #1a1a1a; 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid #e9ecef; 
+            padding-bottom: 8px; 
+        }
+        .urgency-badge { 
+            display: inline-block; 
+            padding: 8px 20px; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .urgent { background-color: #dc3545; color: white; }
+        .soon { background-color: #fd7e14; color: white; }
+        .planning { background-color: #28a745; color: white; }
+        .immediate { 
+            background-color: #dc3545; 
+            color: white; 
+            animation: pulse 2s infinite; 
+        }
+        .field { 
+            margin-bottom: 15px; 
+            display: flex; 
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .label { 
+            font-weight: bold; 
+            color: #1a1a1a; 
+            min-width: 160px; 
+            padding-right: 15px;
+            font-size: 14px;
+        }
+        .value { 
+            flex: 1; 
+            min-width: 250px; 
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .value a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .value a:hover {
+            text-decoration: underline;
+        }
+        .services-list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+        }
+        .services-list li { 
+            background-color: #e3f2fd; 
+            margin: 8px 0; 
+            padding: 10px 15px; 
+            border-radius: 6px;
+            border-left: 3px solid #1976d2;
+            font-weight: 500;
+        }
+        .footer { 
+            text-align: center; 
+            padding: 25px 20px; 
+            background-color: #1a1a1a; 
+            color: white; 
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer em {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        @keyframes pulse { 
+            0% { opacity: 1; } 
+            50% { opacity: 0.7; } 
+            100% { opacity: 1; } 
+        }
+        @media (max-width: 700px) {
+            body { padding: 10px; }
+            .content { padding: 20px; }
+            .section { padding: 20px; }
+            .field { flex-direction: column; }
+            .label { min-width: auto; margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>📅 New Consultation Request</h1>
+            <p>Journey of Care - Care Consultation</p>
+        </div>
+        
+        <div class="content">
+            <div class="urgency-badge soon">
+                ⏰ SOON (Within a week)
+            </div>
+            
+            <div class="section">
+                <div class="section-title">👤 Contact Information</div>
+                <div class="field">
+                    <div class="label">Full Name:</div>
+                    <div class="value">Sarah Johnson</div>
+                </div>
+                <div class="field">
+                    <div class="label">Email:</div>
+                    <div class="value"><a href="mailto:sarah.johnson@email.com">sarah.johnson@email.com</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Phone:</div>
+                    <div class="value"><a href="tel:+1234567890">(123) 456-7890</a></div>
+                </div>
+                <div class="field">
+                    <div class="label">Relationship:</div>
+                    <div class="value">Adult Child</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🏥 Care Recipient Information</div>
+                <div class="field">
+                    <div class="label">Name:</div>
+                    <div class="value">Robert Johnson</div>
+                </div>
+                <div class="field">
+                    <div class="label">Age:</div>
+                    <div class="value">78 years old</div>
+                </div>
+                <div class="field">
+                    <div class="label">Gender:</div>
+                    <div class="value">Male</div>
+                </div>
+                <div class="field">
+                    <div class="label">Medical Conditions:</div>
+                    <div class="value">
+                        Early-stage dementia, diabetes, hypertension. Requires medication reminders and assistance with meal preparation.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🛡️ Service Requirements</div>
+                <div class="field">
+                    <div class="label">Services Needed:</div>
+                    <div class="value">
+                        <ul class="services-list">
+                            <li>Personal Care Services</li>
+                            <li>Companion Care</li>
+                            <li>Specialized Care</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="label">Care Level:</div>
+                    <div class="value">Moderate Care</div>
+                </div>
+                <div class="field">
+                    <div class="label">Frequency:</div>
+                    <div class="value">Daily</div>
+                </div>
+                <div class="field">
+                    <div class="label">Duration:</div>
+                    <div class="value">4-8 hours</div>
+                </div>
+                <div class="field">
+                    <div class="label">Start Date:</div>
+                    <div class="value">January 15, 2025</div>
+                </div>
+                <div class="field">
+                    <div class="label">Preferred Time:</div>
+                    <div class="value">Morning (6 AM - 12 PM)</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📍 Location & Additional Info</div>
+                <div class="field">
+                    <div class="label">Address:</div>
+                    <div class="value">123 Oak Street</div>
+                </div>
+                <div class="field">
+                    <div class="label">City:</div>
+                    <div class="value">Conroe</div>
+                </div>
+                <div class="field">
+                    <div class="label">Zip Code:</div>
+                    <div class="value">77301</div>
+                </div>
+                <div class="field">
+                    <div class="label">Special Requests:</div>
+                    <div class="value">
+                        Please assign a caregiver who has experience with dementia patients. My father is most comfortable with male caregivers.
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="label">Additional Information:</div>
+                    <div class="value">
+                        My father is a retired teacher who enjoys reading and light gardening. He has a small dog that he's very attached to. The caregiver should be comfortable around pets.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📅 Submission Details</div>
+                <div class="field">
+                    <div class="label">Submitted:</div>
+                    <div class="value">December 19, 2024 at 3:45 PM EST</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Journey of Care | <a href="tel:8324460705">(832) 446-0705</a> | Info@journey-of-care.com</p>
+            <p><em>Please schedule consultation within 24-48 hours</em></p>
+        </div>
+    </div>
+</body>
+</html>
