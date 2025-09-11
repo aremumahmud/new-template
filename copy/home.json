@@ -12,9 +12,9 @@
     },
     "servicesDropdown": {
       "companionshipCare": "Companionship Care",
-      "personalHygiene": "Personal Hygiene Assistance",
+      "personalHygiene": "Personal Care",
       "mobilitySupport": "Mobility Support",
-      "mealPreparation": "Meal Preparation & Feeding",
+      "mealPreparation": "Meal Help",
       "medicationReminders": "Medication Reminders",
       "lightHousekeeping": "Light Housekeeping"
     },
@@ -29,10 +29,10 @@
   },
   "hero": {
     "badge": "Free Care Assessment",
-    "mainHeading": "Professional Personal Assistance Services in San Antonio, TX",
-    "mainDescription": "Luzi Home Health Services LLC provides compassionate, professional Personal Assistance Services (PAS) in San Antonio and surrounding areas. Our certified caregivers deliver personalized care with dignity, respect, and genuine human connection in the comfort of your home.",
+    "mainHeading": "Caring for San Antonio Families",
+    "mainDescription": "Professional caregivers who help with daily activities, companionship, and personal care. Let us support your loved ones at home.",
     "teamStats": "Trusted by San Antonio Families",
-    "ctaButton": "Schedule Your Free Consultation",
+    "ctaButton": "Get Started Today",
     "imageOverlay": {
       "badges": {
         "personalAssistance": "PERSONAL ASSISTANCE",
@@ -42,28 +42,28 @@
     },
     "rotatingContent": [
       {
-        "heading": "Companionship Care Services",
-        "description": "Emotional support and company for clients in San Antonio.",
-        "popularHeading": "Most Popular Service",
-        "popularDescription": "Professional companionship care with certified caregivers."
+        "heading": "Companionship Care",
+        "description": "Friendly company and emotional support.",
+        "popularHeading": "Most Popular",
+        "popularDescription": "Companionship care with certified caregivers."
       },
       {
-        "heading": "Personal Hygiene Assistance",
-        "description": "Bathing, grooming, and dressing support with dignity.",
-        "popularHeading": "Essential Care",
-        "popularDescription": "Maintaining personal hygiene and independence at home."
+        "heading": "Personal Care",
+        "description": "Help with bathing, grooming, and dressing.",
+        "popularHeading": "Essential Service",
+        "popularDescription": "Personal care that respects dignity and independence."
       },
       {
-        "heading": "Mobility Support Services",
-        "description": "Safe movement and transfer assistance for daily activities.",
-        "popularHeading": "Safety First",
-        "popularDescription": "Professional mobility support ensuring safety and comfort."
+        "heading": "Mobility Support",
+        "description": "Safe walking and movement assistance.",
+        "popularHeading": "Safety Focused",
+        "popularDescription": "Professional support for safe daily movement."
       },
       {
-        "heading": "Meal Preparation & Feeding",
-        "description": "Nutritious meals and feeding assistance for optimal health.",
-        "popularHeading": "Nutritional Care",
-        "popularDescription": "Healthy meal preparation and feeding support services."
+        "heading": "Meal Help",
+        "description": "Nutritious meals and feeding assistance.",
+        "popularHeading": "Nutrition Care",
+        "popularDescription": "Healthy meal prep and feeding support."
       }
     ]
   },

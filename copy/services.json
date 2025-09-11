@@ -1,24 +1,24 @@
 {
   "hero": {
-    "badge": "Our Personal Assistance Services",
-    "title": "Professional PAS Services",
-    "titleHighlight": "in San Antonio, TX",
-    "description": "From companionship care to mobility support, we provide compassionate, professional Personal Assistance Services (PAS) designed to help you or your loved ones live independently and comfortably at home in San Antonio.",
+    "badge": "Our Services",
+    "title": "Caring for San Antonio",
+    "titleHighlight": "Families",
+    "description": "We help with daily activities, companionship, and personal care. Let us support your loved ones at home.",
     "stats": [
-      { "number": "6", "label": "Personal Assistance Services" },
+      { "number": "6", "label": "Core Services" },
       { "number": "98%", "label": "Client Satisfaction" },
       { "number": "100%", "label": "Licensed & Insured" }
     ]
   },
   "serviceDetails": {
-    "whatWeProvide": "What We Provide:",
-    "keyBenefits": "Key Benefits:",
-    "ctaTitle": "Ready to Get Started with Personal Assistance Services?",
-    "ctaDescription": "Contact Luzi Home Health Services today to learn more about our Personal Assistance Services and how we can help your family in San Antonio.",
-    "ctaButton": "Contact Us Today"
+    "whatWeProvide": "What We Do:",
+    "keyBenefits": "Why Choose Us:",
+    "ctaTitle": "Ready to Get Started?",
+    "ctaDescription": "Contact us today to learn how we can help your family in San Antonio.",
+    "ctaButton": "Get Started Today"
   },
   "contact": {
-    "title": "personalized Personal Assistance Services plan for you or your loved one!",
+    "title": "Get a personalized care plan for you or your loved one!",
     "contactInfo": [
       {
         "icon": "📞",
