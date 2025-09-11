@@ -16,7 +16,7 @@ import servicesCopy from '../../copy/services.json'
 
 function Services() {
     const { serviceId } = useParams();
-    const [activeService, setActiveService] = useState(serviceId || 'inclusive-care');
+    const [activeService, setActiveService] = useState(serviceId || 'companionship-care');
 
     useEffect(() => {
         // Scroll to top when component mounts
@@ -30,12 +30,12 @@ function Services() {
     }, [serviceId]);
     
     const serviceImages = {
-        'inclusive-care': pic,
-        'personal-care': p1,
-        'companion-care': p2,
-        'respite-care': p3,
-        'in-facility-care': test1,
-        'specialized-care': test2
+        'companionship-care': pic,
+        'personal-hygiene': p1,
+        'mobility-support': p2,
+        'meal-preparation': p3,
+        'medication-reminders': test1,
+        'light-housekeeping': test2
     };
 
     const currentService = servicesData[activeService];

@@ -12,9 +12,9 @@
     },
     "servicesDropdown": {
       "companionshipCare": "Companionship Care",
-      "personalHygiene": "Personal Care",
+      "personalHygiene": "Personal Hygiene Assistance",
       "mobilitySupport": "Mobility Support",
-      "mealPreparation": "Meal Help",
+      "mealPreparation": "Meal Preparation & Feeding",
       "medicationReminders": "Medication Reminders",
       "lightHousekeeping": "Light Housekeeping"
     },

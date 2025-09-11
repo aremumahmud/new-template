@@ -12,12 +12,12 @@ function Header() {
   const navigate = useNavigate();
 
   const services = [
-    { name: homeCopy.header.servicesDropdown.inclusiveCare, href: '/services/inclusive-care' },
-    { name: homeCopy.header.servicesDropdown.personalCare, href: '/services/personal-care' },
-    { name: homeCopy.header.servicesDropdown.companionCare, href: '/services/companion-care' },
-    { name: homeCopy.header.servicesDropdown.respiteCare, href: '/services/respite-care' },
-    { name: homeCopy.header.servicesDropdown.inFacilityCare, href: '/services/in-facility-care' },
-    { name: homeCopy.header.servicesDropdown.specializedCare, href: '/services/specialized-care' }
+    { name: homeCopy.header.servicesDropdown.companionshipCare, href: '/services/companionship-care' },
+    { name: homeCopy.header.servicesDropdown.personalHygiene, href: '/services/personal-hygiene' },
+    { name: homeCopy.header.servicesDropdown.mobilitySupport, href: '/services/mobility-support' },
+    { name: homeCopy.header.servicesDropdown.mealPreparation, href: '/services/meal-preparation' },
+    { name: homeCopy.header.servicesDropdown.medicationReminders, href: '/services/medication-reminders' },
+    { name: homeCopy.header.servicesDropdown.lightHousekeeping, href: '/services/light-housekeeping' }
   ];
 
   // Prevent body scroll when mobile menu is open

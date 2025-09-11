@@ -1,64 +1,16 @@
 export const servicesData = {
-  "inclusive-care": {
-    id: "inclusive-care",
-    title: "Inclusive Care for All Abilities",
-    subtitle: "Specialized Support for Neurodivergent and Special Needs Clients",
-    description: "We proudly support individuals with autism, intellectual disabilities, and neurodivergent needs. Our caregivers are trained in communication strategies and sensory-friendly care to build trust and create safe, empowering environments for every client.",
-    whatWeProvide: [
-      "Autism and neurodivergent support",
-      "Intellectual disability care", 
-      "Communication strategies and sensory-friendly approaches",
-      "Trust-building and empowerment techniques",
-      "Safe, understanding environments",
-      "Individualized care plans"
-    ],
-    keyBenefits: [
-      "Specialized training for unique needs",
-      "Empowering and safe environments",
-      "Trust-building relationships",
-      "Family peace of mind"
-    ],
-    ctaTitle: "Ready to Embrace Truly Inclusive Care?",
-    ctaDescription: "Let's talk about how we can support neurodivergent and special needs individuals with care that's personalized, empowering, and safe.",
-    ctaButton: "Schedule a Free Consultation"
-  },
-  
-  "personal-care": {
-    id: "personal-care",
-    title: "Personal Care Services",
-    subtitle: "Dignified Assistance for Daily Living Activities",
-    description: "Our compassionate caregivers provide respectful, professional assistance with personal care needs. We understand the importance of maintaining dignity while ensuring safety and comfort in all daily activities.",
-    whatWeProvide: [
-      "Bathing and personal hygiene assistance",
-      "Dressing and grooming support",
-      "Mobility assistance and transfers",
-      "Toileting and incontinence care",
-      "Medication reminders and management",
-      "Skin care and wound monitoring"
-    ],
-    keyBenefits: [
-      "Maintains personal dignity and independence",
-      "Professional, compassionate caregivers",
-      "Flexible scheduling to meet your needs",
-      "Family involvement and communication"
-    ],
-    ctaTitle: "Ready for Compassionate Personal Care?",
-    ctaDescription: "Let us help your loved one maintain their dignity and independence with professional personal care services tailored to their unique needs.",
-    ctaButton: "Schedule a Care Assessment"
-  },
-
-  "companion-care": {
-    id: "companion-care", 
-    title: "Companion Care",
-    subtitle: "Building Connections and Combating Loneliness",
-    description: "More than just caregiving, our companion care services focus on building meaningful relationships and enriching daily life. We provide friendly conversation, emotional support, and engaging activities to enhance quality of life.",
+  "companionship-care": {
+    id: "companionship-care",
+    title: "Companionship Care",
+    subtitle: "Friendly company and emotional support",
+    description: "Our caregivers provide meaningful companionship, engaging conversations, and social interaction to combat loneliness and enhance mental well-being.",
     whatWeProvide: [
       "Friendly conversation and emotional support",
-      "Meal preparation and dining companionship",
-      "Light housekeeping and organization",
-      "Transportation for errands and appointments",
-      "Recreational activities and hobbies",
-      "Technology assistance and communication"
+      "Engaging activities and hobbies",
+      "Social interaction and companionship",
+      "Technology assistance and communication",
+      "Recreational activities and outings",
+      "Mental stimulation and cognitive engagement"
     ],
     keyBenefits: [
       "Reduces isolation and loneliness",
@@ -66,89 +18,137 @@ export const servicesData = {
       "Maintains social connections",
       "Provides peace of mind for families"
     ],
-    ctaTitle: "Ready to Build Meaningful Connections?",
-    ctaDescription: "Discover how our companion care services can bring joy, friendship, and emotional support to your loved one's daily life.",
+    ctaTitle: "Ready for Meaningful Companionship?",
+    ctaDescription: "Discover how our companionship care can bring joy, friendship, and emotional support to your loved one's daily life.",
     ctaButton: "Find a Companion Caregiver"
   },
-
-  "respite-care": {
-    id: "respite-care",
-    title: "Respite Care", 
-    subtitle: "Support for Family Caregivers When They Need It Most",
-    description: "Caring for a loved one can be overwhelming. Our respite care services provide temporary relief for family caregivers, ensuring your loved one receives quality care while you rest, recharge, or attend to other responsibilities.",
+  
+  "personal-hygiene": {
+    id: "personal-hygiene",
+    title: "Personal Hygiene Assistance",
+    subtitle: "Bathing, grooming, and dressing support with dignity",
+    description: "We assist with all personal hygiene needs while maintaining privacy and promoting independence. Our caregivers provide respectful, professional assistance.",
     whatWeProvide: [
-      "Short-term and long-term respite options",
-      "Experienced, reliable caregivers",
-      "Flexible scheduling (hourly, daily, overnight)",
-      "Emergency respite care availability",
-      "Continuity of established care routines",
-      "Peace of mind for family caregivers"
+      "Bathing and showering assistance",
+      "Dressing and grooming support",
+      "Hair care and styling",
+      "Oral hygiene assistance",
+      "Skin care and monitoring",
+      "Incontinence care and support"
     ],
     keyBenefits: [
-      "Prevents caregiver burnout and fatigue",
-      "Maintains quality care for your loved one",
+      "Maintains personal dignity and independence",
+      "Professional, compassionate caregivers",
       "Flexible scheduling to meet your needs",
-      "Professional, trustworthy caregivers"
+      "Family involvement and communication"
     ],
-    ctaTitle: "Ready to Take a Well-Deserved Break?",
-    ctaDescription: "Give yourself the rest you deserve while ensuring your loved one receives exceptional care from our professional respite caregivers.",
-    ctaButton: "Schedule Respite Care"
+    ctaTitle: "Ready for Dignified Personal Care?",
+    ctaDescription: "Let us help your loved one maintain their personal hygiene with respect, dignity, and professional care.",
+    ctaButton: "Schedule a Care Assessment"
   },
 
-  "in-facility-care": {
-    id: "in-facility-care",
-    title: "In-Facility Care",
-    subtitle: "Supplemental Care for Residents in Assisted Living or Skilled Nursing",
-    description: "Even in assisted living or skilled nursing facilities, your loved one deserves personalized attention. Our in-facility care services provide one-on-one companionship, advocacy, and additional support to enhance their care experience.",
+  "mobility-support": {
+    id: "mobility-support", 
+    title: "Mobility Support",
+    subtitle: "Safe walking and movement assistance",
+    description: "Our caregivers ensure safe mobility while encouraging independence and preventing falls. We help with walking, transfers, and safe movement throughout the home.",
     whatWeProvide: [
-      "One-on-one companionship and attention",
-      "Advocacy and communication with facility staff",
-      "Additional assistance with personal care",
-      "Meal assistance and dining companionship",
-      "Activity participation and engagement",
-      "Family liaison and communication"
+      "Walking and ambulation assistance",
+      "Transfer support (bed to chair, etc.)",
+      "Fall prevention and safety measures",
+      "Exercise and physical therapy support",
+      "Wheelchair and mobility aid assistance",
+      "Balance and stability support"
     ],
     keyBenefits: [
-      "Personalized attention in group settings",
-      "Enhanced quality of care and comfort",
-      "Family peace of mind and involvement",
-      "Improved resident satisfaction and wellbeing"
+      "Prevents falls and injuries",
+      "Maintains independence and mobility",
+      "Professional safety expertise",
+      "Peace of mind for families"
     ],
-    ctaTitle: "Ready to Enhance In-Facility Care?",
-    ctaDescription: "Provide your loved one with additional personalized attention and advocacy while they reside in assisted living or skilled nursing facilities.",
-    ctaButton: "Learn About In-Facility Support"
+    ctaTitle: "Ready for Safe Mobility Support?",
+    ctaDescription: "Ensure your loved one can move safely and confidently with our professional mobility support services.",
+    ctaButton: "Learn About Mobility Support"
   },
 
-  "specialized-care": {
-    id: "specialized-care",
-    title: "Specialized Care",
-    subtitle: "Expert Support for Chronic and Cognitive Conditions",
-    description: "Our specialized caregivers are trained to support individuals with complex medical conditions, including Alzheimer's, dementia, Parkinson's disease, and post-surgery recovery. We provide expert care with compassion and understanding.",
+  "meal-preparation": {
+    id: "meal-preparation",
+    title: "Meal Preparation & Feeding",
+    subtitle: "Nutritious meals and feeding assistance",
+    description: "We prepare healthy, balanced meals and provide feeding support when needed. Our caregivers ensure proper nutrition and hydration for optimal health.",
     whatWeProvide: [
-      "Alzheimer's and dementia care expertise",
-      "Parkinson's disease support and management",
-      "Post-surgery recovery assistance",
-      "Chronic condition management",
-      "Cognitive stimulation and memory activities",
-      "Family education and support"
+      "Meal planning and preparation",
+      "Healthy, balanced nutrition",
+      "Feeding assistance when needed",
+      "Special dietary accommodations",
+      "Grocery shopping and meal planning",
+      "Hydration monitoring and support"
     ],
     keyBenefits: [
-      "Specialized training for complex conditions",
-      "Improved quality of life and comfort",
-      "Reduced hospitalizations and complications",
-      "Support for the entire family"
+      "Ensures proper nutrition and hydration",
+      "Supports overall health and wellbeing",
+      "Accommodates special dietary needs",
+      "Provides companionship during meals"
     ],
-    ctaTitle: "Ready for Expert Specialized Care?",
-    ctaDescription: "Trust our specialized caregivers to provide expert support for complex medical conditions with the compassion and expertise your loved one deserves.",
-    ctaButton: "Discuss Specialized Needs"
+    ctaTitle: "Ready for Nutritious Meal Support?",
+    ctaDescription: "Let us help ensure your loved one receives proper nutrition with our meal preparation and feeding assistance services.",
+    ctaButton: "Schedule Meal Support"
+  },
+
+  "medication-reminders": {
+    id: "medication-reminders",
+    title: "Medication Reminders",
+    subtitle: "Ensuring timely and accurate medication intake",
+    description: "Our caregivers provide gentle reminders and assistance with medication management for better health outcomes and peace of mind.",
+    whatWeProvide: [
+      "Medication reminder services",
+      "Medication organization and management",
+      "Prescription pickup and refills",
+      "Medication compliance monitoring",
+      "Communication with healthcare providers",
+      "Medication side effect monitoring"
+    ],
+    keyBenefits: [
+      "Ensures medication compliance",
+      "Prevents missed or double doses",
+      "Improves health outcomes",
+      "Provides peace of mind for families"
+    ],
+    ctaTitle: "Ready for Medication Support?",
+    ctaDescription: "Ensure your loved one takes their medications correctly and on time with our professional medication reminder services.",
+    ctaButton: "Schedule Medication Support"
+  },
+
+  "light-housekeeping": {
+    id: "light-housekeeping",
+    title: "Light Housekeeping",
+    subtitle: "Maintaining a safe and clean home environment",
+    description: "We provide light housekeeping services to ensure a comfortable, safe living space for our clients while they focus on their health and wellbeing.",
+    whatWeProvide: [
+      "Light cleaning and tidying",
+      "Laundry and linen care",
+      "Dishwashing and kitchen cleanup",
+      "Bathroom sanitization",
+      "Dusting and vacuuming",
+      "Trash removal and organization"
+    ],
+    keyBenefits: [
+      "Maintains a clean, safe environment",
+      "Reduces fall and health risks",
+      "Allows focus on health and recovery",
+      "Provides peace of mind for families"
+    ],
+    ctaTitle: "Ready for a Clean, Safe Home?",
+    ctaDescription: "Let us help maintain a clean, safe home environment so your loved one can focus on their health and wellbeing.",
+    ctaButton: "Schedule Housekeeping Support"
   }
 };
 
 export const servicesList = [
-  { id: "inclusive-care", name: "Inclusive Care for All Abilities", shortName: "Inclusive Care" },
-  { id: "personal-care", name: "Personal Care Services", shortName: "Personal Care" },
-  { id: "companion-care", name: "Companion Care", shortName: "Companion Care" },
-  { id: "respite-care", name: "Respite Care", shortName: "Respite Care" },
-  { id: "in-facility-care", name: "In-Facility Care", shortName: "In-Facility Care" },
-  { id: "specialized-care", name: "Specialized Care", shortName: "Specialized Care" }
+  { id: "companionship-care", name: "Companionship Care", shortName: "Companionship Care" },
+  { id: "personal-hygiene", name: "Personal Hygiene Assistance", shortName: "Personal Hygiene" },
+  { id: "mobility-support", name: "Mobility Support", shortName: "Mobility Support" },
+  { id: "meal-preparation", name: "Meal Preparation & Feeding", shortName: "Meal Preparation" },
+  { id: "medication-reminders", name: "Medication Reminders", shortName: "Medication Reminders" },
+  { id: "light-housekeeping", name: "Light Housekeeping", shortName: "Light Housekeeping" }
 ];
