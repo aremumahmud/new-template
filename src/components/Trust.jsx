@@ -1,38 +1,19 @@
 import './Trust.css'
+import homeCopy from '../../copy/home.json'
 
 function Trust() {
-    const trustPoints = [
-        {
-            id: 1,
-            title: "Trustworthy and Compassionate Caregivers",
-            description: "Certified caregivers who provide reliable, heartfelt support with steady hands and open hearts.",
-            icon: "◯"
-        },
-        {
-            id: 2,
-            title: "Customized Care Plans",
-            description: "Personalized care plans tailored to each individual's unique needs and preferences.",
-            icon: "□"
-        },
-        {
-            id: 3,
-            title: "24/7 Availability for Emergencies",
-            description: "Round-the-clock availability to ensure peace of mind and support when you need it most.",
-            icon: "◐"
-        },
-        {
-            id: 4,
-            title: "Serving with Dedication",
-            description: "Committed to improving quality of life with care, professionalism, and dedication.",
-            icon: "◆"
-        }
-    ];
+    const trustPoints = homeCopy.trust.trustPoints.map((point, index) => ({
+        id: index + 1,
+        title: point.title,
+        description: point.description,
+        icon: point.icon
+    }));
 
     return (
         <section className="trust-section">
             <div className="trust-container">
                 <div className="trust-header" data-aos="fade-up">
-                    <h2 className="trust-title">Why Families Trust Us</h2>
+                    <h2 className="trust-title" dangerouslySetInnerHTML={{ __html: homeCopy.trust.title }}></h2>
                 </div>
 
                 <div className="trust-grid">

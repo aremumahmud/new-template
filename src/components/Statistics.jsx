@@ -1,5 +1,6 @@
 import './Statistics.css'
 import { useState, useEffect } from 'react'
+import homeCopy from '../../copy/home.json'
 
 function Statistics() {
     const [counters, setCounters] = useState({
@@ -12,10 +13,10 @@ function Statistics() {
     const [isVisible, setIsVisible] = useState(false);
 
     const finalValues = {
-        families: 1500,
-        caregivers: 250,
-        cities: 45,
-        satisfaction: 98
+        families: homeCopy.statistics.familiesServed.number,
+        caregivers: homeCopy.statistics.certifiedCaregivers.number,
+        cities: homeCopy.statistics.citiesCovered.number,
+        satisfaction: homeCopy.statistics.satisfactionRate.number
     };
 
     // Intersection Observer to trigger animation when component is visible
@@ -82,28 +83,28 @@ function Statistics() {
             <div className="stats-container">
                 <div className="stat-item">
                     <span data-aos="fade-up" className="stat-number1">{counters.families.toLocaleString()}+</span>
-                    <span data-aos="fade-up" className="stat-label">Families Served</span>
+                    <span data-aos="fade-up" className="stat-label">{homeCopy.statistics.familiesServed.label}</span>
                 </div>
                 
                 <div className="stat-divider"></div>
                 
                 <div className="stat-item">
                     <span data-aos="fade-up" className="stat-number1">{counters.caregivers}+</span>
-                    <span data-aos="fade-up" className="stat-label">Certified Caregivers</span>
+                    <span data-aos="fade-up" className="stat-label">{homeCopy.statistics.certifiedCaregivers.label}</span>
                 </div>
                 
                 <div className="stat-divider"></div>
                 
                 <div className="stat-item">
                     <span data-aos="fade-up" className="stat-number1">{counters.cities}+</span>
-                    <span data-aos="fade-up" className="stat-label">Cities Covered</span>
+                    <span data-aos="fade-up" className="stat-label">{homeCopy.statistics.citiesCovered.label}</span>
                 </div>
                 
                 <div data-aos="fade-up" className="stat-divider"></div>
                 
                 <div className="stat-item">
                     <span data-aos="fade-up" className="stat-number1">{counters.satisfaction}%</span>
-                    <span data-aos="fade-up" className="stat-label">Satisfaction Rate</span>
+                    <span data-aos="fade-up" className="stat-label">{homeCopy.statistics.satisfactionRate.label}</span>
                 </div>
             </div>
         </div>

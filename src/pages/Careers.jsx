@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import careersImg from '../assets/p1.jpg'
 import nurseImg from '../assets/p2.jpg'
+import careersCopy from '../../copy/careers.json'
 
 function Careers() {
     useEffect(() => {
@@ -24,30 +25,10 @@ Best regards,
         window.location.href = `mailto:Info@journey-of-care.com?subject=${subject}&body=${body}`;
     };
 
-    const jobListings = [
-        {
-            id: 1,
-            slug: "certified-home-health-aide",
-            title: "Certified Home Health Aide",
-            type: "Full-time / Part-time",
-            location: "Conroe, TX & Surrounding Areas",
-            salary: "$15-18/hour",
-            posted: "Now Hiring",
-            image: careersImg,
-            description: "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated, certified home health aides who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes."
-        },
-        {
-            id: 2,
-            slug: "licensed-vocational-nurse",
-            title: "Licensed Vocational Nurse (LVN)",
-            type: "Full-time / Part-time",
-            location: "Conroe, TX & Surrounding Areas",
-            salary: "$22-28/hour",
-            posted: "Now Hiring",
-            image: nurseImg,
-            description: "We are seeking a compassionate and skilled Licensed Vocational Nurse to provide professional nursing care in clients' homes. This position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality healthcare services."
-        }
-    ];
+    const jobListings = careersCopy.jobListings.jobs.map((job, index) => ({
+        ...job,
+        image: index === 0 ? careersImg : nurseImg
+    }));
 
 
 
@@ -60,29 +41,21 @@ Best regards,
                 <div className="careers-hero-container">
                     <div className="careers-hero-content">
                         <div className="careers-hero-text" data-aos="fade-up">
-                            <div className="careers-badge">Careers</div>
+                            <div className="careers-badge">{careersCopy.hero.badge}</div>
                             <h1 className="careers-hero-title">
-                                Join Our<br />
-                                <span className="highlight">Caring Team</span>
+                                {careersCopy.hero.title}<br />
+                                <span className="highlight1">{careersCopy.hero.titleHighlight}</span>
                             </h1>
                             <p className="careers-hero-description">
-                                Make a meaningful difference in people's lives while building a rewarding career 
-                                in home healthcare. We're looking for compassionate, dedicated professionals 
-                                to join our growing team.
+                                {careersCopy.hero.description}
                             </p>
                             <div className="careers-stats" data-aos="fade-up" data-aos-delay="200">
-                                <div className="stat">
-                                    <span className="stat-number">$15-18</span>
-                                    <span className="stat-label">Hourly Rate</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Flexible</span>
-                                    <span className="stat-label">Scheduling</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Full Benefits</span>
-                                    <span className="stat-label">Package Available</span>
-                                </div>
+                                {careersCopy.hero.stats.map((stat, index) => (
+                                    <div key={index} className="stat">
+                                        <span className="stat-number">{stat.number}</span>
+                                        <span className="stat-label">{stat.label}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -93,9 +66,9 @@ Best regards,
             <section className="job-listings-section">
                 <div className="job-listings-container">
                     <div className="job-listings-header" >
-                        <h2 className="listings-title">Current Openings</h2>
+                        <h2 className="listings-title">{careersCopy.jobListings.title}</h2>
                         <p className="listings-subtitle">
-                            Explore our available positions and join our team of dedicated healthcare professionals.
+                            {careersCopy.jobListings.subtitle}
                         </p>
                     </div>
 
@@ -129,14 +102,14 @@ Best regards,
                                             to={`/careers/${job.slug}`}
                                             className="view-details-btn"
                                         >
-                                            View Details
+                                            {careersCopy.jobListings.buttons.viewDetails}
                                             <span className="">→</span>
                                         </Link>
                                         <button 
                                             className="apply-btn"
                                             onClick={() => handleApplyClick(job.title)}
                                         >
-                                            Apply Now
+                                            {careersCopy.jobListings.buttons.applyNow}
                                         </button>
                                     </div>
                                 </div>

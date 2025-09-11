@@ -1,25 +1,14 @@
 import './Refer.css'
 import referImage from '../assets/test2.jpg'
 import { Link } from 'react-router-dom'
+import homeCopy from '../../copy/home.json'
 
 function Refer() {
-    const referralReasons = [
-        {
-            id: 1,
-            title: "Trusted Quality Care",
-            description: "Our caregivers are thoroughly vetted, certified, and supervised to provide exceptional care."
-        },
-        {
-            id: 2,
-            title: "Compassionate Approach", 
-            description: "We treat each client with dignity, respect, and genuine care, focusing on their unique needs."
-        },
-        {
-            id: 3,
-            title: "Referral Appreciation",
-            description: "We value your trust and confidence in our services. Ask about our referral appreciation program."
-        }
-    ];
+    const referralReasons = homeCopy.refer.reasons.map((reason, index) => ({
+        id: index + 1,
+        title: reason.title,
+        description: reason.description
+    }));
 
     return (
         <section className="refer-section">
@@ -27,21 +16,21 @@ function Refer() {
                 <div className="refer-content">
                     <div className="refer-text">
                         <div className="refer-badge" data-aos="fade-up" data-aos-delay="100">
-                            Refer With Confidence
+                            {homeCopy.refer.badge}
                         </div>
                         
                         <h2 className="refer-title" data-aos="fade-up" data-aos-delay="200">
-                            Share the Gift of <span className="title-highlight">Compassionate Care</span>
+                            {homeCopy.refer.title} <span className="title-highlight">{homeCopy.refer.titleHighlight}</span>
                         </h2>
                         
                         <div className="refer-description" data-aos="fade-up" data-aos-delay="300">
                             <p>
-                                Know someone who could benefit from our services? Your referral helps us extend our compassionate care to more families in need.
+                                {homeCopy.refer.description}
                             </p>
                         </div>
 
                         <div className="refer-reasons" data-aos="fade-up" data-aos-delay="400">
-                            <h3 className="reasons-title">Why Refer to Journey of Care?</h3>
+                            <h3 className="reasons-title">{homeCopy.refer.reasonsTitle}</h3>
                             <div className="reasons-list">
                                 {referralReasons.map((reason, index) => (
                                     <div key={reason.id} className="reason-item" data-aos="fade-up" data-aos-delay={`${500 + (index * 100)}`}>
@@ -57,7 +46,7 @@ function Refer() {
 
                         <div className="refer-cta" data-aos="fade-up" data-aos-delay="800">
                             <Link to="/refer-us" className="refer-button">
-                                Refer Someone Today
+                                {homeCopy.refer.ctaButton}
                             </Link>
                         </div>
                     </div>
@@ -67,8 +56,8 @@ function Refer() {
                         <div className="image-overlay">
                             <div className="overlay-content">
                                 <div className="overlay-text">
-                                    <span className="overlay-main">Making a difference</span>
-                                    <span className="overlay-sub">in someone's life</span>
+                                    <span className="overlay-main">{homeCopy.refer.imageOverlay.mainText}</span>
+                                    <span className="overlay-sub">{homeCopy.refer.imageOverlay.subText}</span>
                                 </div>
                             </div>
                         </div>

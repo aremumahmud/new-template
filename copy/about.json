@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "badge": "About Luzi Home Health Services LLC",
+    "title": "Professional Personal Assistance Services",
+    "titleHighlight": "in San Antonio, TX",
+    "description": "Founded on the belief that everyone deserves to live with dignity and independence in the comfort of their own home, Luzi Home Health Services LLC has been serving San Antonio and surrounding areas with professional Personal Assistance Services (PAS).",
+    "stats": [
+      { "number": "500+", "label": "San Antonio Families Served" },
+      { "number": "5+", "label": "Years Serving San Antonio" },
+      { "number": "50+", "label": "Certified PAS Caregivers" },
+      { "number": "98%", "label": "Client Satisfaction Rate" }
+    ]
+  },
+  "mission": {
+    "title": "Our Mission",
+    "statement": "At Luzi Home Health Services LLC, our mission is to provide professional Personal Assistance Services (PAS) that enable individuals to maintain their independence, dignity, and quality of life in the comfort of their own homes in San Antonio. We are committed to building trusted relationships with our clients and their families, delivering exceptional care that honors each person's unique needs, preferences, and life story.",
+    "values": "We believe that home is where the heart is, and we're dedicated to ensuring that our clients can continue their journey of life surrounded by the familiar comforts, memories, and love that make a house a home. Through our professional Personal Assistance Services, we proudly serve individuals of all abilities in San Antonio, ensuring that everyone receives the care and respect they deserve."
+  },
+  "story": {
+    "title": "Our Story",
+    "paragraphs": [
+      "Luzi Home Health Services LLC was born from a simple yet profound realization: that the best Personal Assistance Services happen when people can remain in the place they love most - their home. Our founder, Philippa Ehoro, witnessed firsthand the challenges families face when trying to provide quality Personal Assistance Services for their loved ones while maintaining their independence and dignity.",
+      "What started as a personal mission to help families in San Antonio has grown into a comprehensive Personal Assistance Services provider that has touched the lives of hundreds of families. We've built our reputation on trust, reliability, and genuine care - values that guide every interaction we have with our clients and their families.",
+      "Today, we're proud to be a leading provider of Personal Assistance Services in San Antonio and surrounding areas, known for our professional approach and specialized care for individuals with diverse needs and abilities."
+    ]
+  },
+  "values": {
+    "title": "Our Core Values",
+    "subtitle": "These principles guide everything we do and shape the way we care for our clients and their families.",
+    "valuesList": [
+      {
+        "icon": "❤️",
+        "title": "Compassionate Personal Assistance",
+        "description": "We believe every person deserves Personal Assistance Services that honor their dignity, respect their choices, and nurture their wellbeing with genuine compassion."
+      },
+      {
+        "icon": "🤝",
+        "title": "Trust & Reliability",
+        "description": "Building lasting relationships through consistent, dependable Personal Assistance Services that San Antonio families can count on, day after day."
+      },
+      {
+        "icon": "🌟",
+        "title": "Professional Excellence",
+        "description": "We strive for the highest standards in everything we do, from caregiver training to Personal Assistance Services delivery, always seeking to exceed expectations."
+      },
+      {
+        "icon": "🏠",
+        "title": "Home-Centered Care",
+        "description": "We believe there's no place like home, and we're committed to helping people maintain their independence and comfort in familiar surroundings through our Personal Assistance Services."
+      },
+      {
+        "icon": "👥",
+        "title": "Family Partnership",
+        "description": "We work closely with San Antonio families, providing support, communication, and peace of mind throughout the Personal Assistance Services journey."
+      },
+      {
+        "icon": "🌈",
+        "title": "Inclusive Personal Assistance",
+        "description": "We celebrate diversity and provide specialized Personal Assistance Services for all abilities, ensuring everyone receives the care and respect they deserve."
+      }
+    ]
+  },
+  "commitment": {
+    "title": "Our Commitment to Excellence in Personal Assistance Services",
+    "points": [
+      {
+        "title": "Licensed & Insured",
+        "description": "All our Personal Assistance Services caregivers are thoroughly vetted, licensed, and insured for your peace of mind in San Antonio."
+      },
+      {
+        "title": "Ongoing PAS Training",
+        "description": "We invest in continuous education to ensure our team stays current with Personal Assistance Services best practices and regulations."
+      },
+      {
+        "title": "Flexible Support",
+        "description": "We're available during business hours and provide emergency support when needed for our Personal Assistance Services clients."
+      },
+      {
+        "title": "Personalized Personal Assistance",
+        "description": "Every Personal Assistance Services plan is tailored to meet the unique needs and preferences of each San Antonio client."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Start Your Personal Assistance Services Journey?",
+    "description": "Let Luzi Home Health Services help you or your loved one maintain independence and dignity at home in San Antonio. Contact us today for a free consultation and discover how our Personal Assistance Services can support your family.",
+    "buttons": {
+      "primary": "Schedule Consultation",
+      "secondary": "Contact Us"
+    }
+  }
+}

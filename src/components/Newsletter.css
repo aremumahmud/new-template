@@ -1,6 +1,6 @@
 .newsletter-section {
   width: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+  background: var(--bg-gradient-hero);
   padding: 80px 0;
   margin: 0;
   position: relative;
@@ -36,7 +36,7 @@
 .newsletter-badge {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  color: var(--text-light);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 14px;
@@ -48,7 +48,7 @@
 .newsletter-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-light);
   line-height: 1.2;
   margin-bottom: 20px;
 }
@@ -72,7 +72,7 @@
 .form-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-light);
   margin-bottom: 12px;
 }
 
@@ -101,7 +101,7 @@
   font-size: 16px;
   font-family: inherit;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  color: var(--text-light);
   transition: all 0.3s ease;
 }
 
@@ -116,8 +116,8 @@
 }
 
 .newsletter-btn {
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: var(--text-light);
+  color: var(--text-primary);
   border: none;
   padding: 16px 32px;
   border-radius: 50px;
@@ -129,15 +129,15 @@
 }
 
 .newsletter-btn:hover {
-  background-color: #f0f0f0;
+  background-color: var(--interactive-secondary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .success-message {
   background-color: rgba(34, 197, 94, 0.2);
   border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #ffffff;
+  color: var(--text-light);
   padding: 12px 20px;
   border-radius: 8px;
   margin-bottom: 16px;

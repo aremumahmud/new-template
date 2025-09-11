@@ -5,7 +5,7 @@
 
 .parallax-section {
   height: 100vh;
-  background-color: #1a1a1a;
+  background-color: var(--bg-dark);
   position: fixed;
   top: 0;
   left: 0;
@@ -34,7 +34,7 @@
 .parallax-text {
   font-size: 4.5rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--text-light);
   margin: 0;
   line-height: 1.1;
   letter-spacing: 2px;

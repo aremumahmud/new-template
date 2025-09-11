@@ -1,5 +1,6 @@
 import './Contact.css'
 import { useState } from 'react'
+import homeCopy from '../../copy/home.json'
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -32,41 +33,22 @@ function Contact() {
         });
     };
 
-    const contactInfo = [
-        {
-            icon: "📧",
-            title: "Email Us",
-            details: "info@journeyofcare.com",
-            subtext: "We'll respond within 24 hours"
-        },
-        {
-            icon: "📞",
-            title: "Call Us",
-            details: "(281) 555-0123",
-            subtext: "Mon-Fri: 8AM-6PM, Sat: 9AM-3PM"
-        },
-        {
-            icon: "📍",
-            title: "Visit Us",
-            details: "123 Main Street, Houston, TX 77001",
-            subtext: "Schedule an appointment"
-        }
-    ];
+    const contactInfo = homeCopy.contact.contactInfo;
 
     return (
         <section className="contact-section">
             <div className="contact-container">
                 <div className="contact-header" data-aos="fade-up">
-                    <div className="contact-badge">Contact Us</div>
-                    <h2 className="contact-title">Get in Touch</h2>
+                    <div className="contact-badge">{homeCopy.contact.badge}</div>
+                    <h2 className="contact-title1">{homeCopy.contact.title}</h2>
                     <p className="contact-subtitle">
-                        Ready to learn more about our services? Contact us today for a free consultation.
+                        {homeCopy.contact.subtitle}
                     </p>
                 </div>
 
-                <div className="contact-content">
+                <div className="contact-content1">
                     <div className="contact-info" data-aos="fade-right" data-aos-delay="200">
-                        <h3 className="info-title">Contact Information</h3>
+                        <h3 className="info-title">{homeCopy.contact.infoTitle}</h3>
                         <div className="contact-items">
                             {contactInfo.map((item, index) => (
                                 <div key={index} className="contact-item">
@@ -84,7 +66,7 @@ function Contact() {
                     <div className="contact-form-wrapper" data-aos="fade-left" data-aos-delay="300">
                         <form className="contact-form" onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="name">Full Name</label>
+                                <label htmlFor="name">{homeCopy.contact.form.fullNameLabel}</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -92,13 +74,13 @@ function Contact() {
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     required
-                                    placeholder="Enter your full name"
+                                    placeholder={homeCopy.contact.form.fullNamePlaceholder}
                                 />
                             </div>
 
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="email">Email Address</label>
+                                    <label htmlFor="email">{homeCopy.contact.form.emailLabel}</label>
                                     <input
                                         type="email"
                                         id="email"
@@ -106,25 +88,25 @@ function Contact() {
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter your email"
+                                        placeholder={homeCopy.contact.form.emailPlaceholder}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="phone">Phone Number</label>
+                                    <label htmlFor="phone">{homeCopy.contact.form.phoneLabel}</label>
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleInputChange}
-                                        placeholder="Enter your phone number"
+                                        placeholder={homeCopy.contact.form.phonePlaceholder}
                                     />
                                 </div>
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="service">Service of Interest</label>
+                                <label htmlFor="service">{homeCopy.contact.form.serviceLabel}</label>
                                 <select
                                     id="service"
                                     name="service"
@@ -132,30 +114,27 @@ function Contact() {
                                     onChange={handleInputChange}
                                     required
                                 >
-                                    <option value="">Select a service</option>
-                                    <option value="personal-care">Personal Care Services</option>
-                                    <option value="companion-care">Companion Care</option>
-                                    <option value="respite-care">Respite Care</option>
-                                    <option value="specialized-care">Specialized Care</option>
-                                    <option value="end-of-life">End-of-Life Care</option>
-                                    <option value="consultation">Free Consultation</option>
+                                    <option value="">{homeCopy.contact.form.servicePlaceholder}</option>
+                                    {homeCopy.contact.form.serviceOptions.map((option, index) => (
+                                        <option key={index} value={option.toLowerCase().replace(/\s+/g, '-')}>{option}</option>
+                                    ))}
                                 </select>
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="message">Message</label>
+                                <label htmlFor="message">{homeCopy.contact.form.messageLabel}</label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleInputChange}
                                     rows="5"
-                                    placeholder="Tell us about your care needs..."
+                                    placeholder={homeCopy.contact.form.messagePlaceholder}
                                 ></textarea>
                             </div>
 
                             <button type="submit" className="contact-submit-btn">
-                                Send Message
+                                {homeCopy.contact.form.submitButton}
                             </button>
                         </form>
                     </div>

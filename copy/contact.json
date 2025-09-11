@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "badge": "Contact Us",
+    "title": "Let's Start Your",
+    "titleHighlight": "Personal Assistance Services Journey",
+    "description": "Ready to provide the best Personal Assistance Services for you or your loved one? Contact Luzi Home Health Services today for a free consultation. We're here to answer your questions and help you find the perfect Personal Assistance Services solution in San Antonio.",
+    "stats": [
+      { "number": "98%", "label": "Client Satisfaction" },
+      { "number": "Free", "label": "Initial Consultation" },
+      { "number": "Same Day", "label": "Response Time" }
+    ]
+  },
+  "contactInfo": {
+    "title": "Get in Touch",
+    "subtitle": "We're here to help you navigate your Personal Assistance Services options. Reach out to us through any of these channels.",
+    "contactItems": [
+      {
+        "icon": "📞",
+        "title": "Call Us",
+        "details": "+1 (210) 897-3276",
+        "subtext": "Available during business hours",
+        "link": "tel:+12108973276"
+      },
+      {
+        "icon": "📧",
+        "title": "Email Us",
+        "details": "info@luzihomehealth.com",
+        "subtext": "We respond within 24 hours",
+        "link": "mailto:info@luzihomehealth.com"
+      },
+      {
+        "icon": "📍",
+        "title": "Service Area",
+        "details": "San Antonio, TX & Surrounding Areas",
+        "subtext": "Serving San Antonio and surrounding communities",
+        "link": null
+      },
+      {
+        "icon": "🕐",
+        "title": "Business Hours",
+        "details": "Mon-Fri: 8AM-6PM, Sat: 9AM-3PM",
+        "subtext": "Emergency support available when needed",
+        "link": null
+      }
+    ],
+    "emergencyNotice": {
+      "title": "Emergency Situations",
+      "text": "For immediate Personal Assistance Services needs or emergencies, please call us directly at +1 (210) 897-3276"
+    }
+  },
+  "contactForm": {
+    "title": "Send Us a Message",
+    "subtitle": "Fill out the form below and we'll get back to you as soon as possible.",
+    "successMessage": {
+      "title": "Message Sent Successfully!",
+      "description": "Thank you for reaching out. We'll contact you within 24 hours."
+    },
+    "fields": {
+      "name": {
+        "label": "Full Name *",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Enter your phone number"
+      },
+      "urgency": {
+        "label": "Timeline *",
+        "placeholder": "Select timeline"
+      },
+      "service": {
+        "label": "Service of Interest",
+        "placeholder": "Select a service (optional)"
+      },
+      "message": {
+        "label": "Message *",
+        "placeholder": "Tell us about your Personal Assistance Services needs, questions, or any specific requirements..."
+      }
+    },
+    "options": {
+      "services": [
+        { "value": "companionship-care", "label": "Companionship Care" },
+        { "value": "personal-hygiene", "label": "Personal Hygiene Assistance" },
+        { "value": "mobility-support", "label": "Mobility Support" },
+        { "value": "meal-preparation", "label": "Meal Preparation & Feeding" },
+        { "value": "medication-reminders", "label": "Medication Reminders" },
+        { "value": "light-housekeeping", "label": "Light Housekeeping" },
+        { "value": "consultation", "label": "Free Consultation" },
+        { "value": "other", "label": "Other" }
+      ],
+      "urgency": [
+        { "value": "immediate", "label": "Immediate (Within 24 hours)" },
+        { "value": "urgent", "label": "Urgent (Within 3 days)" },
+        { "value": "soon", "label": "Soon (Within a week)" },
+        { "value": "planning", "label": "Planning ahead" }
+      ]
+    },
+    "submitButton": "Send Message",
+    "submittingButton": "Sending Message...",
+    "privacyNote": "By submitting this form, you agree to our privacy policy. We will never share your personal information with third parties."
+  }
+}

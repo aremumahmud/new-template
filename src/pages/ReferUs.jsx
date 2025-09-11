@@ -6,6 +6,7 @@ import FAQ from '../components/FAQ'
 import referImage from '../assets/test2.jpg'
 import verifiedIcon from '../assets/verified-check-svgrepo-com.svg'
 import emailService from '../services/emailService'
+import referUsCopy from '../../copy/referUs.json'
 
 function ReferUs() {
     const [formData, setFormData] = useState({
@@ -95,61 +96,11 @@ function ReferUs() {
         }
     };
 
-    const referralBenefits = [
-        {
-            id: 1,
-            icon: "🎁",
-            title: "Referral Rewards",
-            description: "Receive a thank you gift for each successful referral that begins service with us."
-        },
-        {
-            id: 2,
-            icon: "🏆",
-            title: "Quality Care Guarantee",
-            description: "Your referrals receive the same exceptional, compassionate care that you've experienced."
-        },
-        {
-            id: 3,
-            icon: "🤝",
-            title: "Ongoing Support",
-            description: "We provide continuous support to both you and your referrals throughout their care journey."
-        },
-        {
-            id: 4,
-            icon: "⚡",
-            title: "Fast Response",
-            description: "Priority scheduling and assessment for all referred clients within 24-48 hours."
-        }
-    ];
+    const referralBenefits = referUsCopy.whyRefer.benefits;
 
-    const careNeedsOptions = [
-        { value: "personal-care", label: "Personal Care Services" },
-        { value: "companion-care", label: "Companion Care" },
-        { value: "respite-care", label: "Respite Care" },
-        { value: "specialized-care", label: "Specialized Care" },
-        { value: "inclusive-care", label: "Inclusive Care" },
-        { value: "in-facility-care", label: "In-Facility Care" },
-        { value: "assessment", label: "Care Assessment" },
-        { value: "not-sure", label: "Not Sure - Need Consultation" }
-    ];
-
-    const urgencyOptions = [
-        { value: "immediate", label: "Immediate (Within 24 hours)" },
-        { value: "urgent", label: "Urgent (Within 3 days)" },
-        { value: "soon", label: "Soon (Within a week)" },
-        { value: "planning", label: "Planning ahead (More than a week)" }
-    ];
-
-    const relationOptions = [
-        { value: "family", label: "Family Member" },
-        { value: "friend", label: "Friend" },
-        { value: "neighbor", label: "Neighbor" },
-        { value: "healthcare-provider", label: "Healthcare Provider" },
-        { value: "social-worker", label: "Social Worker" },
-        { value: "current-client", label: "Current Client" },
-        { value: "former-client", label: "Former Client" },
-        { value: "other", label: "Other" }
-    ];
+    const careNeedsOptions = referUsCopy.referralForm.options.careNeeds;
+    const urgencyOptions = referUsCopy.referralForm.options.urgency;
+    const relationOptions = referUsCopy.referralForm.options.relation;
 
     return (
         <div className="refer-us-page">
@@ -160,29 +111,21 @@ function ReferUs() {
                 <div className="refer-hero-container">
                     <div className="refer-hero-content">
                         <div className="refer-hero-text" data-aos="fade-up">
-                            <div className="refer-badge">Refer Someone</div>
+                            <div className="refer-badge">{referUsCopy.hero.badge}</div>
                             <h1 className="refer-hero-title">
-                                Share the Gift of<br />
-                                <span className="highlight">Compassionate Care</span>
+                                {referUsCopy.hero.title}<br />
+                                <span className="highlight">{referUsCopy.hero.titleHighlight}</span>
                             </h1>
                             <p className="refer-hero-description">
-                                Know someone who could benefit from our exceptional home care services? 
-                                Your referral could make a meaningful difference in someone's life. 
-                                Help us extend our compassionate care to more families in need.
+                                {referUsCopy.hero.description}
                             </p>
                             <div className="refer-stats" data-aos="fade-up" data-aos-delay="200">
-                                <div className="stat">
-                                    <span className="stat-number">95%</span>
-                                    <span className="stat-label">Referral Satisfaction</span>
+                                {referUsCopy.hero.stats.map((stat, index) => (
+                                    <div key={index} className="stat">
+                                        <span className="stat-number">{stat.number}</span>
+                                        <span className="stat-label">{stat.label}</span>
                                 </div>
-                                <div className="stat">
-                                    <span className="stat-number">24HR</span>
-                                    <span className="stat-label">Response Time</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Free</span>
-                                    <span className="stat-label">Initial Assessment</span>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -194,14 +137,12 @@ function ReferUs() {
                 <div className="why-refer-container">
                     <div className="why-refer-content">
                         <div className="why-refer-text" data-aos="fade-right">
-                            <div className="section-badge">Why Refer to Us?</div>
+                            <div className="section-badge">{referUsCopy.whyRefer.badge}</div>
                             <h2 className="section-title">
-                                Trusted Care That Makes a <span className="title-highlight">Difference</span>
+                                {referUsCopy.whyRefer.title} <span className="title-highlight">{referUsCopy.whyRefer.titleHighlight}</span>
                             </h2>
                             <p className="section-description">
-                                When you refer someone to Journey of Care, you're connecting them with 
-                                a team that genuinely cares about their wellbeing and independence. 
-                                Here's what makes our referral program special:
+                                {referUsCopy.whyRefer.description}
                             </p>
                             
                             <div className="benefits-list">
@@ -223,8 +164,8 @@ function ReferUs() {
                                 <div className="overlay-content">
                                     <img src={verifiedIcon} alt="Verified" className="verified-icon" />
                                     <div className="overlay-text">
-                                        <span className="overlay-main">Licensed & Insured</span>
-                                        <span className="overlay-sub">Trusted Care Provider</span>
+                                        <span className="overlay-main">{referUsCopy.whyRefer.imageOverlay.mainText}</span>
+                                        <span className="overlay-sub">{referUsCopy.whyRefer.imageOverlay.subText}</span>
                                     </div>
                                 </div>
                             </div>
@@ -237,10 +178,9 @@ function ReferUs() {
             <section className="referral-form-section">
                 <div className="referral-form-container">
                     <div className="referral-form-header" data-aos="fade-up">
-                        <h2 className="form-title">Submit a Referral</h2>
+                        <h2 className="form-title">{referUsCopy.referralForm.title}</h2>
                         <p className="form-subtitle">
-                            Please fill out the information below to refer someone for our care services. 
-                            All information is kept confidential and secure.
+                            {referUsCopy.referralForm.subtitle}
                         </p>
                     </div>
 
@@ -248,8 +188,8 @@ function ReferUs() {
                         <div className="success-message" data-aos="fade-in">
                             <div className="success-icon">✅</div>
                             <div className="success-content">
-                                <h4>Referral Submitted Successfully!</h4>
-                                <p>Thank you for your referral. We'll contact them within 24 hours to discuss their care needs.</p>
+                                <h4>{referUsCopy.referralForm.successMessage.title}</h4>
+                                <p>{referUsCopy.referralForm.successMessage.description}</p>
                             </div>
                         </div>
                     )}
@@ -257,12 +197,12 @@ function ReferUs() {
                     <form className="referral-form" onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="200">
                         {/* Your Information Section */}
                         <div className="form-section">
-                            <h3 className="form-section-title">Your Information</h3>
-                            <p className="form-section-subtitle">Tell us who you are so we can thank you properly</p>
+                            <h3 className="form-section-title">{referUsCopy.referralForm.sections.yourInformation.title}</h3>
+                            <p className="form-section-subtitle">{referUsCopy.referralForm.sections.yourInformation.subtitle}</p>
                             
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="referrerName">Your Full Name *</label>
+                                    <label htmlFor="referrerName">{referUsCopy.referralForm.sections.yourInformation.fields.referrerName.label}</label>
                                     <input
                                         type="text"
                                         id="referrerName"
@@ -270,13 +210,13 @@ function ReferUs() {
                                         value={formData.referrerName}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter your full name"
+                                        placeholder={referUsCopy.referralForm.sections.yourInformation.fields.referrerName.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="referrerEmail">Your Email Address *</label>
+                                    <label htmlFor="referrerEmail">{referUsCopy.referralForm.sections.yourInformation.fields.referrerEmail.label}</label>
                                     <input
                                         type="email"
                                         id="referrerEmail"
@@ -284,7 +224,7 @@ function ReferUs() {
                                         value={formData.referrerEmail}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter your email"
+                                        placeholder={referUsCopy.referralForm.sections.yourInformation.fields.referrerEmail.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
@@ -292,20 +232,20 @@ function ReferUs() {
 
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="referrerPhone">Your Phone Number</label>
+                                    <label htmlFor="referrerPhone">{referUsCopy.referralForm.sections.yourInformation.fields.referrerPhone.label}</label>
                                     <input
                                         type="tel"
                                         id="referrerPhone"
                                         name="referrerPhone"
                                         value={formData.referrerPhone}
                                         onChange={handleInputChange}
-                                        placeholder="Enter your phone number"
+                                        placeholder={referUsCopy.referralForm.sections.yourInformation.fields.referrerPhone.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="referrerRelation">Your Relationship to Client *</label>
+                                    <label htmlFor="referrerRelation">{referUsCopy.referralForm.sections.yourInformation.fields.referrerRelation.label}</label>
                                     <select
                                         id="referrerRelation"
                                         name="referrerRelation"
@@ -314,7 +254,7 @@ function ReferUs() {
                                         required
                                         disabled={isSubmitting}
                                     >
-                                        <option value="">Select relationship</option>
+                                        <option value="">{referUsCopy.referralForm.sections.yourInformation.fields.referrerRelation.placeholder}</option>
                                         {relationOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -327,12 +267,12 @@ function ReferUs() {
 
                         {/* Client Information Section */}
                         <div className="form-section">
-                            <h3 className="form-section-title">Client Information</h3>
-                            <p className="form-section-subtitle">Information about the person who needs care</p>
+                            <h3 className="form-section-title">{referUsCopy.referralForm.sections.clientInformation.title}</h3>
+                            <p className="form-section-subtitle">{referUsCopy.referralForm.sections.clientInformation.subtitle}</p>
                             
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="clientName">Client's Full Name *</label>
+                                    <label htmlFor="clientName">{referUsCopy.referralForm.sections.clientInformation.fields.clientName.label}</label>
                                     <input
                                         type="text"
                                         id="clientName"
@@ -340,13 +280,13 @@ function ReferUs() {
                                         value={formData.clientName}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter client's full name"
+                                        placeholder={referUsCopy.referralForm.sections.clientInformation.fields.clientName.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="clientPhone">Client's Phone Number *</label>
+                                    <label htmlFor="clientPhone">{referUsCopy.referralForm.sections.clientInformation.fields.clientPhone.label}</label>
                                     <input
                                         type="tel"
                                         id="clientPhone"
@@ -354,7 +294,7 @@ function ReferUs() {
                                         value={formData.clientPhone}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter client's phone number"
+                                        placeholder={referUsCopy.referralForm.sections.clientInformation.fields.clientPhone.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
@@ -362,20 +302,20 @@ function ReferUs() {
 
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label htmlFor="clientEmail">Client's Email Address</label>
+                                    <label htmlFor="clientEmail">{referUsCopy.referralForm.sections.clientInformation.fields.clientEmail.label}</label>
                                     <input
                                         type="email"
                                         id="clientEmail"
                                         name="clientEmail"
                                         value={formData.clientEmail}
                                         onChange={handleInputChange}
-                                        placeholder="Enter client's email (optional)"
+                                        placeholder={referUsCopy.referralForm.sections.clientInformation.fields.clientEmail.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="urgency">When is Care Needed? *</label>
+                                    <label htmlFor="urgency">{referUsCopy.referralForm.sections.clientInformation.fields.urgency.label}</label>
                                     <select
                                         id="urgency"
                                         name="urgency"
@@ -384,7 +324,7 @@ function ReferUs() {
                                         required
                                         disabled={isSubmitting}
                                     >
-                                        <option value="">Select timeline</option>
+                                        <option value="">{referUsCopy.referralForm.sections.clientInformation.fields.urgency.placeholder}</option>
                                         {urgencyOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -395,14 +335,14 @@ function ReferUs() {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="clientAddress">Client's Address</label>
+                                <label htmlFor="clientAddress">{referUsCopy.referralForm.sections.clientInformation.fields.clientAddress.label}</label>
                                 <input
                                     type="text"
                                     id="clientAddress"
                                     name="clientAddress"
                                     value={formData.clientAddress}
                                     onChange={handleInputChange}
-                                    placeholder="Enter client's address (City, State)"
+                                    placeholder={referUsCopy.referralForm.sections.clientInformation.fields.clientAddress.placeholder}
                                     disabled={isSubmitting}
                                 />
                             </div>
@@ -410,11 +350,11 @@ function ReferUs() {
 
                         {/* Care Needs Section */}
                         <div className="form-section">
-                            <h3 className="form-section-title">Care Needs</h3>
-                            <p className="form-section-subtitle">Help us understand what type of care is needed</p>
+                            <h3 className="form-section-title">{referUsCopy.referralForm.sections.careNeeds.title}</h3>
+                            <p className="form-section-subtitle">{referUsCopy.referralForm.sections.careNeeds.subtitle}</p>
                             
                             <div className="form-group">
-                                <label htmlFor="careNeeds">Type of Care Needed</label>
+                                <label htmlFor="careNeeds">{referUsCopy.referralForm.sections.careNeeds.fields.careNeeds.label}</label>
                                 <select
                                     id="careNeeds"
                                     name="careNeeds"
@@ -422,7 +362,7 @@ function ReferUs() {
                                     onChange={handleInputChange}
                                     disabled={isSubmitting}
                                 >
-                                    <option value="">Select care type (optional)</option>
+                                    <option value="">{referUsCopy.referralForm.sections.careNeeds.fields.careNeeds.placeholder}</option>
                                     {careNeedsOptions.map((option) => (
                                         <option key={option.value} value={option.value}>
                                             {option.label}
@@ -432,14 +372,14 @@ function ReferUs() {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="additionalInfo">Additional Information</label>
+                                <label htmlFor="additionalInfo">{referUsCopy.referralForm.sections.careNeeds.fields.additionalInfo.label}</label>
                                 <textarea
                                     id="additionalInfo"
                                     name="additionalInfo"
                                     value={formData.additionalInfo}
                                     onChange={handleInputChange}
                                     rows="4"
-                                    placeholder="Please provide any additional details about the client's care needs, medical conditions, or special requirements..."
+                                    placeholder={referUsCopy.referralForm.sections.careNeeds.fields.additionalInfo.placeholder}
                                     disabled={isSubmitting}
                                 ></textarea>
                             </div>
@@ -458,10 +398,7 @@ function ReferUs() {
                                         disabled={isSubmitting}
                                     />
                                     <span className="checkbox-text">
-                                        I confirm that I have permission to refer this client and understand that 
-                                        Journey of Care will contact them to discuss their care needs. I agree to the 
-                                        <a href="/privacy" className="privacy-link"> privacy policy</a> and 
-                                        <a href="/terms" className="terms-link"> terms of service</a>.
+                                        {referUsCopy.referralForm.terms.checkboxText}
                                     </span>
                                 </label>
                             </div>
@@ -471,13 +408,11 @@ function ReferUs() {
                                 className={`referral-submit-btn ${isSubmitting ? 'submitting' : ''}`}
                                 disabled={isSubmitting || !formData.agreeToTerms}
                             >
-                                {isSubmitting ? 'Submitting Referral...' : 'Submit Referral'}
+                                {isSubmitting ? referUsCopy.referralForm.submittingButton : referUsCopy.referralForm.submitButton}
                             </button>
 
                             <p className="form-privacy-note">
-                                Your referral information is kept strictly confidential. We will only contact 
-                                the referred client to discuss their care needs and will never share their 
-                                information with unauthorized parties.
+                                {referUsCopy.referralForm.terms.privacyNote}
                             </p>
                         </div>
                     </form>
@@ -488,30 +423,23 @@ function ReferUs() {
             <section className="refer-contact-section">
                 <div className="refer-contact-container">
                     <div className="refer-contact-content" data-aos="fade-up">
-                        <h2 className="contact-title">Have Questions About Referring?</h2>
+                        <h2 className="contact-title">{referUsCopy.contact.title}</h2>
                         <p className="contact-description">
-                            Our team is here to help you with the referral process. Contact us if you have 
-                            any questions or need assistance.
+                            {referUsCopy.contact.description}
                         </p>
                         <div className="contact-info-grid">
-                            <div className="contact-info-item" data-aos="fade-up" data-aos-delay="200">
-                                <div className="contact-icon">📞</div>
-                                <h3>Call Us</h3>
-                                <a href="tel:8324460705" className="contact-link">(832) 446-0705</a>
-                                <p className="contact-subtitle">Available 24/7 for urgent referrals</p>
-                            </div>
-                            <div className="contact-info-item" data-aos="fade-up" data-aos-delay="400">
-                                <div className="contact-icon">📧</div>
-                                <h3>Email Us</h3>
-                                <a href="mailto:referrals@journey-of-care.com" className="contact-link">referrals@journey-of-care.com</a>
-                                <p className="contact-subtitle">Dedicated referral support team</p>
-                            </div>
-                            <div className="contact-info-item" data-aos="fade-up" data-aos-delay="600">
-                                <div className="contact-icon">🕐</div>
-                                <h3>Response Time</h3>
-                                <p className="contact-text">Within 24 Hours</p>
-                                <p className="contact-subtitle">We'll contact your referral promptly</p>
-                            </div>
+                            {referUsCopy.contact.contactInfo.map((item, index) => (
+                                <div key={index} className="contact-info-item" data-aos="fade-up" data-aos-delay={200 + (index * 200)}>
+                                    <div className="contact-icon">{item.icon}</div>
+                                    <h3>{item.title}</h3>
+                                    {item.title === "Call Us" || item.title === "Email Us" ? (
+                                        <a href={item.title === "Call Us" ? "tel:8324460705" : "mailto:referrals@journey-of-care.com"} className="contact-link">{item.details}</a>
+                                    ) : (
+                                        <p className="contact-text">{item.details}</p>
+                                    )}
+                                    <p className="contact-subtitle">{item.subtitle}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

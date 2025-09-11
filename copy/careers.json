@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Careers",
+    "title": "Join Our",
+    "titleHighlight": "Personal Assistance Services Team",
+    "description": "Make a meaningful difference in people's lives while building a rewarding career in Personal Assistance Services. We're looking for compassionate, dedicated professionals to join our growing team in San Antonio.",
+    "stats": [
+      { "number": "$15-18", "label": "Hourly Rate" },
+      { "number": "Flexible", "label": "Scheduling" },
+      { "number": "Full Benefits", "label": "Package Available" }
+    ]
+  },
+  "jobListings": {
+    "title": "Current Openings",
+    "subtitle": "Explore our available positions and join our team of dedicated healthcare professionals.",
+    "jobs": [
+      {
+        "id": 1,
+        "slug": "certified-home-health-aide",
+        "title": "Certified Home Health Aide",
+        "type": "Full-time / Part-time",
+        "location": "San Antonio, TX & Surrounding Areas",
+        "salary": "$15-18/hour",
+        "posted": "Now Hiring",
+        "description": "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated, certified Personal Assistance Services caregivers who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes in San Antonio."
+      },
+      {
+        "id": 2,
+        "slug": "licensed-vocational-nurse",
+        "title": "Licensed Vocational Nurse (LVN)",
+        "type": "Full-time / Part-time",
+        "location": "San Antonio, TX & Surrounding Areas",
+        "salary": "$22-28/hour",
+        "posted": "Now Hiring",
+        "description": "We are seeking a compassionate and skilled Licensed Vocational Nurse to provide professional Personal Assistance Services in clients' homes in San Antonio. This position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality Personal Assistance Services."
+      }
+    ],
+    "buttons": {
+      "viewDetails": "View Details",
+      "applyNow": "Apply Now"
+    }
+  }
+}

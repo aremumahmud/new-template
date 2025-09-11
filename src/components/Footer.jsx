@@ -1,6 +1,8 @@
 import './Footer.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import homeCopy from '../../copy/home.json'
+import logo from '../assets/luzi_logo.png'
 
 function Footer() {
     const [email, setEmail] = useState('');
@@ -21,91 +23,94 @@ function Footer() {
                     {/* Company Info */}
                     <div className="footer-section company-info">
                         <div className="footer-logo">
-                            <h3>Journey of Care</h3>
+                            <img src={logo} alt={homeCopy.footer.companyName} className="footer-logo-img" />
+                            <h3>{homeCopy.footer.companyName}</h3>
                         </div>
                         <p className="company-description">
-                            Providing trustworthy, heartfelt home care services in North Houston, Conroe, The Woodlands, Spring, and surrounding areas. Bringing compassionate support to your doorstep with certified caregivers who offer steady hands and open hearts.
+                            {homeCopy.footer.companyDescription}
                         </p>
                         <div className="company-badges">
-                            <div className="badge">Licensed & Insured</div>
-                            <div className="badge">Certified Caregivers</div>
-                            <div className="badge">Personalized Care Plans</div>
+                            {homeCopy.footer.badges.map((badge, index) => (
+                                <div key={index} className="badge">{badge}</div>
+                            ))}
                         </div>
                     </div>
 
                     {/* Our Services */}
                     <div className="footer-section">
-                        <h4 className="footer-heading">Our Services</h4>
+                        <h4 className="footer-heading">{homeCopy.footer.sections.ourServices.title}</h4>
                         <ul className="footer-links">
-                            <li><a href="#services">Inclusive Care for All Abilities</a></li>
-                            <li><a href="#services">Personal Care Services</a></li>
-                            <li><a href="#services">Companion Care</a></li>
-                            <li><a href="#services">Respite Care</a></li>
-                            <li><a href="#services">In-Facility Care</a></li>
+                            {homeCopy.footer.sections.ourServices.links.map((link, index) => (
+                                <li key={index}><a href="#services">{link}</a></li>
+                            ))}
                         </ul>
                         <div className="footer-cta">
-                            <a href="#contact" className="schedule-btn">Schedule Assessment</a>
+                            <a href="#contact" className="schedule-btn">{homeCopy.footer.sections.ourServices.ctaButton}</a>
                         </div>
                     </div>
 
                     {/* Quick Links */}
                     <div className="footer-section">
-                        <h4 className="footer-heading">Quick Links</h4>
+                        <h4 className="footer-heading">{homeCopy.footer.sections.quickLinks.title}</h4>
                         <ul className="footer-links">
-                            <li><a href="#about">About Us</a></li>
-                            <li><a href="#services">Our Services</a></li>
-                            <li><a href="#careers">Careers</a></li>
-                            <li><a href="#blog">Blog</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li><Link to="/refer-us">Refer Us</Link></li>
+                            {homeCopy.footer.sections.quickLinks.links.map((link, index) => (
+                                <li key={index}>
+                                    {link === "Refer Us" ? (
+                                        <Link to="/refer-us">{link}</Link>
+                                    ) : (
+                                        <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}>{link}</a>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
-                        <h4 className="footer-heading legal-heading">Legal</h4>
+                        <h4 className="footer-heading legal-heading">{homeCopy.footer.sections.legal.title}</h4>
                         <ul className="footer-links">
-                            <li><a href="#privacy">Privacy Policy</a></li>
-                            <li><a href="#terms">Terms & Conditions</a></li>
+                            {homeCopy.footer.sections.legal.links.map((link, index) => (
+                                <li key={index}><a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}>{link}</a></li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Contact Information */}
                     <div className="footer-section">
-                        <h4 className="footer-heading">Contact Information</h4>
+                        <h4 className="footer-heading">{homeCopy.footer.sections.contactInfo.title}</h4>
                         <div className="contact-info1">
                             <div className="contact-item">
                                 <strong>Service Area</strong>
-                                <p>North Houston, Conroe, The Woodlands, Spring, and surrounding areas</p>
+                                <p>{homeCopy.footer.sections.contactInfo.serviceArea}</p>
                             </div>
                             <div className="contact-item">
                                 <strong>Phone</strong>
-                                <p>(832) 446-0705</p>
+                                <p>{homeCopy.footer.sections.contactInfo.phone}</p>
                             </div>
                             <div className="contact-item">
                                 <strong>Email</strong>
-                                <p>Info@journey-of-care.com</p>
+                                <p>{homeCopy.footer.sections.contactInfo.email}</p>
                             </div>
                         </div>
                         
                         <div className="business-hours">
-                            <h4 className="footer-heading">Business Hours</h4>
+                            <h4 className="footer-heading">{homeCopy.footer.sections.businessHours.title}</h4>
                             <div className="hours-list">
                                 <div className="hours-item">
                                     <span className="hours-icon">🕘</span>
                                     <div>
-                                        <strong>Monday - Friday:</strong>
-                                        <p>8:00 AM – 5:00 PM</p>
+                                        <strong>{homeCopy.footer.sections.businessHours.weekdays.days}</strong>
+                                        <p>{homeCopy.footer.sections.businessHours.weekdays.hours}</p>
                                     </div>
                                 </div>
                                 <div className="hours-item">
                                     <span className="hours-icon">📞</span>
                                     <div>
-                                        <strong>Saturday & Sunday:</strong>
-                                        <p>On-call availability</p>
+                                        <strong>{homeCopy.footer.sections.businessHours.weekends.days}</strong>
+                                        <p>{homeCopy.footer.sections.businessHours.weekends.hours}</p>
                                     </div>
                                 </div>
                                 <div className="hours-item">
                                     <span className="hours-icon">🚨</span>
                                     <div>
-                                        <strong>24/7 Emergency:</strong>
-                                        <p>Available when needed</p>
+                                        <strong>{homeCopy.footer.sections.businessHours.emergency.days}</strong>
+                                        <p>{homeCopy.footer.sections.businessHours.emergency.hours}</p>
                                     </div>
                                 </div>
                             </div>
@@ -116,17 +121,17 @@ function Footer() {
                 {/* Newsletter Section */}
                 <div className="footer-newsletter">
                     <div className="newsletter-content">
-                        <h3>Stay Connected with Journey of Care</h3>
-                        <p>Get home care tips, updates, and news delivered to your inbox.</p>
+                        <h3>{homeCopy.footer.newsletter.title}</h3>
+                        <p>{homeCopy.footer.newsletter.description}</p>
                         <form className="footer-newsletter-form" onSubmit={handleNewsletterSubmit}>
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email address"
+                                placeholder={homeCopy.footer.newsletter.emailPlaceholder}
                                 required
                             />
-                            <button type="submit">Subscribe</button>
+                            <button type="submit">{homeCopy.footer.newsletter.subscribeButton}</button>
                         </form>
                     </div>
                 </div>
@@ -135,13 +140,11 @@ function Footer() {
                 <div className="footer-bottom">
                     <div className="footer-bottom-content">
                         <div className="copyright">
-                            <p>© 2024 Journey of Care. All rights reserved.</p>
+                            <p>{homeCopy.footer.copyright}</p>
                         </div>
                         <div className="footer-tagline">
                             <p>
-                                Serving North Houston, Conroe, The Woodlands, Spring, and surrounding areas. 
-                                Specializing in compassionate in-home senior care, including personal care, 
-                                companion care, respite care, and specialized memory care.
+                                {homeCopy.footer.tagline}
                             </p>
                         </div>
                     </div>

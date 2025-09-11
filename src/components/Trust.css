@@ -1,10 +1,10 @@
 .trust-section {
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   padding: 100px 0;
   margin: 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .trust-container {
@@ -28,13 +28,13 @@
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background-color: #1a1a1a;
+  background-color: var(--text-primary);
 }
 
 .trust-title {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   line-height: 1.2;
   margin: 0;
 }
@@ -50,24 +50,24 @@
 .trust-item {
   text-align: center;
   padding: 40px 30px;
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--border-light);
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   transition: all 0.3s ease;
   position: relative;
 }
 
 .trust-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  border-color: #d0d0d0;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-medium);
 }
 
 .trust-icon {
   width: 60px;
   height: 60px;
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--interactive-primary-default);
+  color: var(--text-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -80,14 +80,14 @@
 .trust-item-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin-bottom: 16px;
   line-height: 1.4;
 }
 
 .trust-item-description {
   font-size: 1rem;
-  color: #666666;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
   font-weight: 400;

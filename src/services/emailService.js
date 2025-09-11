@@ -1,5 +1,6 @@
 // Email service using Brevo API (formerly Sendinblue)
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
+const REACT_APP_BREVO_API_KEY = "";
 
 class EmailService {
     constructor(apiKey) {
@@ -1054,6 +1055,6 @@ Conroe, TX & Surrounding Communities
 }
 
 // Export a singleton instance
-const emailService = new EmailService(process.env.REACT_APP_BREVO_API_KEY || '');
+const emailService = new EmailService(REACT_APP_BREVO_API_KEY || '');
 
 export default emailService;

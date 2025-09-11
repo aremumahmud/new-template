@@ -15,8 +15,8 @@
   position: absolute;
   padding: 8px 10px;
   border-radius: 9999px;
-  background-color: #000000;
-  color: white;
+  background-color: var(--interactive-primary-default);
+  color: var(--text-light);
   font-weight: normal;
   font-size: 12px;
   transition: all 0.3s ease;
@@ -40,7 +40,7 @@
 }
 
 .gooey-btn-arrow:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--interactive-secondary-hover);
 }
 
 .gooey-btn-container.right:hover .gooey-btn-arrow.right {
@@ -59,8 +59,8 @@
 .gooey-btn-main {
   padding: 18px 24px;
   border-radius: 9999px;
-    background-color: #000000;
-  color: white;
+    background-color: var(--interactive-primary-default);
+  color: var(--text-light);
   font-weight: normal;
   font-size: 12px;
   transition: all 0.3s ease;
@@ -73,7 +73,7 @@
 }
 
 .gooey-btn-main:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: var(--interactive-primary-hover);
 }
 
 /* White variant styles */

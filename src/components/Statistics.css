@@ -1,8 +1,8 @@
 .stats-marquee {
   width: 100%;
-  background-color: #1a1a1a;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   margin: 40px 0;
   position: relative;
   overflow: hidden;
@@ -35,7 +35,7 @@
 .stat-number1 {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-light);
   /* font-family: 'Manrope', sans-serif; */
   line-height: 1;
   min-width: fit-content;
@@ -44,7 +44,7 @@
 .stat-label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #cccccc;
+  color: var(--text-muted);
   white-space: nowrap;
   /* font-family: 'Manrope', sans-serif; */
 }
@@ -52,7 +52,7 @@
 .stat-divider {
   width: 1px;
   height: 40px;
-  background-color: #444444;
+  background-color: var(--border-medium);
   opacity: 0;
   animation: fadeIn 0.6s ease-out 0.5s forwards;
 }

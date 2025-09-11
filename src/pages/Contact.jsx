@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FAQ from '../components/FAQ'
 import emailService from '../services/emailService'
+import contactCopy from '../../copy/contact.json'
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -81,54 +82,9 @@ function Contact() {
         }
     };
 
-    const contactInfo = [
-        {
-            icon: "📞",
-            title: "Call Us",
-            details: "(832) 446-0705",
-            subtext: "Available 24/7 for emergencies",
-            link: "tel:8324460705"
-        },
-        {
-            icon: "📧",
-            title: "Email Us",
-            details: "Info@journey-of-care.com",
-            subtext: "We respond within 24 hours",
-            link: "mailto:Info@journey-of-care.com"
-        },
-        {
-            icon: "📍",
-            title: "Service Area",
-            details: "Conroe, TX & Surrounding Communities",
-            subtext: "Serving the greater Houston area",
-            link: null
-        },
-        {
-            icon: "🕐",
-            title: "Business Hours",
-            details: "Mon-Fri: 8AM-6PM",
-            subtext: "Weekend consultations available",
-            link: null
-        }
-    ];
-
-    const serviceOptions = [
-        { value: "personal-care", label: "Personal Care Services" },
-        { value: "companion-care", label: "Companion Care" },
-        { value: "respite-care", label: "Respite Care" },
-        { value: "specialized-care", label: "Specialized Care" },
-        { value: "inclusive-care", label: "Inclusive Care" },
-        { value: "in-facility-care", label: "In-Facility Care" },
-        { value: "consultation", label: "Free Consultation" },
-        { value: "other", label: "Other" }
-    ];
-
-    const urgencyOptions = [
-        { value: "immediate", label: "Immediate (Within 24 hours)" },
-        { value: "urgent", label: "Urgent (Within 3 days)" },
-        { value: "soon", label: "Soon (Within a week)" },
-        { value: "planning", label: "Planning ahead" }
-    ];
+    const contactInfo = contactCopy.contactInfo.contactItems;
+    const serviceOptions = contactCopy.contactForm.options.services;
+    const urgencyOptions = contactCopy.contactForm.options.urgency;
 
     return (
         <div className="contact-page">
@@ -139,29 +95,21 @@ function Contact() {
                 <div className="contact-hero-container">
                     <div className="contact-hero-content">
                         <div className="contact-hero-text" data-aos="fade-up">
-                            <div className="contact-badge">Contact Us</div>
+                            <div className="contact-badge">{contactCopy.hero.badge}</div>
                             <h1 className="contact-hero-title">
-                                Let's Start Your<br />
-                                <span className="highlight">Journey of Care</span>
+                                {contactCopy.hero.title}<br />
+                                <span className="highlight1">{contactCopy.hero.titleHighlight}</span>
                             </h1>
                             <p className="contact-hero-description">
-                                Ready to provide the best care for your loved one? Contact us today for a 
-                                free consultation. We're here to answer your questions and help you find 
-                                the perfect care solution.
+                                {contactCopy.hero.description}
                             </p>
                             <div className="contact-stats" data-aos="fade-up" data-aos-delay="200">
-                                <div className="stat">
-                                    <span className="stat-number">24/7</span>
-                                    <span className="stat-label">Support Available</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Free</span>
-                                    <span className="stat-label">Initial Consultation</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Same Day</span>
-                                    <span className="stat-label">Response Time</span>
-                                </div>
+                                {contactCopy.hero.stats.map((stat, index) => (
+                                    <div key={index} className="stat">
+                                        <span className="stat-number">{stat.number}</span>
+                                        <span className="stat-label">{stat.label}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -175,10 +123,9 @@ function Contact() {
                         {/* Contact Information */}
                         <div className="contact-info-section" data-aos="fade-right">
                             <div className="contact-info-header">
-                                <h2 className="info-section-title">Get in Touch</h2>
+                                <h2 className="info-section-title">{contactCopy.contactInfo.title}</h2>
                                 <p className="info-section-subtitle">
-                                    We're here to help you navigate your care options. Reach out to us 
-                                    through any of these channels.
+                                    {contactCopy.contactInfo.subtitle}
                                 </p>
                             </div>
                             
@@ -204,10 +151,9 @@ function Contact() {
                             <div className="emergency-notice" data-aos="fade-up" data-aos-delay="400">
                                 <div className="emergency-icon">🚨</div>
                                 <div className="emergency-content">
-                                    <h4 className="emergency-title">Emergency Situations</h4>
+                                    <h4 className="emergency-title">{contactCopy.contactInfo.emergencyNotice.title}</h4>
                                     <p className="emergency-text">
-                                        For immediate care needs or emergencies, please call us directly at 
-                                        <a href="tel:8324460705" className="emergency-phone"> (832) 446-0705</a>
+                                        {contactCopy.contactInfo.emergencyNotice.text}
                                     </p>
                                 </div>
                             </div>
@@ -216,9 +162,9 @@ function Contact() {
                         {/* Contact Form */}
                         <div className="contact-form-section" data-aos="fade-left" data-aos-delay="300">
                             <div className="contact-form-header">
-                                <h2 className="form-section-title">Send Us a Message</h2>
+                                <h2 className="form-section-title">{contactCopy.contactForm.title}</h2>
                                 <p className="form-section-subtitle">
-                                    Fill out the form below and we'll get back to you as soon as possible.
+                                    {contactCopy.contactForm.subtitle}
                                 </p>
                             </div>
 
@@ -226,8 +172,8 @@ function Contact() {
                                 <div className="success-message" data-aos="fade-in">
                                     <div className="success-icon">✅</div>
                                     <div className="success-content">
-                                        <h4>Message Sent Successfully!</h4>
-                                        <p>Thank you for reaching out. We'll contact you within 24 hours.</p>
+                                        <h4>{contactCopy.contactForm.successMessage.title}</h4>
+                                        <p>{contactCopy.contactForm.successMessage.description}</p>
                                     </div>
                                 </div>
                             )}
@@ -235,7 +181,7 @@ function Contact() {
                             <form className="contact-form" onSubmit={handleSubmit}>
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="name">Full Name *</label>
+                                        <label htmlFor="name">{contactCopy.contactForm.fields.name.label}</label>
                                         <input
                                             type="text"
                                             id="name"
@@ -243,13 +189,13 @@ function Contact() {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your full name"
+                                            placeholder={contactCopy.contactForm.fields.name.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
 
                                     <div className="form-group">
-                                        <label htmlFor="email">Email Address *</label>
+                                        <label htmlFor="email">{contactCopy.contactForm.fields.email.label}</label>
                                         <input
                                             type="email"
                                             id="email"
@@ -257,7 +203,7 @@ function Contact() {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your email"
+                                            placeholder={contactCopy.contactForm.fields.email.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
@@ -265,20 +211,20 @@ function Contact() {
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="phone">Phone Number</label>
+                                        <label htmlFor="phone">{contactCopy.contactForm.fields.phone.label}</label>
                                         <input
                                             type="tel"
                                             id="phone"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleInputChange}
-                                            placeholder="Enter your phone number"
+                                            placeholder={contactCopy.contactForm.fields.phone.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
 
                                     <div className="form-group">
-                                        <label htmlFor="urgency">Timeline *</label>
+                                        <label htmlFor="urgency">{contactCopy.contactForm.fields.urgency.label}</label>
                                         <select
                                             id="urgency"
                                             name="urgency"
@@ -287,7 +233,7 @@ function Contact() {
                                             required
                                             disabled={isSubmitting}
                                         >
-                                            <option value="">Select timeline</option>
+                                            <option value="">{contactCopy.contactForm.fields.urgency.placeholder}</option>
                                             {urgencyOptions.map((option) => (
                                                 <option key={option.value} value={option.value}>
                                                     {option.label}
@@ -298,7 +244,7 @@ function Contact() {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="service">Service of Interest</label>
+                                    <label htmlFor="service">{contactCopy.contactForm.fields.service.label}</label>
                                     <select
                                         id="service"
                                         name="service"
@@ -306,7 +252,7 @@ function Contact() {
                                         onChange={handleInputChange}
                                         disabled={isSubmitting}
                                     >
-                                        <option value="">Select a service (optional)</option>
+                                        <option value="">{contactCopy.contactForm.fields.service.placeholder}</option>
                                         {serviceOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -316,7 +262,7 @@ function Contact() {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="message">Message *</label>
+                                    <label htmlFor="message">{contactCopy.contactForm.fields.message.label}</label>
                                     <textarea
                                         id="message"
                                         name="message"
@@ -324,7 +270,7 @@ function Contact() {
                                         onChange={handleInputChange}
                                         required
                                         rows="6"
-                                        placeholder="Tell us about your care needs, questions, or any specific requirements..."
+                                        placeholder={contactCopy.contactForm.fields.message.placeholder}
                                         disabled={isSubmitting}
                                     ></textarea>
                                 </div>
@@ -334,12 +280,11 @@ function Contact() {
                                     className={`contact-submit-btn ${isSubmitting ? 'submitting' : ''}`}
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                                    {isSubmitting ? contactCopy.contactForm.submittingButton : contactCopy.contactForm.submitButton}
                                 </button>
 
                                 <p className="form-privacy-note">
-                                    By submitting this form, you agree to our privacy policy. We will never 
-                                    share your personal information with third parties.
+                                    {contactCopy.contactForm.privacyNote}
                                 </p>
                             </form>
                         </div>

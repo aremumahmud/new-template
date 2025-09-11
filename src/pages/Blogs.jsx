@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { blogsData, blogCategories } from '../data/blogsData'
+import blogsCopy from '../../copy/blogs.json'
 
 import profileImg1 from '../assets/p1.jpg'
 import profileImg2 from '../assets/p2.jpg'
@@ -76,7 +77,7 @@ function Blogs() {
                     <div className="blog-article-container">
                         <div className="blog-article-header">
                             <div className="blog-breadcrumb">
-                                <a href="/blogs">← Back to All Blogs</a>
+                                <a href="/blogs">{blogsCopy.articleView.backToBlogs}</a>
                             </div>
                             <div className="blog-article-meta">
                                 <span className="blog-article-category">{blog.category}</span>
@@ -116,9 +117,9 @@ function Blogs() {
                                 </div>
 
                                 <div className="blog-cta">
-                                    <h3>Ready to Get Started?</h3>
-                                    <p>Contact us today to learn more about our home care services.</p>
-                                    <button className="cta-button">Schedule Free Consultation</button>
+                                    <h3>{blogsCopy.articleView.cta.title}</h3>
+                                    <p>{blogsCopy.articleView.cta.description}</p>
+                                    <button className="cta-button">{blogsCopy.articleView.cta.button}</button>
                                 </div>
                             </div>
                         </div>
@@ -140,28 +141,20 @@ function Blogs() {
                 <div className="blogs-hero-container">
                     <div className="blogs-hero-content">
                         <div className="blogs-hero-text" data-aos="fade-up">
-                            <div className="blogs-badge">Our Blog</div>
+                            <div className="blogs-badge">{blogsCopy.hero.badge}</div>
                             <h1 className="blogs-hero-title">
-                                Care Tips & <span className="highlight">Insights</span>
+                                {blogsCopy.hero.title} <span className="highlight1">{blogsCopy.hero.titleHighlight}</span>
                             </h1>
                             <p className="blogs-hero-description">
-                                Stay informed with our latest articles on home care, health tips, 
-                                family support strategies, and industry insights to help you provide 
-                                the best care for your loved ones.
+                                {blogsCopy.hero.description}
                             </p>
                             <div className="blogs-stats" data-aos="fade-up" data-aos-delay="200">
-                                <div className="stat">
-                                    <span className="stat-number">{blogsData.length}</span>
-                                    <span className="stat-label">Expert Articles</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">{blogCategories.length - 1}</span>
-                                    <span className="stat-label">Categories</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Weekly</span>
-                                    <span className="stat-label">New Content</span>
-                                </div>
+                                {blogsCopy.hero.stats.map((stat, index) => (
+                                    <div key={index} className="stat">
+                                        <span className="stat-number">{stat.number}</span>
+                                        <span className="stat-label">{stat.label}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -175,7 +168,7 @@ function Blogs() {
                         <div className="search-icon">🔍</div>
                         <input
                             type="text"
-                            placeholder="Search articles..."
+                            placeholder={blogsCopy.searchAndFilter.searchPlaceholder}
                             value={searchTerm}
                             onChange={handleSearch}
                             className="search-input"
@@ -183,7 +176,7 @@ function Blogs() {
                     </div>
                     
                     <div className="blogs-categories" data-aos="fade-up" data-aos-delay="200">
-                        {blogCategories.map((category) => (
+                        {blogsCopy.searchAndFilter.categories.map((category) => (
                             <button
                                 key={category}
                                 className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
@@ -200,7 +193,7 @@ function Blogs() {
             {filteredBlogs.length > 0 && selectedCategory === 'All' && !searchTerm && (
                 <section className="featured-article-section">
                     <div className="featured-container">
-                        <div className="featured-badge" data-aos="fade-up">Featured Article</div>
+                        <div className="featured-badge" data-aos="fade-up">{blogsCopy.featuredArticle.badge}</div>
                         <div className="featured-article" data-aos="fade-up" data-aos-delay="200">
                             <div className="featured-image">
                                 <img src={filteredBlogs[0].image} alt={filteredBlogs[0].title} />
@@ -214,7 +207,7 @@ function Blogs() {
                                 <h2 className="featured-title">{filteredBlogs[0].title}</h2>
                                 <p className="featured-excerpt">{filteredBlogs[0].excerpt}</p>
                                 <a href={`/blogs/${filteredBlogs[0].id}`} className="featured-read-more">
-                                    Read Full Article
+                                    {blogsCopy.featuredArticle.readFullArticle}
                                     <span className="arrow">→</span>
                                 </a>
                             </div>
@@ -228,8 +221,8 @@ function Blogs() {
                 <div className="blogs-grid-container">
                     {filteredBlogs.length === 0 ? (
                         <div className="no-results" data-aos="fade-up">
-                            <h3>No articles found</h3>
-                            <p>Try adjusting your search or filter criteria.</p>
+                            <h3>{blogsCopy.blogGrid.noResults.title}</h3>
+                            <p>{blogsCopy.blogGrid.noResults.description}</p>
                         </div>
                     ) : (
                         <div className="blogs-grid">
@@ -256,7 +249,7 @@ function Blogs() {
                                         <p className="blog-excerpt">{blog.excerpt}</p>
                                         
                                         <a href={`/blogs/${blog.id}`} className="blog-read-more">
-                                            Read more
+                                            {blogsCopy.blogGrid.readMore}
                                             <span className="arrow">→</span>
                                         </a>
                                     </div>
@@ -267,7 +260,7 @@ function Blogs() {
 
                     {filteredBlogs.length > 9 && (
                         <div className="load-more" data-aos="fade-up">
-                            <button className="load-more-btn">Load More Articles</button>
+                            <button className="load-more-btn">{blogsCopy.blogGrid.loadMore}</button>
                         </div>
                     )}
                 </div>
@@ -277,20 +270,20 @@ function Blogs() {
             <section className="blog-newsletter">
                 <div className="newsletter-container">
                     <div className="newsletter-content" data-aos="fade-up">
-                        <h2 className="newsletter-title">Stay Updated</h2>
+                        <h2 className="newsletter-title">{blogsCopy.newsletter.title}</h2>
                         <p className="newsletter-description">
-                            Get the latest care tips and insights delivered to your inbox weekly.
+                            {blogsCopy.newsletter.description}
                         </p>
                         <div className="newsletter-form">
                             <input 
                                 type="email" 
-                                placeholder="Enter your email address" 
+                                placeholder={blogsCopy.newsletter.emailPlaceholder} 
                                 className="newsletter-input"
                             />
-                            <button className="newsletter-btn">Subscribe</button>
+                            <button className="newsletter-btn">{blogsCopy.newsletter.subscribeButton}</button>
                         </div>
                         <p className="newsletter-privacy">
-                            We respect your privacy. Unsubscribe at any time.
+                            {blogsCopy.newsletter.privacyText}
                         </p>
                     </div>
                 </div>

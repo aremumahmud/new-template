@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
 }
 
 /* Job Not Found */
@@ -11,7 +11,7 @@
   width: 100%;
   padding: 200px 0;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: var(--bg-secondary);
 }
 
 .job-not-found-container {
@@ -23,21 +23,21 @@
 .job-not-found h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .job-not-found p {
   font-size: 1.1rem;
-  color: #666666;
+  color: var(--text-secondary);
   margin-bottom: 32px;
   line-height: 1.6;
 }
 
 .back-to-careers-btn {
   display: inline-block;
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--interactive-primary-default);
+  color: var(--text-light);
   padding: 16px 32px;
   border-radius: 12px;
   text-decoration: none;
@@ -46,15 +46,15 @@
 }
 
 .back-to-careers-btn:hover {
-  background: #333333;
+  background: var(--interactive-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 26, 26, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Job Detail Hero */
 .job-detail-hero {
   width: 100%;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: var(--bg-gradient-card);
   padding: 140px 0 80px;
   position: relative;
   overflow: hidden;
@@ -88,7 +88,7 @@
 }
 
 .breadcrumb-link {
-  color: #666666;
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -96,7 +96,7 @@
 }
 
 .breadcrumb-link:hover {
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .job-detail-hero-content {
@@ -127,15 +127,15 @@
 }
 
 .job-status {
-  background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--success-color-dark) 100%);
+  color: var(--text-light);
   padding: 12px 20px;
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 6px 20px rgba(64, 192, 87, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .job-detail-info {
@@ -150,8 +150,8 @@
 }
 
 .job-type {
-  background: #f8f9fa;
-  color: #666666;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   padding: 8px 16px;
   border-radius: 12px;
   font-size: 0.9rem;
@@ -159,8 +159,8 @@
 }
 
 .job-salary {
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--interactive-primary-default);
+  color: var(--text-light);
   padding: 8px 16px;
   border-radius: 12px;
   font-size: 0.9rem;
@@ -170,7 +170,7 @@
 .job-detail-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   line-height: 1.1;
   margin-bottom: 16px;
 }
@@ -179,7 +179,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #666666;
+  color: var(--text-secondary);
   font-size: 1.1rem;
   margin-bottom: 24px;
 }
@@ -190,7 +190,7 @@
 
 .job-detail-description {
   font-size: 1.1rem;
-  color: #666666;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 32px;
 }
@@ -200,8 +200,8 @@
 }
 
 .apply-btn-large {
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--interactive-primary-default);
+  color: var(--text-light);
   border: none;
   padding: 18px 40px;
   border-radius: 12px;
@@ -215,16 +215,16 @@
 }
 
 .apply-btn-large:hover {
-  background: #333333;
+  background: var(--interactive-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(26, 26, 26, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Job Details Content */
 .job-details-content-section {
   width: 100%;
   padding: 100px 0;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
 }
 
 .job-details-content-container {
@@ -239,16 +239,16 @@
 }
 
 .job-section {
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   padding: 40px;
   border-radius: 20px;
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--border-light);
 }
 
 .job-section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin-bottom: 32px;
   position: relative;
   padding-bottom: 16px;
@@ -261,12 +261,12 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: #1a1a1a;
+  background: var(--text-primary);
   border-radius: 2px;
 }
 
 .benefits-section .job-section-title::after {
-  background: linear-gradient(135deg, #ffd43b 0%, #ffb800 100%);
+  background: linear-gradient(135deg, var(--warning-color) 0%, var(--warning-color-dark) 100%);
 }
 
 .job-list {
@@ -281,10 +281,10 @@
   gap: 16px;
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: #666666;
+  color: var(--text-secondary);
   line-height: 1.6;
   padding: 16px 0;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .job-list-item:last-child {
@@ -293,7 +293,7 @@
 }
 
 .list-icon {
-  color: #1a1a1a;
+  color: var(--text-primary);
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 2px;
@@ -301,16 +301,16 @@
 }
 
 .benefits-list .list-icon {
-  color: #ffd43b;
+  color: var(--warning-color);
   font-size: 1.3rem;
 }
 
 /* Apply Section */
 .job-apply-section {
   width: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+  background: var(--bg-gradient-hero);
   padding: 100px 0;
-  color: #ffffff;
+  color: var(--text-light);
   text-align: center;
 }
 
@@ -339,18 +339,18 @@
 }
 
 .job-apply-section .apply-btn-large {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--text-light);
+  color: var(--text-primary);
   margin-bottom: 32px;
   font-size: 1.1rem;
   padding: 20px 50px;
 }
 
 .job-apply-section .apply-btn-large:hover {
-  background: #f8f9fa;
-  color: #1a1a1a;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .apply-note {
@@ -361,7 +361,7 @@
 
 .email-link,
 .phone-link {
-  color: #ffffff;
+  color: var(--text-light);
   text-decoration: underline;
   font-weight: 600;
   transition: opacity 0.3s ease;

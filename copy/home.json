@@ -1,0 +1,481 @@
+{
+  "header": {
+    "logo": {
+      "alt": "Luzi Home Health Services LLC - Professional Home Health Care in San Antonio, TX"
+    },
+    "navigation": {
+      "about": "About",
+      "services": "Services",
+      "careers": "Careers",
+      "blog": "Blog",
+      "referUs": "Refer Us"
+    },
+    "servicesDropdown": {
+      "companionshipCare": "Companionship Care",
+      "personalHygiene": "Personal Hygiene Assistance",
+      "mobilitySupport": "Mobility Support",
+      "mealPreparation": "Meal Preparation & Feeding",
+      "medicationReminders": "Medication Reminders",
+      "lightHousekeeping": "Light Housekeeping"
+    },
+    "ctaButtons": {
+      "contact": "Contact",
+      "scheduleCare": "Schedule Care",
+      "contactUs": "Contact Us"
+    },
+    "mobileMenu": {
+      "toggleAriaLabel": "Toggle mobile menu"
+    }
+  },
+  "hero": {
+    "badge": "Free Care Assessment",
+    "mainHeading": "Professional Personal Assistance Services in San Antonio, TX",
+    "mainDescription": "Luzi Home Health Services LLC provides compassionate, professional Personal Assistance Services (PAS) in San Antonio and surrounding areas. Our certified caregivers deliver personalized care with dignity, respect, and genuine human connection in the comfort of your home.",
+    "teamStats": "Trusted by San Antonio Families",
+    "ctaButton": "Schedule Your Free Consultation",
+    "imageOverlay": {
+      "badges": {
+        "personalAssistance": "PERSONAL ASSISTANCE",
+        "homeHealthCare": "HOME HEALTH CARE",
+        "sanAntonioTX": "SAN ANTONIO, TX"
+      }
+    },
+    "rotatingContent": [
+      {
+        "heading": "Companionship Care Services",
+        "description": "Emotional support and company for clients in San Antonio.",
+        "popularHeading": "Most Popular Service",
+        "popularDescription": "Professional companionship care with certified caregivers."
+      },
+      {
+        "heading": "Personal Hygiene Assistance",
+        "description": "Bathing, grooming, and dressing support with dignity.",
+        "popularHeading": "Essential Care",
+        "popularDescription": "Maintaining personal hygiene and independence at home."
+      },
+      {
+        "heading": "Mobility Support Services",
+        "description": "Safe movement and transfer assistance for daily activities.",
+        "popularHeading": "Safety First",
+        "popularDescription": "Professional mobility support ensuring safety and comfort."
+      },
+      {
+        "heading": "Meal Preparation & Feeding",
+        "description": "Nutritious meals and feeding assistance for optimal health.",
+        "popularHeading": "Nutritional Care",
+        "popularDescription": "Healthy meal preparation and feeding support services."
+      }
+    ]
+  },
+  "statistics": {
+    "familiesServed": {
+      "number": 500,
+      "label": "San Antonio Families Served"
+    },
+    "certifiedCaregivers": {
+      "number": 50,
+      "label": "Certified Caregivers"
+    },
+    "citiesCovered": {
+      "number": 15,
+      "label": "Service Areas Covered"
+    },
+    "satisfactionRate": {
+      "number": 98,
+      "label": "Client Satisfaction Rate"
+    }
+  },
+  "about": {
+    "badge": "About Luzi Home Health Services",
+    "title": "Professional Personal Assistance",
+    "titleHighlight": "Services in San Antonio, TX",
+    "description": "Luzi Home Health Services LLC is dedicated to providing exceptional Personal Assistance Services (PAS) in San Antonio and surrounding areas. Our certified caregivers deliver compassionate care with dignity, respect, and genuine human connection.",
+    "imageOverlay": {
+      "yearsExperience": "5+",
+      "yearsLabel": "Years Serving San Antonio"
+    }
+  },
+  "services": {
+    "badge": "Our Personal Assistance Services",
+    "title": "Professional PAS Services",
+    "titleHighlight": "in San Antonio, TX",
+    "subtitle": "Comprehensive Personal Assistance Services (PAS) designed to support independence and enhance quality of life in the comfort of your home.",
+    "serviceCards": [
+      {
+        "title": "Companionship Care",
+        "description": "Emotional support and company for clients. Our certified caregivers provide meaningful companionship, engaging conversations, and social interaction to combat loneliness and enhance mental well-being.",
+        "stats": {
+          "clients": "200+",
+          "satisfaction": "98%"
+        }
+      },
+      {
+        "title": "Personal Hygiene Assistance",
+        "description": "Bathing, grooming, and dressing support with dignity and respect. We assist with all personal hygiene needs while maintaining privacy and promoting independence.",
+        "stats": {
+          "clients": "180+",
+          "satisfaction": "97%"
+        }
+      },
+      {
+        "title": "Mobility Support",
+        "description": "Help with walking, transfers, and safe movement throughout the home. Our caregivers ensure safe mobility while encouraging independence and preventing falls.",
+        "stats": {
+          "clients": "150+",
+          "satisfaction": "99%"
+        }
+      },
+      {
+        "title": "Meal Preparation & Feeding",
+        "description": "Nutritious meals and feeding assistance for optimal health. We prepare healthy, balanced meals and provide feeding support when needed.",
+        "stats": {
+          "clients": "220+",
+          "satisfaction": "96%"
+        }
+      },
+      {
+        "title": "Medication Reminders",
+        "description": "Ensuring timely and accurate medication intake. Our caregivers provide gentle reminders and assistance with medication management for better health outcomes.",
+        "stats": {
+          "clients": "190+",
+          "satisfaction": "98%"
+        }
+      },
+      {
+        "title": "Light Housekeeping",
+        "description": "Maintaining a safe and clean home environment. We provide light housekeeping services to ensure a comfortable, safe living space for our clients.",
+        "stats": {
+          "clients": "100+",
+          "satisfaction": "100%"
+        }
+      }
+    ],
+    "learnMoreButton": "Learn More",
+    "ctaSection": {
+      "title": "Schedule Your Free Personal Assistance Services Assessment Today!",
+      "description": "Discover how Luzi Home Health Services can help you or your loved one live independently and comfortably at home in San Antonio.",
+      "button": "Schedule a Free Assessment"
+    }
+  },
+  "trust": {
+    "title": "Why San Antonio Families <br> Trust Luzi Home Health Services",
+    "trustPoints": [
+      {
+        "title": "Certified Personal Assistance Caregivers",
+        "description": "Professional caregivers trained in Personal Assistance Services (PAS) who provide reliable, compassionate support with dignity and respect.",
+        "icon": "◯"
+      },
+      {
+        "title": "Personalized PAS Care Plans",
+        "description": "Customized Personal Assistance Services tailored to each client's unique needs, preferences, and independence goals.",
+        "icon": "□"
+      },
+      {
+        "title": "Local San Antonio Service",
+        "description": "Dedicated to serving San Antonio and surrounding areas with reliable, consistent Personal Assistance Services.",
+        "icon": "◐"
+      },
+      {
+        "title": "Compassionate Professional Care",
+        "description": "Committed to enhancing quality of life through professional Personal Assistance Services with genuine care and understanding.",
+        "icon": "◆"
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Client Testimonials",
+    "title": "What San Antonio Families Say",
+    "subtitle": "Read stories from families who have experienced the Luzi Home Health Services difference.",
+    "clientFeedbackLabel": "Client Feedback",
+    "testimonials": [
+      {
+        "feedback": "My mother needed help with daily activities after her surgery. Luzi Home Health Services provided excellent Personal Assistance Services. Their caregiver is professional, caring, and really understands her needs. It's been a blessing for our family.",
+        "name": "Michael R.",
+        "location": "North San Antonio, TX"
+      },
+      {
+        "feedback": "When my father needed mobility support, I was worried about finding the right help. Luzi Home Health Services made it possible for him to stay independent at home. Their Personal Assistance Services are exactly what we needed.",
+        "name": "Jennifer M.",
+        "location": "Stone Oak, TX"
+      },
+      {
+        "feedback": "At 85, I wanted to stay in my own home. Luzi Home Health Services made that possible with their Personal Assistance Services. My caregiver helps with everything I need while respecting my independence. I couldn't be happier.",
+        "name": "Robert S.",
+        "location": "Alamo Heights, TX"
+      },
+      {
+        "feedback": "After my fall, I needed help with personal care and mobility. Luzi Home Health Services provided compassionate Personal Assistance Services that helped me recover safely at home. Their caregivers are truly professional.",
+        "name": "Maria L.",
+        "location": "South San Antonio, TX"
+      },
+      {
+        "feedback": "My wife needed companionship and meal preparation help. Luzi Home Health Services' Personal Assistance Services have been wonderful. Their caregiver is like family and provides exactly the support we needed.",
+        "name": "David H.",
+        "location": "West San Antonio, TX"
+      },
+      {
+        "feedback": "I was hesitant about Personal Assistance Services, but Luzi Home Health Services changed my mind completely. Their caregiver is professional, kind, and helps me maintain my independence. I highly recommend them.",
+        "name": "Eleanor W.",
+        "location": "East San Antonio, TX"
+      }
+    ],
+    "carouselControls": {
+      "previousAriaLabel": "Previous testimonials",
+      "nextAriaLabel": "Next testimonials",
+      "goToSlideAriaLabel": "Go to slide"
+    }
+  },
+  "parallax": {
+    "text": "Want to spread the love?"
+  },
+  "refer": {
+    "badge": "Refer With Confidence",
+    "title": "Share the Gift of",
+    "titleHighlight": "Professional Personal Assistance Services",
+    "description": "Know someone in San Antonio who could benefit from our Personal Assistance Services (PAS)? Your referral helps us extend our compassionate care to more families in need.",
+    "reasonsTitle": "Why Refer to Luzi Home Health Services?",
+    "reasons": [
+      {
+        "title": "Certified Personal Assistance Services",
+        "description": "Our caregivers are thoroughly vetted, certified, and trained in Personal Assistance Services to provide exceptional care."
+      },
+      {
+        "title": "Compassionate Professional Care",
+        "description": "We treat each client with dignity, respect, and genuine care, focusing on their unique Personal Assistance needs."
+      },
+      {
+        "title": "Local San Antonio Service",
+        "description": "We value your trust and confidence in our services. Ask about our referral appreciation program for San Antonio families."
+      }
+    ],
+    "ctaButton": "Refer Someone Today",
+    "imageOverlay": {
+      "mainText": "Making a difference",
+      "subText": "in San Antonio families"
+    }
+  },
+  "blog": {
+    "badge": "Latest Articles",
+    "title": "Care Tips & Insights",
+    "subtitle": "Stay informed with our latest articles on home care, health tips, and family support strategies.",
+    "articles": [
+      {
+        "title": "Essential Tips for Caring for Seniors at Home",
+        "category": "Senior Care",
+        "date": "1/15/2024",
+        "readTime": "5 min read",
+        "excerpt": "Learn practical strategies to create a safe and comfortable environment for elderly family members receiving home care."
+      },
+      {
+        "title": "Understanding Alzheimer's: A Family Guide",
+        "category": "Health",
+        "date": "1/12/2024",
+        "readTime": "8 min read",
+        "excerpt": "Comprehensive information about Alzheimer's disease and how families can provide the best support for their loved ones."
+      },
+      {
+        "title": "The Benefits of Companion Care for Elderly Adults",
+        "category": "Companion Care",
+        "date": "1/10/2024",
+        "readTime": "6 min read",
+        "excerpt": "Discover how companion care services can improve quality of life and provide emotional support for seniors."
+      },
+      {
+        "title": "Respite Care: Supporting Family Caregivers",
+        "category": "Respite Care",
+        "date": "1/8/2024",
+        "readTime": "4 min read",
+        "excerpt": "Learn how respite care services can help prevent caregiver burnout and maintain family well-being."
+      },
+      {
+        "title": "Creating a Safe Home Environment for Seniors",
+        "category": "Safety",
+        "date": "1/5/2024",
+        "readTime": "7 min read",
+        "excerpt": "Essential home modifications and safety tips to prevent falls and accidents for elderly residents."
+      },
+      {
+        "title": "Nutrition and Meal Planning for Seniors",
+        "category": "Nutrition",
+        "date": "1/3/2024",
+        "readTime": "5 min read",
+        "excerpt": "Important dietary considerations and meal planning strategies to maintain health and nutrition in older adults."
+      }
+    ],
+    "readMoreButton": "Read more",
+    "viewAllButton": "View All Articles"
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Get in Touch",
+    "subtitle": "Ready to learn more about our Personal Assistance Services? Contact Luzi Home Health Services today for a free consultation.",
+    "infoTitle": "Contact Information",
+    "contactInfo": [
+      {
+        "icon": "📧",
+        "title": "Email Us",
+        "details": "info@luzihomehealth.com",
+        "subtext": "We'll respond within 24 hours"
+      },
+      {
+        "icon": "📞",
+        "title": "Call Us",
+        "details": "+1 (210) 897-3276",
+        "subtext": "Mon-Fri: 8AM-6PM, Sat: 9AM-3PM"
+      },
+      {
+        "icon": "📍",
+        "title": "Visit Us",
+        "details": "9110 N Loop 1604 W, Ste 104 #2032, San Antonio, TX 78249",
+        "subtext": "Schedule an appointment"
+      }
+    ],
+    "form": {
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "serviceLabel": "Service of Interest",
+      "servicePlaceholder": "Select a service",
+      "serviceOptions": [
+        "Companionship Care",
+        "Personal Hygiene Assistance",
+        "Mobility Support",
+        "Meal Preparation & Feeding",
+        "Medication Reminders",
+        "Light Housekeeping",
+        "Free Consultation"
+      ],
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your care needs...",
+      "submitButton": "Send Message"
+    }
+  },
+  "newsletter": {
+    "badge": "Stay Connected",
+    "title": "Subscribe to Our Newsletter",
+    "subtitle": "Stay updated with the latest Personal Assistance Services tips, health information, and news from Luzi Home Health Services LLC.",
+    "formTitle": "Join Our Newsletter",
+    "formSubtitle": "Get valuable Personal Assistance Services tips, health insights, and updates delivered to your inbox.",
+    "emailPlaceholder": "Enter your email address",
+    "subscribeButton": "Subscribe",
+    "successMessage": "✓ Thank you for subscribing! Check your email for confirmation.",
+    "privacyText": "We respect your privacy. Unsubscribe at any time."
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our Personal Assistance Services (PAS) and how we can help your family in San Antonio.",
+    "questions": [
+      {
+        "question": "What Personal Assistance Services does Luzi Home Health Services provide?",
+        "answer": "We offer comprehensive Personal Assistance Services (PAS) including Companionship Care, Personal Hygiene Assistance, Mobility Support, Meal Preparation & Feeding, Medication Reminders, and Light Housekeeping. All services are provided by certified, background-checked caregivers in San Antonio."
+      },
+      {
+        "question": "What areas in San Antonio do you serve?",
+        "answer": "We proudly serve San Antonio and surrounding areas including North San Antonio, Stone Oak, Alamo Heights, West San Antonio, East San Antonio, and South San Antonio. Our goal is to bring professional Personal Assistance Services directly to your doorstep."
+      },
+      {
+        "question": "Are your caregivers licensed and insured?",
+        "answer": "Yes, all our caregivers are certified in Personal Assistance Services, thoroughly background-checked, and bonded. Luzi Home Health Services LLC is fully licensed and insured to provide peace of mind for you and your family."
+      },
+      {
+        "question": "How do you create personalized Personal Assistance Services plans?",
+        "answer": "We start with a comprehensive assessment of your needs, preferences, and health conditions. Our team then develops a customized Personal Assistance Services plan that addresses specific requirements while maintaining dignity and independence."
+      },
+      {
+        "question": "Do you provide 24/7 Personal Assistance Services?",
+        "answer": "We offer flexible scheduling including extended hours when needed. Our business hours are Monday-Friday 8:00 AM – 6:00 PM, Saturday 9:00 AM – 3:00 PM, with emergency support available when required."
+      },
+      {
+        "question": "How much do your services cost?",
+        "answer": "Care costs vary based on the level of service needed, frequency of visits, and specific care requirements. We offer a free in-home consultation to assess needs and provide transparent pricing. Contact us to discuss your specific situation."
+      },
+      {
+        "question": "Can I meet the caregiver before services begin?",
+        "answer": "Absolutely! We believe in the importance of compatibility and trust. We'll arrange for you to meet potential caregivers before services begin to ensure the best possible match for your family's needs."
+      },
+      {
+        "question": "What if I'm not satisfied with the caregiver?",
+        "answer": "Your satisfaction is our priority. If you're not completely satisfied with your caregiver, we'll work with you to address concerns and, if necessary, provide a replacement caregiver at no additional cost."
+      }
+    ],
+    "ctaSection": {
+      "title": "Still have questions?",
+      "description": "Our team is here to help. Contact us for a free consultation.",
+      "button": "Contact Us Today"
+    }
+  },
+  "footer": {
+    "companyName": "Luzi Home Health Services LLC",
+    "companyDescription": "Providing professional Personal Assistance Services (PAS) in San Antonio and surrounding areas. Bringing compassionate, certified caregivers to your doorstep with dignity, respect, and genuine human connection.",
+    "badges": [
+      "Licensed & Insured",
+      "Certified PAS Caregivers",
+      "Personalized Care Plans"
+    ],
+    "sections": {
+      "ourServices": {
+        "title": "Our Personal Assistance Services",
+        "links": [
+          "Companionship Care",
+          "Personal Hygiene Assistance",
+          "Mobility Support",
+          "Meal Preparation & Feeding",
+          "Medication Reminders",
+          "Light Housekeeping"
+        ],
+        "ctaButton": "Schedule Assessment"
+      },
+      "quickLinks": {
+        "title": "Quick Links",
+        "links": [
+          "About Us",
+          "Our Services",
+          "Careers",
+          "Blog",
+          "Contact",
+          "Refer Us"
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "links": [
+          "Privacy Policy",
+          "Terms & Conditions"
+        ]
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "serviceArea": "San Antonio and surrounding areas",
+        "phone": "+1 (210) 897-3276",
+        "email": "info@luzihomehealth.com"
+      },
+      "businessHours": {
+        "title": "Business Hours",
+        "weekdays": {
+          "days": "Monday - Friday:",
+          "hours": "8:00 AM – 6:00 PM"
+        },
+        "weekends": {
+          "days": "Saturday:",
+          "hours": "9:00 AM – 3:00 PM"
+        },
+        "emergency": {
+          "days": "Emergency Support:",
+          "hours": "Available when needed"
+        }
+      }
+    },
+    "newsletter": {
+      "title": "Stay Connected with Luzi Home Health Services",
+      "description": "Get Personal Assistance Services tips, updates, and news delivered to your inbox.",
+      "emailPlaceholder": "Enter your email address",
+      "subscribeButton": "Subscribe"
+    },
+    "copyright": "© 2024 Luzi Home Health Services LLC. All rights reserved.",
+    "tagline": "Serving San Antonio and surrounding areas. Specializing in professional Personal Assistance Services (PAS) including companionship care, personal hygiene assistance, mobility support, meal preparation, medication reminders, and light housekeeping."
+  }
+}

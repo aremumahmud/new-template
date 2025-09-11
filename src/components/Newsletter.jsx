@@ -1,5 +1,6 @@
 import './Newsletter.css'
 import { useState } from 'react'
+import homeCopy from '../../copy/home.json'
 
 function Newsletter() {
     const [email, setEmail] = useState('');
@@ -24,17 +25,17 @@ function Newsletter() {
             <div className="newsletter-container">
                 <div className="newsletter-content" data-aos="fade-up">
                     <div className="newsletter-text">
-                        <div className="newsletter-badge">Stay Connected</div>
-                        <h2 className="newsletter-title">Subscribe to Our Newsletter</h2>
+                        <div className="newsletter-badge">{homeCopy.newsletter.badge}</div>
+                        <h2 className="newsletter-title">{homeCopy.newsletter.title}</h2>
                         <p className="newsletter-subtitle">
-                            Stay updated with the latest care tips, health information, and news from Journey of Care Home Care Services.
+                            {homeCopy.newsletter.subtitle}
                         </p>
                     </div>
 
                     <div className="newsletter-form-section" data-aos="fade-up" data-aos-delay="200">
-                        <h3 className="form-title">Join Our Newsletter</h3>
+                        <h3 className="form-title">{homeCopy.newsletter.formTitle}</h3>
                         <p className="form-subtitle">
-                            Get valuable care tips, health insights, and updates delivered to your inbox.
+                            {homeCopy.newsletter.formSubtitle}
                         </p>
 
                         <form className="newsletter-form" onSubmit={handleSubmit}>
@@ -43,24 +44,24 @@ function Newsletter() {
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Enter your email address"
+                                    placeholder={homeCopy.newsletter.emailPlaceholder}
                                     required
                                     className="newsletter-input"
                                 />
                                 <button type="submit" className="newsletter-btn">
-                                    Subscribe
+                                    {homeCopy.newsletter.subscribeButton}
                                 </button>
                             </div>
                         </form>
 
                         {isSubmitted && (
                             <div className="success-message" data-aos="fade-in">
-                                ✓ Thank you for subscribing! Check your email for confirmation.
+                                {homeCopy.newsletter.successMessage}
                             </div>
                         )}
 
                         <p className="privacy-text">
-                            We respect your privacy. Unsubscribe at any time.
+                            {homeCopy.newsletter.privacyText}
                         </p>
                     </div>
                 </div>

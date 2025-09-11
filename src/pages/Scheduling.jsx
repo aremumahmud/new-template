@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import { servicesList } from '../data/servicesData'
 import schedulingImg from '../assets/pic.jpg'
 import emailService from '../services/emailService'
+import schedulingCopy from '../../copy/scheduling.json'
 
 function Scheduling() {
     const [formData, setFormData] = useState({
@@ -143,57 +144,12 @@ function Scheduling() {
         }
     };
 
-    const relationshipOptions = [
-        { value: "adult-child", label: "Adult Child" },
-        { value: "spouse", label: "Spouse/Partner" },
-        { value: "sibling", label: "Sibling" },
-        { value: "friend", label: "Friend" },
-        { value: "family-member", label: "Other Family Member" },
-        { value: "self", label: "Myself" },
-        { value: "professional", label: "Healthcare Professional" },
-        { value: "other", label: "Other" }
-    ];
-
-    const careLevelOptions = [
-        { value: "light", label: "Light Care (1-2 hours/day)" },
-        { value: "moderate", label: "Moderate Care (3-6 hours/day)" },
-        { value: "extensive", label: "Extensive Care (8-12 hours/day)" },
-        { value: "live-in", label: "Live-in Care (24 hours)" },
-        { value: "respite", label: "Respite Care (Temporary)" }
-    ];
-
-    const frequencyOptions = [
-        { value: "daily", label: "Daily" },
-        { value: "weekdays", label: "Weekdays Only" },
-        { value: "weekends", label: "Weekends Only" },
-        { value: "few-times-week", label: "Few Times Per Week" },
-        { value: "weekly", label: "Weekly" },
-        { value: "bi-weekly", label: "Bi-weekly" },
-        { value: "monthly", label: "Monthly" },
-        { value: "as-needed", label: "As Needed" }
-    ];
-
-    const timeOptions = [
-        { value: "morning", label: "Morning (6AM - 12PM)" },
-        { value: "afternoon", label: "Afternoon (12PM - 6PM)" },
-        { value: "evening", label: "Evening (6PM - 10PM)" },
-        { value: "overnight", label: "Overnight (10PM - 6AM)" },
-        { value: "flexible", label: "Flexible" }
-    ];
-
-    const urgencyOptions = [
-        { value: "immediate", label: "Immediate (Within 24 hours)" },
-        { value: "urgent", label: "Urgent (Within 3 days)" },
-        { value: "soon", label: "Soon (Within a week)" },
-        { value: "flexible", label: "Flexible (Within a month)" }
-    ];
-
-    const steps = [
-        { number: 1, title: "Personal Info", description: "Your contact details" },
-        { number: 2, title: "Care Recipient", description: "Who needs care" },
-        { number: 3, title: "Service Details", description: "Type and schedule" },
-        { number: 4, title: "Location & Review", description: "Final details" }
-    ];
+    const relationshipOptions = schedulingCopy.form.options.relationship;
+    const careLevelOptions = schedulingCopy.form.options.careLevel;
+    const frequencyOptions = schedulingCopy.form.options.frequency;
+    const timeOptions = schedulingCopy.form.options.time;
+    const urgencyOptions = schedulingCopy.form.options.urgency;
+    const steps = schedulingCopy.form.steps;
 
     return (
         <div className="scheduling-page">
@@ -204,29 +160,21 @@ function Scheduling() {
                 <div className="scheduling-hero-container">
                     <div className="scheduling-hero-content">
                         <div className="scheduling-hero-text" data-aos="fade-up">
-                            <div className="scheduling-badge">Schedule Care</div>
+                            <div className="scheduling-badge">{schedulingCopy.hero.badge}</div>
                             <h1 className="scheduling-hero-title">
-                                Schedule Your<br />
-                                <span className="highlight">Care Consultation</span>
+                                {schedulingCopy.hero.title}<br />
+                                <span className="highlight1">{schedulingCopy.hero.titleHighlight}</span>
                             </h1>
                             <p className="scheduling-hero-description">
-                                Take the first step towards compassionate, professional home care. 
-                                Complete our scheduling form and we'll arrange a free consultation 
-                                to discuss your specific needs and create a personalized care plan.
+                                {schedulingCopy.hero.description}
                             </p>
                             <div className="scheduling-stats" data-aos="fade-up" data-aos-delay="200">
-                                <div className="stat">
-                                    <span className="stat-number">Free</span>
-                                    <span className="stat-label">Consultation</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">24hr</span>
-                                    <span className="stat-label">Response Time</span>
-                                </div>
-                                <div className="stat">
-                                    <span className="stat-number">Licensed</span>
-                                    <span className="stat-label">Caregivers</span>
-                                </div>
+                                {schedulingCopy.hero.stats.map((stat, index) => (
+                                    <div key={index} className="stat">
+                                        <span className="stat-number">{stat.number}</span>
+                                        <span className="stat-label">{stat.label}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                         <div className="scheduling-hero-image" data-aos="fade-left" data-aos-delay="300">
@@ -264,8 +212,8 @@ function Scheduling() {
                         <div className="success-message" data-aos="fade-in">
                             <div className="success-icon">🎉</div>
                             <div className="success-content">
-                                <h3>Consultation Scheduled Successfully!</h3>
-                                <p>Thank you for choosing Journey of Care. We'll contact you within 24 hours to confirm your consultation appointment and discuss your care needs.</p>
+                                <h3>{schedulingCopy.form.successMessage.title}</h3>
+                                <p>{schedulingCopy.form.successMessage.description}</p>
                             </div>
                         </div>
                     )}
@@ -276,13 +224,13 @@ function Scheduling() {
                         {currentStep === 1 && (
                             <div className="form-step active">
                                 <div className="step-header">
-                                    <h2 className="step-title">Personal Information</h2>
-                                    <p className="step-subtitle">Tell us about yourself so we can contact you about the consultation.</p>
+                                    <h2 className="step-title">{schedulingCopy.form.step1.title}</h2>
+                                    <p className="step-subtitle">{schedulingCopy.form.step1.subtitle}</p>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="firstName">First Name *</label>
+                                        <label htmlFor="firstName">{schedulingCopy.form.step1.fields.firstName.label}</label>
                                         <input
                                             type="text"
                                             id="firstName"
@@ -290,12 +238,12 @@ function Scheduling() {
                                             value={formData.firstName}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your first name"
+                                            placeholder={schedulingCopy.form.step1.fields.firstName.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="lastName">Last Name *</label>
+                                        <label htmlFor="lastName">{schedulingCopy.form.step1.fields.lastName.label}</label>
                                         <input
                                             type="text"
                                             id="lastName"
@@ -303,7 +251,7 @@ function Scheduling() {
                                             value={formData.lastName}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your last name"
+                                            placeholder={schedulingCopy.form.step1.fields.lastName.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
@@ -311,7 +259,7 @@ function Scheduling() {
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="email">Email Address *</label>
+                                        <label htmlFor="email">{schedulingCopy.form.step1.fields.email.label}</label>
                                         <input
                                             type="email"
                                             id="email"
@@ -319,12 +267,12 @@ function Scheduling() {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your email address"
+                                            placeholder={schedulingCopy.form.step1.fields.email.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="phone">Phone Number *</label>
+                                        <label htmlFor="phone">{schedulingCopy.form.step1.fields.phone.label}</label>
                                         <input
                                             type="tel"
                                             id="phone"
@@ -332,14 +280,14 @@ function Scheduling() {
                                             value={formData.phone}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Enter your phone number"
+                                            placeholder={schedulingCopy.form.step1.fields.phone.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="relationship">Relationship to Care Recipient *</label>
+                                    <label htmlFor="relationship">{schedulingCopy.form.step1.fields.relationship.label}</label>
                                     <select
                                         id="relationship"
                                         name="relationship"
@@ -348,7 +296,7 @@ function Scheduling() {
                                         required
                                         disabled={isSubmitting}
                                     >
-                                        <option value="">Select your relationship</option>
+                                        <option value="">{schedulingCopy.form.step1.fields.relationship.placeholder}</option>
                                         {relationshipOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -363,12 +311,12 @@ function Scheduling() {
                         {currentStep === 2 && (
                             <div className="form-step active">
                                 <div className="step-header">
-                                    <h2 className="step-title">Care Recipient Information</h2>
-                                    <p className="step-subtitle">Help us understand who will be receiving care and their specific needs.</p>
+                                    <h2 className="step-title">{schedulingCopy.form.step2.title}</h2>
+                                    <p className="step-subtitle">{schedulingCopy.form.step2.subtitle}</p>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="recipientName">Care Recipient's Name *</label>
+                                    <label htmlFor="recipientName">{schedulingCopy.form.step2.fields.recipientName.label}</label>
                                     <input
                                         type="text"
                                         id="recipientName"
@@ -376,14 +324,14 @@ function Scheduling() {
                                         value={formData.recipientName}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter the care recipient's name"
+                                        placeholder={schedulingCopy.form.step2.fields.recipientName.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="recipientAge">Age *</label>
+                                        <label htmlFor="recipientAge">{schedulingCopy.form.step2.fields.recipientAge.label}</label>
                                         <input
                                             type="number"
                                             id="recipientAge"
@@ -391,14 +339,14 @@ function Scheduling() {
                                             value={formData.recipientAge}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="Age"
+                                            placeholder={schedulingCopy.form.step2.fields.recipientAge.placeholder}
                                             min="1"
                                             max="120"
                                             disabled={isSubmitting}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="recipientGender">Gender</label>
+                                        <label htmlFor="recipientGender">{schedulingCopy.form.step2.fields.recipientGender.label}</label>
                                         <select
                                             id="recipientGender"
                                             name="recipientGender"
@@ -406,26 +354,28 @@ function Scheduling() {
                                             onChange={handleInputChange}
                                             disabled={isSubmitting}
                                         >
-                                            <option value="">Select gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="prefer-not-to-say">Prefer not to say</option>
+                                            <option value="">{schedulingCopy.form.step2.fields.recipientGender.placeholder}</option>
+                                            {schedulingCopy.form.options.gender.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="recipientConditions">Medical Conditions or Special Needs</label>
+                                    <label htmlFor="recipientConditions">{schedulingCopy.form.step2.fields.recipientConditions.label}</label>
                                     <textarea
                                         id="recipientConditions"
                                         name="recipientConditions"
                                         value={formData.recipientConditions}
                                         onChange={handleInputChange}
                                         rows="4"
-                                        placeholder="Please describe any medical conditions, mobility issues, cognitive needs, or special requirements..."
+                                        placeholder={schedulingCopy.form.step2.fields.recipientConditions.placeholder}
                                         disabled={isSubmitting}
                                     ></textarea>
-                                    <small className="form-note">This information helps us match you with the most suitable caregiver.</small>
+                                    <small className="form-note">{schedulingCopy.form.step2.fields.recipientConditions.note}</small>
                                 </div>
                             </div>
                         )}
@@ -434,12 +384,12 @@ function Scheduling() {
                         {currentStep === 3 && (
                             <div className="form-step active">
                                 <div className="step-header">
-                                    <h2 className="step-title">Service Details</h2>
-                                    <p className="step-subtitle">Select the services you need and your preferred schedule.</p>
+                                    <h2 className="step-title">{schedulingCopy.form.step3.title}</h2>
+                                    <p className="step-subtitle">{schedulingCopy.form.step3.subtitle}</p>
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Services Needed * (Select all that apply)</label>
+                                    <label>{schedulingCopy.form.step3.fields.services.label}</label>
                                     <div className="checkbox-grid">
                                         {servicesList.map((service) => (
                                             <label key={service.id} className="checkbox-item">
@@ -459,7 +409,7 @@ function Scheduling() {
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="careLevel">Level of Care Needed *</label>
+                                        <label htmlFor="careLevel">{schedulingCopy.form.step3.fields.careLevel.label}</label>
                                         <select
                                             id="careLevel"
                                             name="careLevel"
@@ -468,7 +418,7 @@ function Scheduling() {
                                             required
                                             disabled={isSubmitting}
                                         >
-                                            <option value="">Select care level</option>
+                                            <option value="">{schedulingCopy.form.step3.fields.careLevel.placeholder}</option>
                                             {careLevelOptions.map((option) => (
                                                 <option key={option.value} value={option.value}>
                                                     {option.label}
@@ -477,7 +427,7 @@ function Scheduling() {
                                         </select>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="frequency">Frequency *</label>
+                                        <label htmlFor="frequency">{schedulingCopy.form.step3.fields.frequency.label}</label>
                                         <select
                                             id="frequency"
                                             name="frequency"
@@ -486,7 +436,7 @@ function Scheduling() {
                                             required
                                             disabled={isSubmitting}
                                         >
-                                            <option value="">Select frequency</option>
+                                            <option value="">{schedulingCopy.form.step3.fields.frequency.placeholder}</option>
                                             {frequencyOptions.map((option) => (
                                                 <option key={option.value} value={option.value}>
                                                     {option.label}
@@ -498,7 +448,7 @@ function Scheduling() {
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="preferredTime">Preferred Time *</label>
+                                        <label htmlFor="preferredTime">{schedulingCopy.form.step3.fields.preferredTime.label}</label>
                                         <select
                                             id="preferredTime"
                                             name="preferredTime"
@@ -507,7 +457,7 @@ function Scheduling() {
                                             required
                                             disabled={isSubmitting}
                                         >
-                                            <option value="">Select preferred time</option>
+                                            <option value="">{schedulingCopy.form.step3.fields.preferredTime.placeholder}</option>
                                             {timeOptions.map((option) => (
                                                 <option key={option.value} value={option.value}>
                                                     {option.label}
@@ -516,7 +466,7 @@ function Scheduling() {
                                         </select>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="startDate">Preferred Start Date</label>
+                                        <label htmlFor="startDate">{schedulingCopy.form.step3.fields.startDate.label}</label>
                                         <input
                                             type="date"
                                             id="startDate"
@@ -530,7 +480,7 @@ function Scheduling() {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="urgency">How soon do you need care to start? *</label>
+                                    <label htmlFor="urgency">{schedulingCopy.form.step3.fields.urgency.label}</label>
                                     <select
                                         id="urgency"
                                         name="urgency"
@@ -539,7 +489,7 @@ function Scheduling() {
                                         required
                                         disabled={isSubmitting}
                                     >
-                                        <option value="">Select urgency</option>
+                                        <option value="">{schedulingCopy.form.step3.fields.urgency.placeholder}</option>
                                         {urgencyOptions.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -554,12 +504,12 @@ function Scheduling() {
                         {currentStep === 4 && (
                             <div className="form-step active">
                                 <div className="step-header">
-                                    <h2 className="step-title">Location & Final Details</h2>
-                                    <p className="step-subtitle">Provide the care location and any additional information.</p>
+                                    <h2 className="step-title">{schedulingCopy.form.step4.title}</h2>
+                                    <p className="step-subtitle">{schedulingCopy.form.step4.subtitle}</p>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="address">Street Address *</label>
+                                    <label htmlFor="address">{schedulingCopy.form.step4.fields.address.label}</label>
                                     <input
                                         type="text"
                                         id="address"
@@ -567,14 +517,14 @@ function Scheduling() {
                                         value={formData.address}
                                         onChange={handleInputChange}
                                         required
-                                        placeholder="Enter the care location address"
+                                        placeholder={schedulingCopy.form.step4.fields.address.placeholder}
                                         disabled={isSubmitting}
                                     />
                                 </div>
 
                                 <div className="form-row">
                                     <div className="form-group">
-                                        <label htmlFor="city">City *</label>
+                                        <label htmlFor="city">{schedulingCopy.form.step4.fields.city.label}</label>
                                         <input
                                             type="text"
                                             id="city"
@@ -582,12 +532,12 @@ function Scheduling() {
                                             value={formData.city}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="City"
+                                            placeholder={schedulingCopy.form.step4.fields.city.placeholder}
                                             disabled={isSubmitting}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="zipCode">ZIP Code *</label>
+                                        <label htmlFor="zipCode">{schedulingCopy.form.step4.fields.zipCode.label}</label>
                                         <input
                                             type="text"
                                             id="zipCode"
@@ -595,7 +545,7 @@ function Scheduling() {
                                             value={formData.zipCode}
                                             onChange={handleInputChange}
                                             required
-                                            placeholder="ZIP Code"
+                                            placeholder={schedulingCopy.form.step4.fields.zipCode.placeholder}
                                             pattern="[0-9]{5}"
                                             disabled={isSubmitting}
                                         />
@@ -603,27 +553,27 @@ function Scheduling() {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="specialRequests">Special Requests or Preferences</label>
+                                    <label htmlFor="specialRequests">{schedulingCopy.form.step4.fields.specialRequests.label}</label>
                                     <textarea
                                         id="specialRequests"
                                         name="specialRequests"
                                         value={formData.specialRequests}
                                         onChange={handleInputChange}
                                         rows="3"
-                                        placeholder="Any specific caregiver preferences, scheduling requirements, or special requests..."
+                                        placeholder={schedulingCopy.form.step4.fields.specialRequests.placeholder}
                                         disabled={isSubmitting}
                                     ></textarea>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="additionalInfo">Additional Information</label>
+                                    <label htmlFor="additionalInfo">{schedulingCopy.form.step4.fields.additionalInfo.label}</label>
                                     <textarea
                                         id="additionalInfo"
                                         name="additionalInfo"
                                         value={formData.additionalInfo}
                                         onChange={handleInputChange}
                                         rows="4"
-                                        placeholder="Is there anything else you'd like us to know about your care needs or situation?"
+                                        placeholder={schedulingCopy.form.step4.fields.additionalInfo.placeholder}
                                         disabled={isSubmitting}
                                     ></textarea>
                                 </div>
@@ -639,7 +589,7 @@ function Scheduling() {
                                     onClick={prevStep}
                                     disabled={isSubmitting}
                                 >
-                                    ← Previous
+                                    {schedulingCopy.form.navigation.previous}
                                 </button>
                             )}
                             
@@ -650,7 +600,7 @@ function Scheduling() {
                                     onClick={nextStep}
                                     disabled={isSubmitting}
                                 >
-                                    Next →
+                                    {schedulingCopy.form.navigation.next}
                                 </button>
                             ) : (
                                 <button 
@@ -658,15 +608,14 @@ function Scheduling() {
                                     className={`nav-btn submit-btn ${isSubmitting ? 'submitting' : ''}`}
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? 'Scheduling Consultation...' : 'Schedule Consultation'}
+                                    {isSubmitting ? schedulingCopy.form.navigation.submitting : schedulingCopy.form.navigation.submit}
                                 </button>
                             )}
                         </div>
 
                         <div className="form-privacy-note">
                             <p>
-                                <strong>Privacy Notice:</strong> Your information is secure and will only be used to provide you with care services. 
-                                We will never share your personal information with third parties without your consent.
+                                {schedulingCopy.form.privacyNote}
                             </p>
                         </div>
                     </form>

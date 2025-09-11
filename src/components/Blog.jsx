@@ -7,73 +7,27 @@ import profileImg4 from '../assets/test1.jpg'
 import profileImg5 from '../assets/test2.jpg'
 import profileImg6 from '../assets/test3.jpg'
 import profileImg7 from '../assets/pic.jpg'
+import homeCopy from '../../copy/home.json'
 
 function Blog() {
-    const articles = [
-        {
-            id: 1,
-            title: "Essential Tips for Caring for Seniors at Home",
-            category: "Senior Care",
-            date: "1/15/2024",
-            readTime: "5 min read",
-            excerpt: "Learn practical strategies to create a safe and comfortable environment for elderly family members receiving home care.",
-            image: profileImg1
-        },
-        {
-            id: 2,
-            title: "Understanding Alzheimer's: A Family Guide",
-            category: "Health",
-            date: "1/12/2024",
-            readTime: "8 min read",
-            excerpt: "Comprehensive information about Alzheimer's disease and how families can provide the best support for their loved ones.",
-            image: profileImg2
-        },
-        {
-            id: 3,
-            title: "The Benefits of Companion Care for Elderly Adults",
-            category: "Companion Care",
-            date: "1/10/2024",
-            readTime: "6 min read",
-            excerpt: "Discover how companion care services can improve quality of life and provide emotional support for seniors.",
-            image: profileImg3
-        },
-        {
-            id: 4,
-            title: "Respite Care: Supporting Family Caregivers",
-            category: "Respite Care",
-            date: "1/8/2024",
-            readTime: "4 min read",
-            excerpt: "Learn how respite care services can help prevent caregiver burnout and maintain family well-being.",
-            image: profileImg4
-        },
-        {
-            id: 5,
-            title: "Creating a Safe Home Environment for Seniors",
-            category: "Safety",
-            date: "1/5/2024",
-            readTime: "7 min read",
-            excerpt: "Essential home modifications and safety tips to prevent falls and accidents for elderly residents.",
-            image: profileImg5
-        },
-        {
-            id: 6,
-            title: "Nutrition and Meal Planning for Seniors",
-            category: "Nutrition",
-            date: "1/3/2024",
-            readTime: "5 min read",
-            excerpt: "Important dietary considerations and meal planning strategies to maintain health and nutrition in older adults.",
-            image: profileImg6
-        }
-    ];
+    const articles = homeCopy.blog.articles.map((article, index) => ({
+        id: index + 1,
+        title: article.title,
+        category: article.category,
+        date: article.date,
+        readTime: article.readTime,
+        excerpt: article.excerpt,
+        image: [profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6][index]
+    }));
 
     return (
         <section className="blog-section">
             <div className="blog-container">
                 <div className="blog-header" data-aos="fade-up">
-                    <div className="blog-badge">Latest Articles</div>
-                    <h2 className="blog-title">Care Tips & Insights</h2>
+                    <div className="blog-badge">{homeCopy.blog.badge}</div>
+                    <h2 className="blog-title">{homeCopy.blog.title}</h2>
                     <p className="blog-subtitle">
-                        Stay informed with our latest articles on home care, health tips, and family support strategies.
+                        {homeCopy.blog.subtitle}
                     </p>
                 </div>
 
@@ -101,7 +55,7 @@ function Blog() {
                                 <p className="blog-excerpt">{article.excerpt}</p>
                                 
                                 <button className="blog-read-more">
-                                    Read more
+                                    {homeCopy.blog.readMoreButton}
                                     <span className="arrow">→</span>
                                 </button>
                             </div>
@@ -111,7 +65,7 @@ function Blog() {
 
                 <div className="blog-footer" data-aos="fade-up" data-aos-delay="700">
                     <button className="view-all-btn">
-                        View All Articles
+                        {homeCopy.blog.viewAllButton}
                     </button>
                 </div>
             </div>

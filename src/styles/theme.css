@@ -1,0 +1,198 @@
+/* CSS Variables for Dynamic Theming */
+/* 
+ * Color Palette:
+ * - #2A9D8F (Teal) - Primary color for health and renewal
+ * - #264653 (Deep Navy) - Secondary color for trust and professionalism  
+ * - #E9C46A (Soft Gold) - Accent color for warmth and care
+ * - #FFFFFF (White) - Clean contrast and backgrounds
+ */
+:root {
+  /* Primary Colors - Teal Palette */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #2A9D8F;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+
+  /* Secondary Colors - Navy Palette */
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #264653;
+
+  /* Accent Colors */
+  --color-accent-blue: #2A9D8F;
+  --color-accent-indigo: #264653;
+  --color-accent-purple: #6f42c1;
+  --color-accent-pink: #e83e8c;
+  --color-accent-red: #dc3545;
+  --color-accent-orange: #fd7e14;
+  --color-accent-yellow: #E9C46A;
+  --color-accent-green: #2A9D8F;
+  --color-accent-teal: #2A9D8F;
+  --color-accent-cyan: #17a2b8;
+
+  /* Neutral Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #264653;
+
+  /* Background Colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #f8fafc;
+  --bg-dark: #264653;
+  --bg-gradient-hero: linear-gradient(135deg, #264653 0%, #2A9D8F 100%);
+  --bg-gradient-card: linear-gradient(135deg, #FFFFFF 0%, #f8fafc 100%);
+  --bg-overlay: rgba(42, 157, 143, 0.1);
+
+  /* Text Colors */
+  --text-primary: #264653;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #FFFFFF;
+  --text-inverse: #FFFFFF;
+
+  /* Border Colors */
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-dark: #94a3b8;
+  --border-primary: #264653;
+
+  /* Status Colors */
+  --status-success: #2A9D8F;
+  --status-warning: #E9C46A;
+  --status-error: #dc3545;
+  --status-info: #2A9D8F;
+  
+  /* Additional Color Variables for Consistency */
+  --success-color: #2A9D8F;
+  --success-color-dark: #0f766e;
+  --success-bg: #f0fdfa;
+  --success-border: #2A9D8F;
+  --success-text: #0f766e;
+  --warning-color: #E9C46A;
+  --warning-color-dark: #d4af37;
+  --error-color: #dc3545;
+  --error-color-dark: #b02a37;
+  --accent-primary: #2A9D8F;
+  --accent-secondary: #E9C46A;
+
+  /* Interactive Colors */
+  --interactive-primary-default: #264653;
+  --interactive-primary-hover: #1e293b;
+  --interactive-primary-active: #0f172a;
+  --interactive-primary-disabled: #64748b;
+
+  --interactive-secondary-default: #FFFFFF;
+  --interactive-secondary-hover: #f8fafc;
+  --interactive-secondary-active: #e2e8f0;
+  --interactive-secondary-disabled: #cbd5e1;
+
+  --interactive-accent-default: #2A9D8F;
+  --interactive-accent-hover: #0d9488;
+  --interactive-accent-active: #0f766e;
+  --interactive-accent-disabled: #64748b;
+
+  /* Shadow Colors */
+  --shadow-sm: 0 1px 2px rgba(38, 70, 83, 0.05);
+  --shadow-md: 0 4px 6px rgba(38, 70, 83, 0.1);
+  --shadow-lg: 0 10px 15px rgba(38, 70, 83, 0.1);
+  --shadow-xl: 0 20px 25px rgba(38, 70, 83, 0.1);
+  --shadow-card: 0 10px 30px rgba(38, 70, 83, 0.1);
+  --shadow-button: 0 2px 4px rgba(38, 70, 83, 0.1);
+  --shadow-focus: 0 0 0 4px rgba(42, 157, 143, 0.1);
+
+  /* Opacity Values */
+  --opacity-10: 0.1;
+  --opacity-15: 0.15;
+  --opacity-20: 0.2;
+  --opacity-25: 0.25;
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+}
+
+/* Theme-specific overrides */
+[data-theme="dark"] {
+  --bg-primary: #264653;
+  --bg-secondary: #1e293b;
+  --text-primary: #FFFFFF;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border-light: #334155;
+  --border-medium: #475569;
+  --border-dark: #64748b;
+  --interactive-primary-default: #FFFFFF;
+  --interactive-primary-hover: #e2e8f0;
+  --interactive-primary-active: #cbd5e1;
+  --interactive-secondary-default: #264653;
+  --interactive-secondary-hover: #1e293b;
+  --interactive-secondary-active: #334155;
+}
+
+[data-theme="blue"] {
+  --interactive-accent-default: #2A9D8F;
+  --interactive-accent-hover: #0d9488;
+  --interactive-accent-active: #0f766e;
+  --color-accent-blue: #2A9D8F;
+}
+
+[data-theme="green"] {
+  --interactive-accent-default: #2A9D8F;
+  --interactive-accent-hover: #0d9488;
+  --interactive-accent-active: #0f766e;
+  --color-accent-green: #2A9D8F;
+}
+
+[data-theme="purple"] {
+  --interactive-accent-default: #E9C46A;
+  --interactive-accent-hover: #d4af37;
+  --interactive-accent-active: #b8860b;
+  --color-accent-purple: #E9C46A;
+}
+
+/* Utility classes for common color patterns */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-dark { background-color: var(--bg-dark); }
+.bg-gradient-hero { background: var(--bg-gradient-hero); }
+.bg-gradient-card { background: var(--bg-gradient-card); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-light { color: var(--text-light); }
+.text-inverse { color: var(--text-inverse); }
+
+.border-light { border-color: var(--border-light); }
+.border-medium { border-color: var(--border-medium); }
+.border-dark { border-color: var(--border-dark); }
+.border-primary { border-color: var(--border-primary); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-card { box-shadow: var(--shadow-card); }
+.shadow-button { box-shadow: var(--shadow-button); }

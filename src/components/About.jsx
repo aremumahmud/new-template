@@ -1,5 +1,6 @@
 import './About.css'
 import aboutImage from '../assets/test3.jpg'
+import homeCopy from '../../copy/home.json'
 
 function About() {
     return (
@@ -8,16 +9,16 @@ function About() {
                 <div className="about-content">
                     <div className="about-text">
                         <div className="about-badge" data-aos="fade-up" data-aos-delay="100">
-                            About CareConnect
+                            {homeCopy.about.badge}
                         </div>
                         
                         <h2 className="about-title" data-aos="fade-up" data-aos-delay="200">
-                            Compassionate Care <span className="title-highlight">Feels Like Family</span>
+                            {homeCopy.about.title} <span className="title-highlight">{homeCopy.about.titleHighlight}</span>
                         </h2>
                         
                         <div className="about-description" data-aos="fade-up" data-aos-delay="300">
                             <p>
-                                We provide certified, compassionate caregivers who become extended family members. Every interaction is guided by respect, dignity, and genuine human connection.
+                                {homeCopy.about.description}
                             </p>
                         </div>
                     </div>
@@ -27,8 +28,8 @@ function About() {
                         <div className="image-overlay">
                             <div className="overlay-content">
                                 <div className="overlay-stat">
-                                    <span className="overlay-number">15+</span>
-                                    <span className="overlay-label">Years Experience</span>
+                                    <span className="overlay-number">{homeCopy.about.imageOverlay.yearsExperience}</span>
+                                    <span className="overlay-label">{homeCopy.about.imageOverlay.yearsLabel}</span>
                                 </div>
                             </div>
                         </div>

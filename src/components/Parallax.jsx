@@ -1,6 +1,7 @@
 import './Parallax.css'
 import { useEffect, useRef, useState } from 'react'
 import SplitText from './SplitText'
+import homeCopy from '../../copy/home.json'
 
 function Parallax() {
     const [isVisible, setIsVisible] = useState(false);
@@ -34,7 +35,7 @@ function Parallax() {
             <section className={`parallax-section ${isVisible ? 'visible' : ''}`}>
                 <div className="parallax-content">
                     <SplitText 
-                        text="Want to spread the love?"
+                        text={homeCopy.parallax.text}
                         className="parallax-text"
                         tag="h1"
                         delay={80}

@@ -7,59 +7,50 @@ import profileImg4 from '../assets/test1.jpg'
 import profileImg5 from '../assets/test2.jpg'
 import profileImg6 from '../assets/test3.jpg'
 import profileImg7 from '../assets/pic.jpg'
+import homeCopy from '../../copy/home.json'
 
 function Testimonials() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [itemsPerSlide, setItemsPerSlide] = useState(3);
 
-    const testimonials = [
-        {
-            id: 1,
-            feedback: "My teenage son has special needs, and finding the right support has always been challenging. Journey of Care gets it. Their caregiver is patient, understanding, and really connects with him. It's been life-changing for our family.",
-            name: "Michael L.",
-            location: "North Houston, TX",
-            image: profileImg1
-        },
-        {
-            id: 2,
-            feedback: "When my husband was diagnosed with early-stage dementia, I felt overwhelmed. Journey of Care helped us create a routine that works for both of us. Their caregiver is like having a friend who truly cares.",
-            name: "Jennifer S.",
-            location: "Magnolia, TX",
-            image: profileImg2
-        },
-        {
-            id: 3,
-            feedback: "At 89, I thought I'd have to move to a facility, but Journey of Care made it possible for me to stay home. My caregiver doesn't just help with daily tasks—she's become a dear friend. We laugh together every day.",
-            name: "Robert T.",
-            location: "Tomball, TX",
-            image: profileImg3
-        },
-        {
-            id: 4,
-            feedback: "After my stroke, I was worried about being a burden to my family. Journey of Care gave me back my independence while ensuring I had the support I needed. Their caregivers are angels in disguise.",
-            name: "Maria C.",
-            location: "Sugar Land, TX",
-            image: profileImg4
-        },
-        {
-            id: 5,
-            feedback: "My mother lived with us for years, but as her Alzheimer's progressed, we needed professional help. Journey of Care's specialized memory care has been incredible. Mom is calm and content now.",
-            name: "David K.",
-            location: "Katy, TX",
-            image: profileImg5
-        },
-        {
-            id: 6,
-            feedback: "I was hesitant about in-home care, but Journey of Care changed my perspective completely. Their caregiver feels like family now. I look forward to her visits every day.",
-            name: "Eleanor M.",
-            location: "Cypress, TX",
-            image: profileImg6
-        },
-        
-    ];
+    const testimonials = homeCopy.testimonials.testimonials.map((testimonial, index) => ({
+        id: index + 1,
+        feedback: testimonial.feedback,
+        name: testimonial.name,
+        location: testimonial.location,
+        image: [profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6][index]
+    }));
 
-    const itemsPerSlide = 3;
     const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);
+
+    // Handle responsive items per slide
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width <= 600) {
+                setItemsPerSlide(1); // Mobile: 1 testimonial
+            } else if (width <= 1024) {
+                setItemsPerSlide(2); // Tablet: 2 testimonials
+            } else {
+                setItemsPerSlide(3); // Desktop: 3 testimonials
+            }
+        };
+
+        // Set initial value
+        handleResize();
+
+        // Add event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Reset current slide when itemsPerSlide changes
+    useEffect(() => {
+        setCurrentSlide(0);
+    }, [itemsPerSlide]);
 
     // Auto-play functionality
     useEffect(() => {
@@ -97,16 +88,16 @@ function Testimonials() {
         <section className="testimonials-section">
             <div className="testimonials-container">
                 <div className="testimonials-header" data-aos="fade-up">
-                    <div className="testimonials-badge">Testimonials</div>
-                    <h2 className="testimonials-title">What Our Clients Say</h2>
+                    <div className="testimonials-badge">{homeCopy.testimonials.badge}</div>
+                    <h2 className="testimonials-title">{homeCopy.testimonials.title}</h2>
                     <p className="testimonials-subtitle">
-                        Read stories from families who have experienced the Journey of Care difference.
+                        {homeCopy.testimonials.subtitle}
                     </p>
                 </div>
 
                 <div className="carousel-container" data-aos="fade-up" data-aos-delay="200">
                     <div className="carousel-wrapper">
-                        <button className="carousel-nav prev" onClick={prevSlide} aria-label="Previous testimonials">
+                        <button className="carousel-nav prev" onClick={prevSlide} aria-label={homeCopy.testimonials.carouselControls.previousAriaLabel}>
                             ←
                         </button>
                         
@@ -120,7 +111,7 @@ function Testimonials() {
                                         {testimonials.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((testimonial, index) => (
                                             <div key={testimonial.id} className="testimonial-card">
                                                 <div className="testimonial-header">
-                                                    <span className="testimonial-label">Client Feedback</span>
+                                                    <span className="testimonial-label">{homeCopy.testimonials.clientFeedbackLabel}</span>
                                                     <div className="quote-icon">"</div>
                                                 </div>
                                                 
@@ -150,7 +141,7 @@ function Testimonials() {
                             </div>
                         </div>
                         
-                        <button className="carousel-nav next" onClick={nextSlide} aria-label="Next testimonials">
+                        <button className="carousel-nav next" onClick={nextSlide} aria-label={homeCopy.testimonials.carouselControls.nextAriaLabel}>
                             →
                         </button>
                     </div>
@@ -161,7 +152,7 @@ function Testimonials() {
                                 key={index}
                                 className={`indicator ${index === currentSlide ? 'active' : ''}`}
                                 onClick={() => goToSlide(index)}
-                                aria-label={`Go to slide ${index + 1}`}
+                                aria-label={`${homeCopy.testimonials.carouselControls.goToSlideAriaLabel} ${index + 1}`}
                             />
                         ))}
                     </div>

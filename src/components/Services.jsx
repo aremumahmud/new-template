@@ -6,69 +6,28 @@ import facilityImg from '../assets/test1.jpg'
 import specializedImg from '../assets/test2.jpg'
 import endOfLifeImg from '../assets/pic.jpg'
 import verified from '../assets/verified-check-svgrepo-com.svg'
+import homeCopy from '../../copy/home.json'
 
 function Services() {
-    const services = [
-        {
-            id: 1,
-            title: "Personal Care Services",
-            image: personalCareImg,
-            description: "Dignified assistance for daily living activities. We assist with bathing, dressing, grooming, mobility transfers, toileting, incontinence care, and medication reminders.",
-            stats: { clients: "500+", satisfaction: "98%" },
-            verified: true
-        },
-        {
-            id: 2,
-            title: "Companion Care",
-            image: companionCareImg,
-            description: "Building connections and combating loneliness. Friendly conversations, meal preparation, light housekeeping, errands, and recreational activities.",
-            stats: { clients: "400+", satisfaction: "96%" },
-            verified: true
-        },
-        {
-            id: 3,
-            title: "Respite Care",
-            image: respiteCareImg,
-            description: "Support for family caregivers when they need it most. Flexible scheduling, reliable caregivers, and peace of mind while you rest and recharge.",
-            stats: { clients: "200+", satisfaction: "99%" },
-            verified: true
-        },
-        {
-            id: 4,
-            title: "In-Facility Care",
-            image: facilityImg,
-            description: "Supplemental care for residents in assisted living or skilled nursing facilities. One-on-one companionship, advocacy, and personalized attention.",
-            stats: { clients: "150+", satisfaction: "97%" },
-            verified: true
-        },
-        {
-            id: 5,
-            title: "Specialized Care",
-            image: specializedImg,
-            description: "Expert support for chronic and cognitive conditions including Alzheimer's, dementia, Parkinson's disease, and post-surgery recovery care.",
-            stats: { clients: "300+", satisfaction: "95%" },
-            verified: true
-        },
-        {
-            id: 6,
-            title: "End-of-Life Care",
-            image: endOfLifeImg,
-            description: "Comfort and compassion during life's final journey. Pain management, emotional support, and assistance with daily needs for peace and dignity.",
-            stats: { clients: "100+", satisfaction: "100%" },
-            verified: true
-        }
-    ];
+    const services = homeCopy.services.serviceCards.map((service, index) => ({
+        id: index + 1,
+        title: service.title,
+        image: [personalCareImg, companionCareImg, respiteCareImg, facilityImg, specializedImg, endOfLifeImg][index],
+        description: service.description,
+        stats: service.stats,
+        verified: true
+    }));
 
     return (
         <section className="services-section">
             <div className="services-container">
                 <div className="services-header" data-aos="fade-up">
-                    <div className="services-badge">Our Services</div>
+                    <div className="services-badge">{homeCopy.services.badge}</div>
                     <h2 className="services-title">
-                        Comprehensive Care <span className="title-highlight">Solutions</span>
+                        {homeCopy.services.title} <span className="title-highlight">{homeCopy.services.titleHighlight}</span>
                     </h2>
                     <p className="services-subtitle">
-                        Professional home care services designed to meet your unique needs with compassion and expertise.
+                        {homeCopy.services.subtitle}
                     </p>
                 </div>
 
@@ -82,7 +41,7 @@ function Services() {
                         >
                             <img className="service-img" src={service.image} alt={service.title} />
                             
-                            <div className="service-content">
+                            <div className="service-content_1">
                                 <div className="service-info">
                                     <div className="service-name">
                                         <h3>{service.title}</h3>
@@ -107,7 +66,7 @@ function Services() {
                                     </div> */}
                                     
                                     <div className="service-btn">
-                                        <span>Learn More</span>
+                                        <span>{homeCopy.services.learnMoreButton}</span>
                                         <i className="btn-icon">→</i>
                                     </div>
                                 </div>
@@ -117,12 +76,12 @@ function Services() {
                 </div>
 
                 <div className="services-cta-section" data-aos="fade-up" data-aos-delay="200">
-                    <h3 className="cta-title">Schedule Your Free In-Home Care Assessment Today!</h3>
+                    <h3 className="cta-title">{homeCopy.services.ctaSection.title}</h3>
                     <p className="cta-description">
-                        Discover how we can help your loved one live independently and comfortably at home.
+                        {homeCopy.services.ctaSection.description}
                     </p>
                     <button className="cta-button">
-                        Schedule a Free Assessment
+                        {homeCopy.services.ctaSection.button}
                     </button>
                 </div>
             </div>
