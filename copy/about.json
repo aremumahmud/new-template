@@ -1,4 +1,17 @@
 {
+  "images": {
+    "hero": {
+      "main": "/assets/pic.jpg",
+      "gallery": [
+        "/assets/p1.jpg",
+        "/assets/p2.jpg",
+        "/assets/p3.jpg"
+      ]
+    },
+    "founder": {
+      "profile": "/assets/test1.jpg"
+    }
+  },
   "hero": {
     "badge": "About Luzi Home Health Services LLC",
     "title": "Professional Personal Assistance Services",

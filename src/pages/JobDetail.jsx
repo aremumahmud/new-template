@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import careersImg from '../assets/p1.jpg'
-import nurseImg from '../assets/p2.jpg'
+import careersCopy from '../../copy/careers.json'
 
 function JobDetail() {
     const { jobId } = useParams();
@@ -15,98 +14,171 @@ function JobDetail() {
     }, []);
 
     const handleApplyClick = (position) => {
-        const subject = encodeURIComponent(`Application for ${position}`);
-        const body = encodeURIComponent(`Dear Journey of Care Team,
+        // Get the job type from the current job
+        const job = jobListings[jobId];
+        const jobType = job ? job.type : 'Personal Care Assistant';
+        
+        const subject = encodeURIComponent(`Application for ${position} - ${jobType} Position`);
+        const body = encodeURIComponent(`Dear Luzi Home Health Services Team,
 
-I am interested in applying for the ${position} position. Please find my resume attached and let me know if you need any additional information.
+I am writing to express my interest in the ${position} position (${jobType}) at Luzi Home Health Services LLC.
+
+POSITION DETAILS:
+- Position: ${position}
+- Schedule: ${jobType}
+- Location: San Antonio, TX & Surrounding Areas
+- Pay: Competitive compensation based on experience
+
+MY QUALIFICATIONS:
+- High school diploma or equivalent: [Yes/No]
+- Previous caregiving experience: [Please describe your experience]
+- CPR certification: [Yes/No - if no, are you willing to obtain?]
+- Valid driver's license: [Yes/No]
+- Reliable transportation: [Yes/No]
+- Available for background check and drug screening: [Yes/No]
+
+WHY I'M INTERESTED:
+[Please explain why you want to work as a Personal Care Assistant and what makes you a good fit for this role]
+
+AVAILABILITY:
+- Preferred work schedule: [Please specify your availability]
+- Start date: [When are you available to start?]
+- Any scheduling restrictions: [Please note any days/times you cannot work]
+
+I have attached my resume and references. I am excited about the opportunity to make a meaningful difference in the lives of clients while building a rewarding career in personal care.
+
+Thank you for considering my application. I look forward to hearing from you soon.
 
 Best regards,
-[Your Name]`);
+[Your Full Name]
+[Your Phone Number]
+[Your Email Address]`);
         
-        window.location.href = `mailto:Info@journey-of-care.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@luzihomehealth.com?subject=${subject}&body=${body}`;
     };
 
     const jobListings = {
-        'certified-home-health-aide': {
+        'personal-care-assistant-full-time': {
             id: 1,
-            title: "Certified Home Health Aide",
-            type: "Full-time / Part-time",
-            location: "Conroe, TX & Surrounding Areas",
-            salary: "$15-18/hour",
+            title: "Personal Care Assistant",
+            type: "Full-time",
+            location: "San Antonio, TX & Surrounding Areas",
+            salary: "Competitive Pay",
             posted: "Now Hiring",
-            image: careersImg,
-            description: "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated, certified home health aides who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes.",
+            image: careersCopy.images.jobImages['personal-care-assistant-full-time'],
+            description: "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated Personal Care Assistants who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes in San Antonio.",
             responsibilities: [
-                "Assist clients with activities of daily living (bathing, dressing, grooming)",
+                "Assist clients with personal hygiene (bathing, dressing, grooming)",
                 "Provide companionship and emotional support",
-                "Help with light housekeeping and meal preparation",
+                "Help with meal preparation and feeding assistance",
+                "Support mobility and safe movement throughout the home",
+                "Provide medication reminders and assistance",
+                "Perform light housekeeping tasks",
                 "Monitor and report changes in client condition",
-                "Assist with mobility and exercise as directed",
-                "Maintain accurate documentation of care provided",
-                "Follow individualized care plans",
                 "Communicate effectively with clients, families, and care team"
             ],
             requirements: [
-                "Valid Home Health Aide certification in Texas",
                 "High school diploma or equivalent",
-                "Minimum 1 year of home care experience preferred",
+                "Previous caregiving experience preferred but not required",
                 "Excellent communication and interpersonal skills",
                 "Compassionate, patient, and reliable personality",
                 "Ability to lift up to 50 pounds",
                 "Valid driver's license and reliable transportation",
                 "Clean background check and drug screening",
-                "CPR certification preferred"
+                "CPR certification preferred (we can help you obtain)",
+                "Flexibility to work various shifts"
             ],
             benefits: [
-                "Competitive hourly wages ($15-18/hour)",
-                "Flexible scheduling options",
+                "Competitive pay based on experience",
+                "Flexible full-time scheduling",
                 "Health insurance options",
                 "Paid time off and holidays",
                 "Ongoing training and professional development",
                 "Supportive work environment",
                 "Opportunity to make a real difference",
-                "Travel reimbursement for client visits"
+                "Mileage reimbursement for client visits"
             ]
         },
-        'licensed-vocational-nurse': {
+        'personal-care-assistant-part-time': {
             id: 2,
-            title: "Licensed Vocational Nurse (LVN)",
-            type: "Full-time / Part-time",
-            location: "Conroe, TX & Surrounding Areas",
-            salary: "$22-28/hour",
+            title: "Personal Care Assistant",
+            type: "Part-time",
+            location: "San Antonio, TX & Surrounding Areas",
+            salary: "Competitive Pay",
             posted: "Now Hiring",
-            image: nurseImg,
-            description: "We are seeking a compassionate and skilled Licensed Vocational Nurse to provide professional nursing care in clients' homes. This position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality healthcare services.",
+            image: careersCopy.images.jobImages['personal-care-assistant-full-time'],
+            description: "We are seeking compassionate Personal Care Assistants to provide professional care in clients' homes in San Antonio. This part-time position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality personal care services.",
             responsibilities: [
-                "Administer medications and treatments as prescribed",
-                "Monitor vital signs and assess client condition",
-                "Coordinate care with physicians and healthcare team",
-                "Provide wound care and medical procedures",
-                "Educate clients and families on health management",
-                "Document nursing assessments and care plans",
-                "Supervise and train home health aides when applicable",
-                "Ensure compliance with all regulatory requirements"
+                "Assist clients with personal hygiene (bathing, dressing, grooming)",
+                "Provide companionship and emotional support",
+                "Help with meal preparation and feeding assistance",
+                "Support mobility and safe movement throughout the home",
+                "Provide medication reminders and assistance",
+                "Perform light housekeeping tasks",
+                "Monitor and report changes in client condition",
+                "Communicate effectively with clients, families, and care team"
             ],
             requirements: [
-                "Current LVN license in Texas",
-                "Minimum 2 years of nursing experience",
-                "Home health or community health experience preferred",
-                "Strong clinical assessment skills",
-                "Excellent communication and documentation skills",
-                "Ability to work independently and make clinical decisions",
+                "High school diploma or equivalent",
+                "Previous caregiving experience preferred but not required",
+                "Excellent communication and interpersonal skills",
+                "Compassionate, patient, and reliable personality",
+                "Ability to lift up to 50 pounds",
                 "Valid driver's license and reliable transportation",
-                "Current CPR certification",
-                "Clean background check and drug screening"
+                "Clean background check and drug screening",
+                "CPR certification preferred (we can help you obtain)",
+                "Flexibility to work various shifts"
             ],
             benefits: [
-                "Competitive hourly wages ($22-28/hour)",
-                "Flexible scheduling with weekday and weekend options",
-                "Comprehensive health and dental insurance",
-                "Paid time off and sick leave",
-                "Continuing education reimbursement",
-                "Professional development opportunities",
-                "Mileage reimbursement",
-                "Supportive clinical supervision"
+                "Competitive pay based on experience",
+                "Flexible part-time scheduling",
+                "Health insurance options available",
+                "Paid time off for eligible employees",
+                "Ongoing training and professional development",
+                "Supportive work environment",
+                "Opportunity to make a real difference",
+                "Mileage reimbursement for client visits"
+            ]
+        },
+        'personal-care-assistant-weekend': {
+            id: 3,
+            title: "Personal Care Assistant",
+            type: "Weekend Shifts",
+            location: "San Antonio, TX & Surrounding Areas",
+            salary: "Competitive Pay",
+            posted: "Now Hiring",
+            image: careersCopy.images.jobImages['personal-care-assistant-full-time'],
+            description: "Looking for weekend Personal Care Assistants to join our team. Provide essential care and companionship to clients during weekend hours while maintaining a flexible schedule that works for you.",
+            responsibilities: [
+                "Assist clients with personal hygiene (bathing, dressing, grooming)",
+                "Provide companionship and emotional support",
+                "Help with meal preparation and feeding assistance",
+                "Support mobility and safe movement throughout the home",
+                "Provide medication reminders and assistance",
+                "Perform light housekeeping tasks",
+                "Monitor and report changes in client condition",
+                "Communicate effectively with clients, families, and care team"
+            ],
+            requirements: [
+                "High school diploma or equivalent",
+                "Previous caregiving experience preferred but not required",
+                "Excellent communication and interpersonal skills",
+                "Compassionate, patient, and reliable personality",
+                "Ability to lift up to 50 pounds",
+                "Valid driver's license and reliable transportation",
+                "Clean background check and drug screening",
+                "CPR certification preferred (we can help you obtain)",
+                "Weekend availability (Saturday and/or Sunday)"
+            ],
+            benefits: [
+                "Competitive pay with weekend differential",
+                "Flexible weekend scheduling",
+                "Health insurance options available",
+                "Paid time off for eligible employees",
+                "Ongoing training and professional development",
+                "Supportive work environment",
+                "Opportunity to make a real difference",
+                "Mileage reimbursement for client visits"
             ]
         }
     };
@@ -235,12 +307,12 @@ Best regards,
                         </button>
                         <p className="apply-note">
                             Questions about this position? Contact us at{' '}
-                            <a href="mailto:Info@journey-of-care.com" className="email-link">
-                                Info@journey-of-care.com
+                            <a href="mailto:info@luzihomehealth.com" className="email-link">
+                                info@luzihomehealth.com
                             </a>{' '}
                             or call{' '}
-                            <a href="tel:8324460705" className="phone-link">
-                                (832) 446-0705
+                            <a href="tel:2108973276" className="phone-link">
+                                (210) 897-3276
                             </a>
                         </p>
                     </div>

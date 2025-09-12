@@ -6,12 +6,6 @@ import Footer from '../components/Footer'
 import { blogsData, blogCategories } from '../data/blogsData'
 import blogsCopy from '../../copy/blogs.json'
 
-import profileImg1 from '../assets/p1.jpg'
-import profileImg2 from '../assets/p2.jpg'
-import profileImg3 from '../assets/p3.jpg'
-import profileImg4 from '../assets/test1.jpg'
-import profileImg5 from '../assets/test2.jpg'
-import pic from '../assets/pic.jpg'
 
 function Blogs() {
     const { blogId } = useParams();

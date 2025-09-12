@@ -1,4 +1,9 @@
 {
+  "images": {
+    "hero": {
+      "main": "/assets/test2.jpg"
+    }
+  },
   "hero": {
     "badge": "Refer Someone",
     "title": "Share the Gift of",

@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react'
 import GooeyBtn from './gooeybtn'
 import './hero.css'
-import pic from '../assets/pic.jpg'
-import p1 from '../assets/p1.jpg'
-import p2 from '../assets/p2.jpg'
-import p3 from '../assets/p3.jpg'
-import test1 from '../assets/test1.jpg'
-import test2 from '../assets/test2.jpg'
-import test3 from '../assets/test3.jpg'
-import decor from '../assets/download.svg'
 import { BsArrowUpRight, BsArrowUpLeft } from 'react-icons/bs'
 import GradientBlinds from '../../backgrounds/GradientBlinds/GradientBlinds'
 import homeCopy from '../../copy/home.json'
 
 function Hero() {
-    // Array of all 7 images
-    const images = [pic, test1, test2, test3];
+    // Array of all images from JSON
+    const images = homeCopy.images.hero.rotatingImages;
 
     // Array of text content for each image
     const textContent = homeCopy.hero.rotatingContent;
@@ -130,14 +122,14 @@ function Hero() {
 
                   
                     <div className="decoration_wrapper" >
-                        <img className="decor_top" src={decor} alt="" />
-                        <img className="decor_bottom" src={decor} alt="" />
+                        <img className="decor_top" src={homeCopy.images.hero.decor} alt="" />
+                        <img className="decor_bottom" src={homeCopy.images.hero.decor} alt="" />
 
                         <div className="decor_content">
                             <div className="decor_content_inner">
                                 <div className="arrow-icon">
                                     <BsArrowUpRight color='white' />
-                                    <img className="decor_bottom1" src={decor} alt="" />
+                                    <img className="decor_bottom1" src={homeCopy.images.hero.decor} alt="" />
                                 </div>
 
                                 <div className="vertical"></div>

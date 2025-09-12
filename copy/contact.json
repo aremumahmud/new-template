@@ -1,4 +1,9 @@
 {
+  "images": {
+    "hero": {
+      "main": "/assets/p1.jpg"
+    }
+  },
   "hero": {
     "badge": "Contact Us",
     "title": "Let's Start Your",

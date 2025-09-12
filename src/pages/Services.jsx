@@ -6,12 +6,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ServicesParallax from '../components/ServicesParallax'
 import ServicesFAQ from '../components/ServicesFAQ'
-import pic from '../assets/pic.jpg'
-import p1 from '../assets/p1.jpg'
-import p2 from '../assets/p2.jpg'
-import p3 from '../assets/p3.jpg'
-import test1 from '../assets/test1.jpg'
-import test2 from '../assets/test2.jpg'
 import servicesCopy from '../../copy/services.json'
 
 function Services() {
@@ -29,14 +23,7 @@ function Services() {
         }
     }, [serviceId]);
     
-    const serviceImages = {
-        'companionship-care': pic,
-        'personal-hygiene': p1,
-        'mobility-support': p2,
-        'meal-preparation': p3,
-        'medication-reminders': test1,
-        'light-housekeeping': test2
-    };
+    const serviceImages = servicesCopy.images.serviceImages;
 
     const currentService = servicesData[activeService];
 
@@ -142,7 +129,7 @@ function Services() {
             <section className="contact-section1">
                 <div className="contact-container">
                     <div className="contact-content" data-aos="fade-up">
-                        <h2 className="contact-title">
+                        <h2 className="contact-title1">
                             {servicesCopy.contact.title}
                         </h2>
                         <div className="contact-info-grid">

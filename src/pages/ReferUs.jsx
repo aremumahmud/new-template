@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FAQ from '../components/FAQ'
-import referImage from '../assets/test2.jpg'
-import verifiedIcon from '../assets/verified-check-svgrepo-com.svg'
 import emailService from '../services/emailService'
 import referUsCopy from '../../copy/referUs.json'
 
@@ -159,10 +157,10 @@ function ReferUs() {
                         </div>
                         
                         <div className="why-refer-image" data-aos="fade-left" data-aos-delay="300">
-                            <img src={referImage} alt="Caregiver helping senior" />
+                            <img src={referUsCopy.images.hero.main} alt="Caregiver helping senior" />
                             <div className="image-overlay">
                                 <div className="overlay-content">
-                                    <img src={verifiedIcon} alt="Verified" className="verified-icon" />
+                                    <div className="verified-icon">✓</div>
                                     <div className="overlay-text">
                                         <span className="overlay-main">{referUsCopy.whyRefer.imageOverlay.mainText}</span>
                                         <span className="overlay-sub">{referUsCopy.whyRefer.imageOverlay.subText}</span>

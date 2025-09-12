@@ -3,8 +3,6 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import careersImg from '../assets/p1.jpg'
-import nurseImg from '../assets/p2.jpg'
 import careersCopy from '../../copy/careers.json'
 
 function Careers() {
@@ -22,12 +20,12 @@ I am interested in applying for the ${position} position. Please find my resume 
 Best regards,
 [Your Name]`);
         
-        window.location.href = `mailto:Info@journey-of-care.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:info@luzihomehealth.com?subject=${subject}&body=${body}`;
     };
 
     const jobListings = careersCopy.jobListings.jobs.map((job, index) => ({
         ...job,
-        image: index === 0 ? careersImg : nurseImg
+        image: careersCopy.images.jobImages[job.slug] || careersCopy.images.jobImages['personal-care-assistant-full-time']
     }));
 
 

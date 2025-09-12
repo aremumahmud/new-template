@@ -1,4 +1,55 @@
 {
+  "images": {
+    "logo": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757646907/luzi_logo_nzaypt.png",
+    "hero": {
+      "rotatingImages": [
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1747917952/pexels-vlada-karpovich-5790702_1_jsorsb.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1747917952/pexels-vlada-karpovich-5790808_nopxnn.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1747919320/pexels-olly-3768131_lqsuol.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1747917955/pexels-yaroslav-shuraev-8088910_phrxs8.jpg"
+       
+      ],
+      "decor": "/assets/download.svg"
+    },
+    "about": {
+      "main": "/assets/test3.jpg"
+    },
+    "services": {
+      "serviceImages": [
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1747917952/pexels-vlada-karpovich-5790702_1_jsorsb.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757647571/pexels-kampus-7477691_fbuzpo.jpg", 
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757647660/pexels-jsme-mila-523821574-29372742_btuql4.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648020/pexels-mike-jones-8805864_tpce8a.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648078/pexels-kampus-7551646_mznizh.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648473/pexels-liliana-drew-9462344_crre4v.jpg"
+      ],
+      "verifiedIcon": "✓"
+    },
+    "testimonials": {
+      "profileImages": [
+        "/assets/p1.jpg",
+        "/assets/p2.jpg",
+        "/assets/p3.jpg",
+        "/assets/test1.jpg",
+        "/assets/test2.jpg",
+        "/assets/test3.jpg",
+        "/assets/pic.jpg"
+      ]
+    },
+    "blog": {
+      "articleImages": [
+        "/assets/p1.jpg",
+        "/assets/p2.jpg",
+        "/assets/p3.jpg",
+        "/assets/test1.jpg",
+        "/assets/test2.jpg",
+        "/assets/test3.jpg"
+      ]
+    },
+    "refer": {
+      "main": "/assets/test2.jpg"
+    }
+  },
   "header": {
     "logo": {
       "alt": "Luzi Home Health Services LLC - Professional Home Health Care in San Antonio, TX"

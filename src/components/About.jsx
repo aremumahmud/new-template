@@ -1,5 +1,4 @@
 import './About.css'
-import aboutImage from '../assets/test3.jpg'
 import homeCopy from '../../copy/home.json'
 
 function About() {
@@ -24,7 +23,7 @@ function About() {
                     </div>
                     
                     <div className="about-image" data-aos="fade-left" data-aos-delay="300">
-                        <img src={aboutImage} alt="Compassionate caregiving" />
+                        <img src={homeCopy.images.about.main} alt="Compassionate caregiving" />
                         <div className="image-overlay">
                             <div className="overlay-content">
                                 <div className="overlay-stat">

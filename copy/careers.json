@@ -1,38 +1,55 @@
 {
+  "images": {
+    "jobImages": {
+      "personal-care-assistant-full-time": "/assets/p1.jpg",
+      "personal-care-assistant-part-time": "/assets/p1.jpg",
+      "personal-care-assistant-weekend": "/assets/p1.jpg"
+    }
+  },
   "hero": {
     "badge": "Careers",
     "title": "Join Our",
-    "titleHighlight": "Personal Assistance Services Team",
-    "description": "Make a meaningful difference in people's lives while building a rewarding career in Personal Assistance Services. We're looking for compassionate, dedicated professionals to join our growing team in San Antonio.",
+    "titleHighlight": "Personal Care Team",
+    "description": "Make a meaningful difference in people's lives while building a rewarding career in personal care. We're looking for compassionate, dedicated Personal Care Assistants to join our growing team in San Antonio.",
     "stats": [
-      { "number": "$15-18", "label": "Hourly Rate" },
+      { "number": "Competitive", "label": "Pay" },
       { "number": "Flexible", "label": "Scheduling" },
       { "number": "Full Benefits", "label": "Package Available" }
     ]
   },
   "jobListings": {
     "title": "Current Openings",
-    "subtitle": "Explore our available positions and join our team of dedicated healthcare professionals.",
+    "subtitle": "Join our team of dedicated Personal Care Assistants making a difference in San Antonio.",
     "jobs": [
       {
         "id": 1,
-        "slug": "certified-home-health-aide",
-        "title": "Certified Home Health Aide",
-        "type": "Full-time / Part-time",
+        "slug": "personal-care-assistant-full-time",
+        "title": "Personal Care Assistant",
+        "type": "Full-time",
         "location": "San Antonio, TX & Surrounding Areas",
-        "salary": "$15-18/hour",
+        "salary": "Competitive Pay",
         "posted": "Now Hiring",
-        "description": "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated, certified Personal Assistance Services caregivers who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes in San Antonio."
+        "description": "Join our compassionate team and make a meaningful difference in the lives of our clients. We're seeking dedicated Personal Care Assistants who are passionate about providing exceptional care to seniors and individuals with disabilities in the comfort of their own homes in San Antonio."
       },
       {
         "id": 2,
-        "slug": "licensed-vocational-nurse",
-        "title": "Licensed Vocational Nurse (LVN)",
-        "type": "Full-time / Part-time",
+        "slug": "personal-care-assistant-part-time",
+        "title": "Personal Care Assistant",
+        "type": "Part-time",
         "location": "San Antonio, TX & Surrounding Areas",
-        "salary": "$22-28/hour",
+        "salary": "Competitive Pay",
         "posted": "Now Hiring",
-        "description": "We are seeking a compassionate and skilled Licensed Vocational Nurse to provide professional Personal Assistance Services in clients' homes in San Antonio. This position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality Personal Assistance Services."
+        "description": "We are seeking compassionate Personal Care Assistants to provide professional care in clients' homes in San Antonio. This position offers the opportunity to build meaningful relationships with clients and their families while delivering high-quality personal care services."
+      },
+      {
+        "id": 3,
+        "slug": "personal-care-assistant-weekend",
+        "title": "Personal Care Assistant",
+        "type": "Weekend Shifts",
+        "location": "San Antonio, TX & Surrounding Areas",
+        "salary": "Competitive Pay",
+        "posted": "Now Hiring",
+        "description": "Looking for weekend Personal Care Assistants to join our team. Provide essential care and companionship to clients during weekend hours while maintaining a flexible schedule that works for you."
       }
     ],
     "buttons": {

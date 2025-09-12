@@ -1,18 +1,11 @@
 import './Services.css'
-import personalCareImg from '../assets/p1.jpg'
-import companionCareImg from '../assets/p2.jpg'
-import respiteCareImg from '../assets/p3.jpg'
-import facilityImg from '../assets/test1.jpg'
-import specializedImg from '../assets/test2.jpg'
-import endOfLifeImg from '../assets/pic.jpg'
-import verified from '../assets/verified-check-svgrepo-com.svg'
 import homeCopy from '../../copy/home.json'
 
 function Services() {
     const services = homeCopy.services.serviceCards.map((service, index) => ({
         id: index + 1,
         title: service.title,
-        image: [personalCareImg, companionCareImg, respiteCareImg, facilityImg, specializedImg, endOfLifeImg][index],
+        image: homeCopy.images.services.serviceImages[index],
         description: service.description,
         stats: service.stats,
         verified: true
@@ -47,7 +40,7 @@ function Services() {
                                         <h3>{service.title}</h3>
                                         {service.verified && (
                                             // <div className="verified-badge">✓</div>
-                                            <img className='verified-badge' src={verified} alt="" />
+                                            <div className="verified-badge">{homeCopy.images.services.verifiedIcon}</div>
                                         )}
                                     </div>
                                     <p className="service-desc">{service.description}</p>

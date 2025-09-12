@@ -239,9 +239,18 @@
 }
 
 .verified-icon {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-light);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(1);
+    background-color: rgba(42, 157, 143, 0.9);
+    border-radius: 50%;
+    line-height: 1;
 }
 
 .overlay-text {

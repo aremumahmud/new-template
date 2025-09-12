@@ -1,5 +1,4 @@
 import './Header.css'
-import logo from '../assets/luzi_logo.png'
 import GooeyBtn from './gooeybtn'
 // import ThemeToggle from './ThemeToggle'
 import { useState, useEffect } from 'react'
@@ -71,7 +70,7 @@ function Header() {
       <div className="header-container">
         {/* Logo */}
         <Link to="/" className="logo" data-aos="fade-right" data-aos-delay="100" onClick={closeMobileMenu}>
-          <img src={logo} alt={homeCopy.header.logo.alt} />
+          <img src={homeCopy.images.logo} alt={homeCopy.header.logo.alt} />
         </Link>
 
         {/* Desktop Navigation */}

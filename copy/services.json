@@ -1,4 +1,14 @@
 {
+  "images": {
+    "serviceImages": {
+      "companionship-care": "https://res.cloudinary.com/dvauarkh6/image/upload/v1747917952/pexels-vlada-karpovich-5790702_1_jsorsb.jpg",
+      "personal-hygiene": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757647571/pexels-kampus-7477691_fbuzpo.jpg",
+      "mobility-support": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757647660/pexels-jsme-mila-523821574-29372742_btuql4.jpg",
+      "meal-preparation": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648020/pexels-mike-jones-8805864_tpce8a.jpg",
+      "medication-reminders": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648078/pexels-kampus-7551646_mznizh.jpg",
+      "light-housekeeping": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648473/pexels-liliana-drew-9462344_crre4v.jpg"
+    }
+  },
   "hero": {
     "badge": "Our Services",
     "title": "Caring for San Antonio",

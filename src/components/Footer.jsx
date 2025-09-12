@@ -2,7 +2,6 @@ import './Footer.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import homeCopy from '../../copy/home.json'
-import logo from '../assets/luzi_logo.png'
 
 function Footer() {
     const [email, setEmail] = useState('');
@@ -23,7 +22,7 @@ function Footer() {
                     {/* Company Info */}
                     <div className="footer-section company-info">
                         <div className="footer-logo">
-                            <img src={logo} alt={homeCopy.footer.companyName} className="footer-logo-img" />
+                            <img src={homeCopy.images.logo} alt={homeCopy.footer.companyName} className="footer-logo-img" />
                             <h3>{homeCopy.footer.companyName}</h3>
                         </div>
                         <p className="company-description">

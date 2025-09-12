@@ -1,4 +1,9 @@
 {
+  "images": {
+    "hero": {
+      "main": "/assets/pic.jpg"
+    }
+  },
   "hero": {
     "badge": "Schedule Care",
     "title": "Schedule Your",

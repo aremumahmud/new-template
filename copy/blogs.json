@@ -1,4 +1,19 @@
 {
+  "images": {
+    "hero": {
+      "main": "/assets/pic.jpg"
+    },
+    "articles": {
+      "featured": "/assets/p1.jpg",
+      "gallery": [
+        "/assets/p1.jpg",
+        "/assets/p2.jpg",
+        "/assets/p3.jpg",
+        "/assets/test1.jpg",
+        "/assets/test2.jpg"
+      ]
+    }
+  },
   "hero": {
     "badge": "Our Blog",
     "title": "Personal Assistance Services Tips &",

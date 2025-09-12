@@ -1,12 +1,5 @@
 import './Testimonials.css'
 import { useState, useEffect } from 'react'
-import profileImg1 from '../assets/p1.jpg'
-import profileImg2 from '../assets/p2.jpg'
-import profileImg3 from '../assets/p3.jpg'
-import profileImg4 from '../assets/test1.jpg'
-import profileImg5 from '../assets/test2.jpg'
-import profileImg6 from '../assets/test3.jpg'
-import profileImg7 from '../assets/pic.jpg'
 import homeCopy from '../../copy/home.json'
 
 function Testimonials() {
@@ -19,7 +12,7 @@ function Testimonials() {
         feedback: testimonial.feedback,
         name: testimonial.name,
         location: testimonial.location,
-        image: [profileImg1, profileImg2, profileImg3, profileImg4, profileImg5, profileImg6][index]
+        image: homeCopy.images.testimonials.profileImages[index]
     }));
 
     const totalSlides = Math.ceil(testimonials.length / itemsPerSlide);

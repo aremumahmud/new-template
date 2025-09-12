@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { servicesList } from '../data/servicesData'
-import schedulingImg from '../assets/pic.jpg'
 import emailService from '../services/emailService'
 import schedulingCopy from '../../copy/scheduling.json'
 
@@ -178,7 +177,7 @@ function Scheduling() {
                             </div>
                         </div>
                         <div className="scheduling-hero-image" data-aos="fade-left" data-aos-delay="300">
-                            <img src={schedulingImg} alt="Compassionate Care" />
+                            <img src={schedulingCopy.images.hero.main} alt="Compassionate Care" />
                         </div>
                     </div>
                 </div>

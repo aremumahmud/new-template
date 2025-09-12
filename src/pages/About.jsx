@@ -3,9 +3,6 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Parallax from '../components/Parallax'
-import aboutImg1 from '../assets/pic.jpg'
-import aboutImg2 from '../assets/p1.jpg'
-import aboutImg3 from '../assets/p2.jpg'
 import aboutCopy from '../../copy/about.json'
 
 function About() {
@@ -83,7 +80,7 @@ function About() {
                             ))}
                         </div>
                         <div className="story-image" data-aos="fade-left" data-aos-delay="200">
-                            <img src={aboutImg2} alt="Our Story" />
+                            <img src={aboutCopy.images.hero.gallery[1]} alt="Our Story" />
                         </div>
                     </div>
                 </div>
@@ -118,7 +115,7 @@ function About() {
                 <div className="commitment-container">
                     <div className="commitment-content">
                         <div className="commitment-image" data-aos="fade-right">
-                            <img src={aboutImg3} alt="Our Commitment" />
+                            <img src={aboutCopy.images.hero.gallery[2]} alt="Our Commitment" />
                         </div>
                         <div className="commitment-text" data-aos="fade-left" data-aos-delay="200">
                             <h2 className="commitment-title">{aboutCopy.commitment.title}</h2>

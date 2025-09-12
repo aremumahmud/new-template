@@ -1,5 +1,4 @@
 import './Refer.css'
-import referImage from '../assets/test2.jpg'
 import { Link } from 'react-router-dom'
 import homeCopy from '../../copy/home.json'
 
@@ -52,7 +51,7 @@ function Refer() {
                     </div>
                     
                     <div className="refer-image" data-aos="fade-left" data-aos-delay="300">
-                        <img src={referImage} alt="Caregiver helping senior" />
+                        <img src={homeCopy.images.refer.main} alt="Caregiver helping senior" />
                         <div className="image-overlay">
                             <div className="overlay-content">
                                 <div className="overlay-text">
