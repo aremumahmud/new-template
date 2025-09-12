@@ -1,18 +1,41 @@
 // Email service using Brevo API (formerly Sendinblue)
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 const REACT_APP_BREVO_API_KEY = import.meta.env.VITE_API_KEY;
+const Admin_Email = import.meta.env.VITE_ADMIN_EMAIL;
+const Admin_Name = import.meta.env.VITE_ADMIN_NAME;
+// Validate API key
+console.log('API Key loaded:', REACT_APP_BREVO_API_KEY ? 'Yes' : 'No');
+if (!REACT_APP_BREVO_API_KEY) {
+    console.error('VITE_API_KEY environment variable is not set. Please check your .env file.');
+}
 
 class EmailService {
     constructor(apiKey) {
         this.apiKey = apiKey;
+        this.isConfigured = !!apiKey;
+        
+        if (!this.isConfigured) {
+            console.warn('EmailService: No API key provided. Email functionality will be disabled.');
+        }
+
+        console.log('API Key loaded:', apiKey ? 'Yes' : 'No');
+        
         this.headers = {
-            'accept': 'application/json',
-            'api-key': apiKey,
+            'Accept': 'application/json',
+            'api-key': apiKey || '',
             'content-type': 'application/json'
         };
     }
 
     async sendEmail(emailData) {
+        if (!this.isConfigured) {
+            console.error('EmailService: Cannot send email - API key not configured');
+            return { 
+                success: false, 
+                error: 'Email service not configured. Please check your environment variables.' 
+            };
+        }
+
         try {
             const response = await fetch(BREVO_API_URL, {
                 method: 'POST',
@@ -22,6 +45,7 @@ class EmailService {
 
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error('Brevo API Error:', errorData);
                 throw new Error(`Failed to send email: ${response.status} - ${errorData.message || 'Unknown error'}`);
             }
 
@@ -38,13 +62,13 @@ class EmailService {
     async sendContactFormEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care Website",
-                email: "no-reply@journey-of-care.com"
+                name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
-                    email: "Info@journey-of-care.com",
-                    name: "Journey of Care Team"
+                    email: Admin_Email,
+                    name: Admin_Name
                 }
             ],
             replyTo: {
@@ -63,8 +87,8 @@ class EmailService {
     async sendContactConfirmationEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care",
-                email: "no-reply@journey-of-care.com"
+                name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
@@ -72,7 +96,7 @@ class EmailService {
                     name: formData.name
                 }
             ],
-            subject: "Thank You for Contacting Journey of Care",
+            subject: `Thank You for Contacting ${Admin_Name}`,
             htmlContent: this.generateContactConfirmationHTML(formData),
             textContent: this.generateContactConfirmationText(formData)
         };
@@ -84,13 +108,13 @@ class EmailService {
     async sendConsultationFormEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care Website",
-                email: "no-reply@journey-of-care.com"
+                name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
-                    email: "Info@journey-of-care.com",
-                    name: "Journey of Care Team"
+                    email: Admin_Email,
+                    name: Admin_Name
                 }
             ],
             replyTo: {
@@ -109,8 +133,8 @@ class EmailService {
     async sendConsultationConfirmationEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care",
-                email: "no-reply@journey-of-care.com"
+                name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
@@ -118,7 +142,7 @@ class EmailService {
                     name: `${formData.firstName} ${formData.lastName}`
                 }
             ],
-            subject: "Consultation Request Received - Journey of Care",
+            subject: `Consultation Request Received - ${Admin_Name}`,
             htmlContent: this.generateConsultationConfirmationHTML(formData),
             textContent: this.generateConsultationConfirmationText(formData)
         };
@@ -130,13 +154,13 @@ class EmailService {
     async sendReferralFormEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care Website",
-                email: "no-reply@journey-of-care.com"
+                name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
-                    email: "referrals@journey-of-care.com",
-                    name: "Journey of Care Referral Team"
+                    email: Admin_Email,
+                    name: Admin_Name
                 }
             ],
             replyTo: {
@@ -155,8 +179,8 @@ class EmailService {
     async sendReferralConfirmationEmail(formData) {
         const emailData = {
             sender: {
-                name: "Journey of Care",
-                email: "no-reply@journey-of-care.com"
+            name: Admin_Name,
+                email: Admin_Email
             },
             to: [
                 {
@@ -164,7 +188,7 @@ class EmailService {
                     name: formData.referrerName
                 }
             ],
-            subject: "Thank You for Your Referral - Journey of Care",
+            subject: `Thank You for Your Referral - ${Admin_Name}`,
             htmlContent: this.generateReferralConfirmationHTML(formData),
             textContent: this.generateReferralConfirmationText(formData)
         };
@@ -201,7 +225,7 @@ class EmailService {
                     <tr>
                         <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
                             <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">🏥 New Contact Form Submission</h1>
-                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">Journey of Care - Contact Request</p>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">${Admin_Name} - Contact Request</p>
                         </td>
                     </tr>
                     
@@ -290,7 +314,7 @@ class EmailService {
                     <!-- Footer -->
                     <tr>
                         <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
-                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">Journey of Care | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | Info@journey-of-care.com</p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | ${Admin_Email}</p>
                             <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>Please respond within 24 hours for urgent requests</em></p>
                         </td>
                     </tr>
@@ -328,7 +352,7 @@ class EmailService {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
     <div class="header">
         <h1>📅 New Consultation Request</h1>
-        <p>Journey of Care - Care Consultation</p>
+        <p>${Admin_Name} - Care Consultation</p>
     </div>
     
     <div class="content">
@@ -443,7 +467,7 @@ class EmailService {
     </div>
     
     <div class="footer">
-        <p>Journey of Care | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | Info@journey-of-care.com</p>
+        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | ${Admin_Email}</p>
         <p><em>Please schedule consultation within 24-48 hours</em></p>
     </div>
 </body>
@@ -471,7 +495,7 @@ class EmailService {
 <body>
     <div class="header">
         <h1>🤝 New Referral Submission</h1>
-        <p>Journey of Care - Client Referral</p>
+        <p>${Admin_Name} - Client Referral</p>
     </div>
     
     <div class="content">
@@ -553,7 +577,7 @@ class EmailService {
     </div>
     
     <div class="footer">
-        <p>Journey of Care | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | referrals@journey-of-care.com</p>
+        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | ${Admin_Email}</p>
         <p><em>Please contact the referred client within 24 hours</em></p>
     </div>
 </body>
@@ -595,7 +619,7 @@ class EmailService {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="header">
                         <h1>Thank You for Reaching Out!</h1>
-                        <p>Journey of Care - We've Received Your Message</p>
+                        <p>${Admin_Name} - We've Received Your Message</p>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -603,7 +627,7 @@ class EmailService {
                         <div class="thank-you-section">
                             <div class="thank-you-icon">💙</div>
                             <h2 class="thank-you-title">We're Here to Help</h2>
-                            <p class="thank-you-text">Thank you for contacting Journey of Care. Your message is important to us, and we're committed to providing you with the compassionate care and support you need.</p>
+                            <p class="thank-you-text">Thank you for contacting ${Admin_Name}. Your message is important to us, and we're committed to providing you with the compassionate care and support you need.</p>
                         </div>
                         <div class="info-box">
                             <h3>📋 Your Message Details</h3>
@@ -623,15 +647,15 @@ class EmailService {
                         <div class="contact-section">
                             <h3>Need Immediate Assistance?</h3>
                             <p><a href="tel:8324460705">(832) 446-0705</a><br/>Available 24/7 for emergencies</p>
-                            <p><a href="mailto:Info@journey-of-care.com">Info@journey-of-care.com</a><br/>We respond to emails within 24 hours</p>
+                            <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>We respond to emails within 24 hours</p>
                         </div>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="footer">
-                        <p><strong>Journey of Care</strong></p>
+                        <p><strong>${Admin_Name}</strong></p>
                         <p>Compassionate Home Care Services</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:Info@journey-of-care.com">Info@journey-of-care.com</a></p>
+                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
                     </td></tr>
                 </table>
             </div>
@@ -675,7 +699,7 @@ class EmailService {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="header">
                         <h1>Consultation Request Received</h1>
-                        <p>Journey of Care - Your Care Journey Begins</p>
+                        <p>${Admin_Name} - Your Care Journey Begins</p>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -683,7 +707,7 @@ class EmailService {
                         <div class="thank-you-section">
                             <div class="thank-you-icon">🏥</div>
                             <h2 class="thank-you-title">Thank You for Trusting Us</h2>
-                            <p class="thank-you-text">We've received your consultation request and are honored that you're considering Journey of Care for your loved one's needs.</p>
+                            <p class="thank-you-text">We've received your consultation request and are honored that you're considering ${Admin_Name} for your loved one's needs.</p>
                         </div>
                         <div class="consultation-summary">
                             <h3>📋 Your Consultation Request</h3>
@@ -704,15 +728,15 @@ class EmailService {
                         <div class="contact-section">
                             <h3>Questions Before Your Consultation?</h3>
                             <p><a href="tel:8324460705">(832) 446-0705</a><br/>Available 24/7 for urgent needs</p>
-                            <p><a href="mailto:Info@journey-of-care.com">Info@journey-of-care.com</a><br/>Our Care Coordinators are standing by</p>
+                            <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>Our Care Coordinators are standing by</p>
                         </div>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="footer">
-                        <p><strong>Journey of Care</strong></p>
+                        <p><strong>${Admin_Name}</strong></p>
                         <p>Licensed • Insured • Trusted</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:Info@journey-of-care.com">Info@journey-of-care.com</a></p>
+                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
                     </td></tr>
                 </table>
             </div>
@@ -757,7 +781,7 @@ class EmailService {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="header">
                         <h1>Thank You for Your Referral!</h1>
-                        <p>Journey of Care - Expanding Our Circle of Care</p>
+                        <p>${Admin_Name} - Expanding Our Circle of Care</p>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -765,7 +789,7 @@ class EmailService {
                         <div class="thank-you-section">
                             <div class="thank-you-icon">🤝</div>
                             <h2 class="thank-you-title">Your Referral Matters</h2>
-                            <p class="thank-you-text">Thank you for referring someone to Journey of Care. Your trust in our services means everything to us.</p>
+                            <p class="thank-you-text">Thank you for referring someone to ${Admin_Name}. Your trust in our services means everything to us.</p>
                         </div>
                         <div class="referral-highlight">
                             <h3>🎯 Referral Received</h3>
@@ -784,20 +808,20 @@ class EmailService {
                         <div class="appreciation-section">
                             <h3>🎁 Our Referral Appreciation Program</h3>
                             <p>As a token of our gratitude, you'll receive a special thank-you gift once your referral begins services with us.</p>
-                            <p><strong>Thank you for being a Journey of Care advocate!</strong></p>
+                            <p><strong>Thank you for being a ${Admin_Name} advocate!</strong></p>
                         </div>
                         <div class="contact-section">
                             <h3>Questions About Your Referral?</h3>
                             <p><a href="tel:8324460705">(832) 446-0705</a><br/>Referral Team - Available 24/7</p>
-                            <p><a href="mailto:referrals@journey-of-care.com">referrals@journey-of-care.com</a><br/>Dedicated referral support</p>
+                            <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>Dedicated referral support</p>
                         </div>
                     </td></tr>
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr><td class="footer">
-                        <p><strong>Journey of Care</strong></p>
+                        <p><strong>${Admin_Name}</strong></p>
                         <p>Building Trust, One Family at a Time</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:referrals@journey-of-care.com">referrals@journey-of-care.com</a></p>
+                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
                     </td></tr>
                 </table>
             </div>
@@ -810,7 +834,7 @@ class EmailService {
     // Text content generators for fallback
     generateContactFormText(formData) {
         return `
-New Contact Form Submission - Journey of Care
+New Contact Form Submission - ${Admin_Name}
 
 URGENCY: ${this.formatUrgency(formData.urgency)}
 SUBMITTED: ${new Date().toLocaleString()}
@@ -825,15 +849,15 @@ MESSAGE:
 ${formData.message || 'No message provided'}
 
 ---
-Journey of Care
+${Admin_Name}
 (832) 446-0705
-Info@journey-of-care.com
+${Admin_Email}
 `;
     }
 
     generateConsultationFormText(formData) {
         return `
-New Consultation Request - Journey of Care
+New Consultation Request - ${Admin_Name}
 
 URGENCY: ${this.formatUrgency(formData.urgency)}
 SUBMITTED: ${new Date().toLocaleString()}
@@ -868,15 +892,14 @@ Special Requests: ${formData.specialRequests || 'None'}
 Additional Information: ${formData.additionalInfo || 'None provided'}
 
 ---
-Journey of Care
+${Admin_Name}
 (832) 446-0705
-Info@journey-of-care.com
+${Admin_Email}
 `;
     }
-
     generateReferralFormText(formData) {
         return `
-New Referral Submission - Journey of Care
+New Referral Submission - ${Admin_Name}
 
 URGENCY: ${this.formatUrgency(formData.urgency)}
 SUBMITTED: ${new Date().toLocaleString()}
@@ -903,20 +926,20 @@ ${formData.additionalInfo || 'None provided'}
 Terms Agreed: ${formData.agreeToTerms ? 'Yes' : 'No'}
 
 ---
-Journey of Care
+${Admin_Name}
 (832) 446-0705
-referrals@journey-of-care.com
+${Admin_Email}
 `;
     }
 
     // User confirmation text content generators
     generateContactConfirmationText(formData) {
         return `
-Thank You for Contacting Journey of Care
+Thank You for Contacting ${Admin_Name}
 
 Dear ${formData.name || 'Valued Customer'},
 
-Thank you for reaching out to Journey of Care. We've received your message and want to assure you that your inquiry is important to us.
+Thank you for reaching out to ${Admin_Name}. We've received your message and want to assure you that your inquiry is important to us.
 
 YOUR MESSAGE DETAILS:
 - Submitted: ${new Date().toLocaleString()}
@@ -931,21 +954,21 @@ WHAT HAPPENS NEXT:
 
 NEED IMMEDIATE ASSISTANCE?
 Phone: (832) 446-0705 - Available 24/7 for emergencies
-Email: Info@journey-of-care.com - We respond within 24 hours
+Email: ${Admin_Email} - We respond within 24 hours
 
-Journey of Care
+${Admin_Name}
 Compassionate Home Care Services
-Conroe, TX & Surrounding Communities
+San Antonio, TX & Surrounding Communities
 `;
     }
 
     generateConsultationConfirmationText(formData) {
         return `
-Consultation Request Received - Journey of Care
+Consultation Request Received - ${Admin_Name}
 
 Dear ${formData.firstName || ''} ${formData.lastName || ''},
 
-Thank you for trusting Journey of Care with your loved one's care needs. We've received your consultation request and are honored to be considered for this important responsibility.
+Thank you for trusting ${Admin_Name} with your loved one's care needs. We've received your consultation request and are honored to be considered for this important responsibility.
 
 YOUR CONSULTATION REQUEST:
 - Submitted: ${new Date().toLocaleString()}
@@ -961,21 +984,21 @@ WHAT TO EXPECT NEXT:
 
 QUESTIONS BEFORE YOUR CONSULTATION?
 Phone: (832) 446-0705 - Available 24/7 for urgent needs
-Email: Info@journey-of-care.com - Our Care Coordinators are standing by
+Email: ${Admin_Email} - Our Care Coordinators are standing by
 
-Journey of Care
+${Admin_Name}
 Licensed • Insured • Trusted
-Conroe, TX & Surrounding Communities
+San Antonio, TX & Surrounding Communities
 `;
     }
 
     generateReferralConfirmationText(formData) {
         return `
-Thank You for Your Referral - Journey of Care
+Thank You for Your Referral - ${Admin_Name}
 
 Dear ${formData.referrerName || 'Valued Advocate'},
 
-Thank you for referring someone to Journey of Care. Your trust in our services means everything to us, and we're honored to extend our compassionate care to another family through your recommendation.
+Thank you for referring someone to ${Admin_Name}. Your trust in our services means everything to us, and we're honored to extend our compassionate care to another family through your recommendation.
 
 REFERRAL RECEIVED:
 You've referred ${formData.clientName || 'a potential client'} for care services.
@@ -991,15 +1014,15 @@ WHAT HAPPENS NEXT:
 REFERRAL APPRECIATION PROGRAM:
 As a token of our gratitude, you'll receive a special thank-you gift once your referral begins services with us. But more importantly, you've helped us extend compassionate care to another family in need.
 
-Thank you for being a Journey of Care advocate!
+Thank you for being a ${Admin_Name} advocate!
 
 QUESTIONS ABOUT YOUR REFERRAL?
 Phone: (832) 446-0705 - Referral Team, Available 24/7
-Email: referrals@journey-of-care.com - Dedicated referral support
+Email: ${Admin_Email} - Dedicated referral support
 
-Journey of Care
+${Admin_Name}
 Building Trust, One Family at a Time
-Conroe, TX & Surrounding Communities
+San Antonio, TX & Surrounding Communities
 `;
     }
 
@@ -1108,13 +1131,13 @@ Conroe, TX & Surrounding Communities
     async sendNewsletterSubscriptionEmail(emailData) {
         const emailPayload = {
             sender: {
-                name: "Journey of Care Newsletter",
-                email: "no-reply@journey-of-care.com"
+                name: `${Admin_Name} Newsletter`,
+                email: Admin_Email
             },
             to: [
                 {
-                    email: "Info@journey-of-care.com",
-                    name: "Journey of Care Team"
+                    email: Admin_Email,
+                    name: `${Admin_Name} Team`
                 }
             ],
             subject: "New Newsletter Subscription",
@@ -1154,7 +1177,7 @@ Conroe, TX & Surrounding Communities
                     <tr>
                         <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
                             <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">📧 New Newsletter Subscription</h1>
-                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">Journey of Care - Newsletter Signup</p>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">${Admin_Name} - Newsletter Signup</p>
                         </td>
                     </tr>
                     
@@ -1190,7 +1213,7 @@ Conroe, TX & Surrounding Communities
                     <!-- Footer -->
                     <tr>
                         <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
-                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">Journey of Care | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | Info@journey-of-care.com</p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | ${Admin_Email}</p>
                             <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>New newsletter subscriber added to mailing list</em></p>
                         </td>
                     </tr>
@@ -1206,16 +1229,16 @@ Conroe, TX & Surrounding Communities
     // Newsletter subscription text template
     generateNewsletterSubscriptionText(emailData) {
         return `
-New Newsletter Subscription - Journey of Care
+New Newsletter Subscription - ${Admin_Name}
 
 SUBSCRIPTION DETAILS:
 Email: ${emailData.email}
 Date: ${new Date().toLocaleString()}
 
 ---
-Journey of Care
+${Admin_Name}
 (832) 446-0705
-Info@journey-of-care.com
+${Admin_Email}
 `;
     }
 }

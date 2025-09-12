@@ -1,0 +1,35 @@
+{
+  "name": "Luzi Home Health Services LLC",
+  "short_name": "Luzi Home Health",
+  "description": "Professional Personal Assistance Services (PAS) in San Antonio, TX. Compassionate care, companionship, and support for seniors and individuals with disabilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2A9D8F",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["health", "medical", "business"],
+  "icons": [
+    {
+      "src": "/src/assets/luzi_logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/src/assets/luzi_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/src/assets/luzi_logo.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}

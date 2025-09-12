@@ -545,7 +545,7 @@ function Scheduling() {
                                             onChange={handleInputChange}
                                             required
                                             placeholder={schedulingCopy.form.step4.fields.zipCode.placeholder}
-                                            pattern="[0-9]{5}"
+                                      
                                             disabled={isSubmitting}
                                         />
                                     </div>
