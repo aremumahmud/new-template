@@ -37,9 +37,23 @@ vercel
 Set these in your Vercel dashboard under Project Settings > Environment Variables:
 
 ```env
-VITE_API_KEY=your_brevo_api_key_here
+# Brevo SMTP Configuration
+VITE_BREVO_SMTP_USER=your_brevo_smtp_username
+VITE_BREVO_SMTP_PASS=your_brevo_smtp_password
+
+# Agency Information
+VITE_ADMIN_EMAIL=info@luzihomehealth.com
+VITE_ADMIN_NAME=Luzi Home Health Services LLC
+
+# Environment
 NODE_ENV=production
 ```
+
+### 🔑 Getting Brevo SMTP Credentials:
+1. Log into your Brevo account
+2. Go to **SMTP & API** → **SMTP**
+3. Generate or copy your SMTP username and password
+4. Use these credentials in your environment variables
 
 ## 🔧 Configuration Files
 

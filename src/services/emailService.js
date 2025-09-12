@@ -1,38 +1,44 @@
-// Email service using Brevo API (formerly Sendinblue)
-const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
-const REACT_APP_BREVO_API_KEY = import.meta.env.VITE_API_KEY;
-const Admin_Email = import.meta.env.VITE_Admin_Email;
-const Admin_Name = import.meta.env.VITE_Admin_Name;
+// Email service using Brevo SMTP (formerly Sendinblue)
+const BREVO_SMTP_HOST = 'smtp-relay.brevo.com';
+const BREVO_SMTP_PORT = 587;
+const BREVO_SMTP_USER = import.meta.env.VITE_BREVO_SMTP_USER;
+const BREVO_SMTP_PASS = import.meta.env.VITE_BREVO_SMTP_PASS;
+const Admin_Email = import.meta.env.VITE_ADMIN_EMAIL;
+const Admin_Name = import.meta.env.VITE_ADMIN_NAME;
 
 console.log('Admin_Email:', Admin_Email);
 console.log('Admin_Name:', Admin_Name);
-// Validate API key
-console.log('API Key loaded:', REACT_APP_BREVO_API_KEY ? 'Yes' : 'No');
-if (!REACT_APP_BREVO_API_KEY) {
-    console.error('VITE_API_KEY environment variable is not set. Please check your .env file.');
+// Validate SMTP credentials
+console.log('SMTP User loaded:', BREVO_SMTP_USER ? 'Yes' : 'No');
+console.log('SMTP Pass loaded:', BREVO_SMTP_PASS ? 'Yes' : 'No');
+if (!BREVO_SMTP_USER || !BREVO_SMTP_PASS) {
+    console.error('VITE_BREVO_SMTP_USER and VITE_BREVO_SMTP_PASS environment variables must be set. Please check your .env file.');
 }
-//hiii
+
 class EmailService {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
-        this.isConfigured = !!apiKey;
+    constructor() {
+        this.smtpConfig = {
+            host: BREVO_SMTP_HOST,
+            port: BREVO_SMTP_PORT,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: BREVO_SMTP_USER,
+                pass: BREVO_SMTP_PASS
+            }
+        };
+        
+        this.isConfigured = !!(BREVO_SMTP_USER && BREVO_SMTP_PASS);
         
         if (!this.isConfigured) {
-            console.warn('EmailService: No API key provided. Email functionality will be disabled.');
+            console.warn('EmailService: SMTP credentials not provided. Email functionality will be disabled.');
         }
 
-        console.log('API Key loaded:', apiKey ? 'Yes' : 'No');
-        
-        this.headers = {
-            'Accept': 'application/json',
-            'api-key': apiKey || '',
-            'content-type': 'application/json'
-        };
+        console.log('SMTP configured:', this.isConfigured ? 'Yes' : 'No');
     }
 
     async sendEmail(emailData) {
         if (!this.isConfigured) {
-            console.error('EmailService: Cannot send email - API key not configured');
+            console.error('EmailService: Cannot send email - SMTP not configured');
             return { 
                 success: false, 
                 error: 'Email service not configured. Please check your environment variables.' 
@@ -40,23 +46,30 @@ class EmailService {
         }
 
         try {
-            const response = await fetch(BREVO_API_URL, {
+            // Call the serverless function to send email via SMTP
+            const response = await fetch('/api/send-email', {
                 method: 'POST',
-                headers: this.headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(emailData)
             });
 
+            const result = await response.json();
+
             if (!response.ok) {
-                const errorData = await response.json();
-                console.error('Brevo API Error:', errorData);
-                throw new Error(`Failed to send email: ${response.status} - ${errorData.message || 'Unknown error'}`);
+                console.error('SMTP API Error:', result);
+                throw new Error(result.error || 'Failed to send email via SMTP');
             }
 
-            const result = await response.json();
-            console.log('Email sent successfully:', result);
-            return { success: true, data: result };
+            console.log('Email sent successfully via SMTP:', result.messageId);
+            return { 
+                success: true, 
+                data: { messageId: result.messageId },
+                message: result.message
+            };
         } catch (error) {
-            console.error('Email sending error:', error);
+            console.error('SMTP email sending error:', error);
             return { success: false, error: error.message };
         }
     }
@@ -1247,6 +1260,6 @@ ${Admin_Email}
 }
 
 // Export a singleton instance
-const emailService = new EmailService(REACT_APP_BREVO_API_KEY || '');
+const emailService = new EmailService();
 
 export default emailService;
