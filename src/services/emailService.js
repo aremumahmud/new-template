@@ -8,7 +8,7 @@ console.log('API Key loaded:', REACT_APP_BREVO_API_KEY ? 'Yes' : 'No');
 if (!REACT_APP_BREVO_API_KEY) {
     console.error('VITE_API_KEY environment variable is not set. Please check your .env file.');
 }
-
+//hiii
 class EmailService {
     constructor(apiKey) {
         this.apiKey = apiKey;
