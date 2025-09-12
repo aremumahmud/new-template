@@ -1,5 +1,6 @@
 import './Contact.css'
 import { useState } from 'react'
+import emailService from '../services/emailService'
 import homeCopy from '../../copy/home.json'
 
 function Contact() {
@@ -8,8 +9,12 @@ function Contact() {
         email: '',
         phone: '',
         service: '',
+        urgency: 'planning',
         message: ''
     });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -19,18 +24,54 @@ function Contact() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log('Form submitted:', formData);
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            service: '',
-            message: ''
-        });
+        setIsSubmitting(true);
+        
+        try {
+            // Send admin notification email
+            const adminResult = await emailService.sendContactFormEmail(formData);
+            
+            if (adminResult.success) {
+                console.log('Contact form submitted successfully:', formData);
+                
+                // Send user confirmation email (only if user provided email)
+                if (formData.email) {
+                    try {
+                        await emailService.sendContactConfirmationEmail(formData);
+                        console.log('Contact confirmation email sent to user');
+                    } catch (confirmationError) {
+                        console.warn('Failed to send confirmation email to user:', confirmationError);
+                        // Don't fail the whole process if confirmation email fails
+                    }
+                }
+                
+                setShowSuccessMessage(true);
+                
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    service: '',
+                    urgency: 'planning',
+                    message: ''
+                });
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    setShowSuccessMessage(false);
+                }, 5000);
+            } else {
+                console.error('Failed to send contact form:', adminResult.error);
+                alert('Sorry, there was an error sending your message. Please try again or call us directly at (832) 446-0705.');
+            }
+        } catch (error) {
+            console.error('Contact form submission error:', error);
+            alert('Sorry, there was an error sending your message. Please try again or call us directly at (832) 446-0705.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const contactInfo = homeCopy.contact.contactInfo;
@@ -64,6 +105,16 @@ function Contact() {
                     </div>
 
                     <div className="contact-form-wrapper" data-aos="fade-left" data-aos-delay="300">
+                        {showSuccessMessage && (
+                            <div className="success-message" data-aos="fade-in">
+                                <div className="success-icon">✅</div>
+                                <div className="success-content">
+                                    <h4>Thank You for Your Message!</h4>
+                                    <p>We've received your message and will get back to you within 24 hours.</p>
+                                </div>
+                            </div>
+                        )}
+
                         <form className="contact-form" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="name">{homeCopy.contact.form.fullNameLabel}</label>
@@ -75,6 +126,7 @@ function Contact() {
                                     onChange={handleInputChange}
                                     required
                                     placeholder={homeCopy.contact.form.fullNamePlaceholder}
+                                    disabled={isSubmitting}
                                 />
                             </div>
 
@@ -89,6 +141,7 @@ function Contact() {
                                         onChange={handleInputChange}
                                         required
                                         placeholder={homeCopy.contact.form.emailPlaceholder}
+                                        disabled={isSubmitting}
                                     />
                                 </div>
 
@@ -101,6 +154,7 @@ function Contact() {
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder={homeCopy.contact.form.phonePlaceholder}
+                                        disabled={isSubmitting}
                                     />
                                 </div>
                             </div>
@@ -113,6 +167,7 @@ function Contact() {
                                     value={formData.service}
                                     onChange={handleInputChange}
                                     required
+                                    disabled={isSubmitting}
                                 >
                                     <option value="">{homeCopy.contact.form.servicePlaceholder}</option>
                                     {homeCopy.contact.form.serviceOptions.map((option, index) => (
@@ -130,11 +185,16 @@ function Contact() {
                                     onChange={handleInputChange}
                                     rows="5"
                                     placeholder={homeCopy.contact.form.messagePlaceholder}
+                                    disabled={isSubmitting}
                                 ></textarea>
                             </div>
 
-                            <button type="submit" className="contact-submit-btn">
-                                {homeCopy.contact.form.submitButton}
+                            <button 
+                                type="submit" 
+                                className={`contact-submit-btn ${isSubmitting ? 'submitting' : ''}`}
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? 'Sending...' : homeCopy.contact.form.submitButton}
                             </button>
                         </form>
                     </div>

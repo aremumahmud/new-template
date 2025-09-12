@@ -12,6 +12,9 @@ import JobDetail from './pages/JobDetail'
 import Scheduling from './pages/Scheduling'
 import ReferUs from './pages/ReferUs'
 
+
+// console.log()
+
 function App() {
   return (
     <ThemeProvider>

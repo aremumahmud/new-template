@@ -1,22 +1,41 @@
 import './Newsletter.css'
 import { useState } from 'react'
+import emailService from '../services/emailService'
 import homeCopy from '../../copy/home.json'
 
 function Newsletter() {
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (email) {
-            console.log('Newsletter subscription:', email);
-            setIsSubmitted(true);
-            setEmail('');
+            setIsSubmitting(true);
             
-            // Reset success message after 3 seconds
-            setTimeout(() => {
-                setIsSubmitted(false);
-            }, 3000);
+            try {
+                // Send admin notification email
+                const result = await emailService.sendNewsletterSubscriptionEmail({ email });
+                
+                if (result.success) {
+                    console.log('Newsletter subscription successful:', email);
+                    setIsSubmitted(true);
+                    setEmail('');
+                    
+                    // Reset success message after 5 seconds
+                    setTimeout(() => {
+                        setIsSubmitted(false);
+                    }, 5000);
+                } else {
+                    console.error('Failed to send newsletter subscription:', result.error);
+                    alert('Sorry, there was an error subscribing to our newsletter. Please try again or contact us directly.');
+                }
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                alert('Sorry, there was an error subscribing to our newsletter. Please try again or contact us directly.');
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -47,9 +66,14 @@ function Newsletter() {
                                     placeholder={homeCopy.newsletter.emailPlaceholder}
                                     required
                                     className="newsletter-input"
+                                    disabled={isSubmitting}
                                 />
-                                <button type="submit" className="newsletter-btn">
-                                    {homeCopy.newsletter.subscribeButton}
+                                <button 
+                                    type="submit" 
+                                    className={`newsletter-btn ${isSubmitting ? 'submitting' : ''}`}
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? 'Subscribing...' : homeCopy.newsletter.subscribeButton}
                                 </button>
                             </div>
                         </form>

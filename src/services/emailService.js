@@ -1,6 +1,6 @@
 // Email service using Brevo API (formerly Sendinblue)
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
-const REACT_APP_BREVO_API_KEY = "xsmtpsib-7773b4b6c081ce5a0ee3ec6e7159029f857812a95b478d9561ffb4f95e647c8b-X6wD9cEMHJynF24Y";
+const REACT_APP_BREVO_API_KEY = import.meta.env.VITE_API_KEY;
 
 class EmailService {
     constructor(apiKey) {
@@ -1102,6 +1102,121 @@ Conroe, TX & Surrounding Communities
             'flexible': 'Flexible'
         };
         return timeMap[time] || time;
+    }
+
+    // Newsletter subscription email
+    async sendNewsletterSubscriptionEmail(emailData) {
+        const emailPayload = {
+            sender: {
+                name: "Journey of Care Newsletter",
+                email: "no-reply@journey-of-care.com"
+            },
+            to: [
+                {
+                    email: "Info@journey-of-care.com",
+                    name: "Journey of Care Team"
+                }
+            ],
+            subject: "New Newsletter Subscription",
+            htmlContent: this.generateNewsletterSubscriptionHTML(emailData),
+            textContent: this.generateNewsletterSubscriptionText(emailData)
+        };
+
+        return await this.sendEmail(emailPayload);
+    }
+
+    // Newsletter subscription HTML template
+    generateNewsletterSubscriptionHTML(emailData) {
+        return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Newsletter Subscription</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">📧 New Newsletter Subscription</h1>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">Journey of Care - Newsletter Signup</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 30px;">
+                            
+                            <!-- Email Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">📧 Email Address</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">
+                                        <a href="mailto:${emailData.email}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${emailData.email}</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Submission Date Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">📅 Subscription Date</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">${new Date().toLocaleString()}</td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">Journey of Care | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | Info@journey-of-care.com</p>
+                            <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>New newsletter subscriber added to mailing list</em></p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>`;
+    }
+
+    // Newsletter subscription text template
+    generateNewsletterSubscriptionText(emailData) {
+        return `
+New Newsletter Subscription - Journey of Care
+
+SUBSCRIPTION DETAILS:
+Email: ${emailData.email}
+Date: ${new Date().toLocaleString()}
+
+---
+Journey of Care
+(832) 446-0705
+Info@journey-of-care.com
+`;
     }
 }
 
