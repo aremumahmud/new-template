@@ -116,7 +116,7 @@
           "placeholder": "City"
         },
         "zipCode": {
-          "label": "ZIP Code *",
+          "label": "ZIP Code",
           "placeholder": "ZIP Code"
         },
         "specialRequests": {

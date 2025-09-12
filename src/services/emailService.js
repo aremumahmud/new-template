@@ -1,8 +1,8 @@
 // Email service using Brevo API (formerly Sendinblue)
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY;
-const Admin_Email = import.meta.env.VITE_ADMIN_EMAIL;
-const Admin_Name = import.meta.env.VITE_ADMIN_NAME;
+const Admin_Email = import.meta.env.VITE_Admin_Email;
+const Admin_Name = import.meta.env.VITE_Admin_Name;
 
 console.log('Admin_Email:', Admin_Email);
 console.log('Admin_Name:', Admin_Name);
@@ -317,7 +317,7 @@ class EmailService {
                     <!-- Footer -->
                     <tr>
                         <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
-                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | ${Admin_Email}</p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
                             <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>Please respond within 24 hours for urgent requests</em></p>
                         </td>
                     </tr>
@@ -470,7 +470,7 @@ class EmailService {
     </div>
     
     <div class="footer">
-        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | ${Admin_Email}</p>
+        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
         <p><em>Please schedule consultation within 24-48 hours</em></p>
     </div>
 </body>
@@ -495,94 +495,160 @@ class EmailService {
     </noscript>
     <![endif]-->
 </head>
-<body>
-    <div class="header">
-        <h1>🤝 New Referral Submission</h1>
-        <p>${Admin_Name} - Client Referral</p>
-    </div>
-    
-    <div class="content">
-        <div class="urgency-badge ${formData.urgency || 'planning'}">
-            ⏰ ${this.formatUrgency(formData.urgency)}
-        </div>
-        
-        <div class="referral-highlight">
-            <strong>🎯 Referral Summary:</strong> ${formData.referrerName || 'Anonymous'} has referred ${formData.clientName || 'a potential client'} for care services.
-        </div>
-        
-        <div class="section">
-            <div class="section-title">👤 Referrer Information</div>
-            <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">${formData.referrerName || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Email:</div>
-                <div class="value"><a href="mailto:${formData.referrerEmail}">${formData.referrerEmail || 'Not provided'}</a></div>
-            </div>
-            <div class="field">
-                <div class="label">Phone:</div>
-                <div class="value"><a href="tel:${formData.referrerPhone}">${formData.referrerPhone || 'Not provided'}</a></div>
-            </div>
-            <div class="field">
-                <div class="label">Relationship to Client:</div>
-                <div class="value">${this.formatRelationship(formData.referrerRelation) || 'Not specified'}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">🏥 Client Information</div>
-            <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">${formData.clientName || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Phone:</div>
-                <div class="value"><a href="tel:${formData.clientPhone}">${formData.clientPhone || 'Not provided'}</a></div>
-            </div>
-            <div class="field">
-                <div class="label">Email:</div>
-                <div class="value">${formData.clientEmail ? `<a href="mailto:${formData.clientEmail}">${formData.clientEmail}</a>` : 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Address:</div>
-                <div class="value">${formData.clientAddress || 'Not provided'}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">🛡️ Care Requirements</div>
-            <div class="field">
-                <div class="label">Care Needs:</div>
-                <div class="value">${this.formatService(formData.careNeeds) || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Timeline:</div>
-                <div class="value">${this.formatUrgency(formData.urgency) || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Additional Information:</div>
-                <div class="value">${(formData.additionalInfo || 'None provided').replace(/\n/g, '<br>')}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">📅 Submission Details</div>
-            <div class="field">
-                <div class="label">Submitted:</div>
-                <div class="value">${new Date().toLocaleString()}</div>
-            </div>
-            <div class="field">
-                <div class="label">Terms Agreed:</div>
-                <div class="value">${formData.agreeToTerms ? '✅ Yes' : '❌ No'}</div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | ${Admin_Email}</p>
-        <p><em>Please contact the referred client within 24 hours</em></p>
-    </div>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">🤝 New Referral Submission</h1>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">${Admin_Name} - Client Referral</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 30px;">
+                            
+                            <!-- Urgency Badge -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="display: inline-block; padding: 8px 20px; border-radius: 25px; font-weight: bold; margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; background-color: ${this.getUrgencyColor(formData.urgency)}; color: #ffffff;">⏰ ${this.formatUrgency(formData.urgency)}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Referral Highlight -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #fff3cd; border-radius: 8px; overflow: hidden; border: 1px solid #ffeaa7;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: center;">
+                                        <p style="margin: 0; font-size: 16px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">🎯 Referral Summary: ${formData.referrerName || 'Anonymous'} has referred ${formData.clientName || 'a potential client'} for care services.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- Referrer Information Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">👤 Referrer Information</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Name:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.referrerName || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Email:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;"><a href="mailto:${formData.referrerEmail}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.referrerEmail || 'Not provided'}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Phone:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;"><a href="tel:${formData.referrerPhone}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.referrerPhone || 'Not provided'}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Relationship:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatRelationship(formData.referrerRelation) || 'Not specified'}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Client Information Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">🏥 Client Information</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Name:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.clientName || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Phone:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;"><a href="tel:${formData.clientPhone}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.clientPhone || 'Not provided'}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Email:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.clientEmail ? `<a href="mailto:${formData.clientEmail}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.clientEmail}</a>` : 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Address:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.clientAddress || 'Not provided'}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Care Requirements Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">🛡️ Care Requirements</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Care Needs:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatService(formData.careNeeds) || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Timeline:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatUrgency(formData.urgency) || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Additional Info:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${(formData.additionalInfo || 'None provided').replace(/\n/g, '<br>')}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Submission Details Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">📅 Submission Details</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Submitted:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${new Date().toLocaleString()}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Terms Agreed:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.agreeToTerms ? '✅ Yes' : '❌ No'}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
+                            <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>Please contact the referred client within 24 hours</em></p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>`;
     }
@@ -649,7 +715,7 @@ class EmailService {
                         </div>
                         <div class="contact-section">
                             <h3>Need Immediate Assistance?</h3>
-                            <p><a href="tel:8324460705">(832) 446-0705</a><br/>Available 24/7 for emergencies</p>
+                            <p><a href="tel:8324460705">+1 (210) 897-3276</a><br/>Available 24/7 for emergencies</p>
                             <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>We respond to emails within 24 hours</p>
                         </div>
                     </td></tr>
@@ -658,7 +724,7 @@ class EmailService {
                     <tr><td class="footer">
                         <p><strong>${Admin_Name}</strong></p>
                         <p>Compassionate Home Care Services</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
+                        <p><a href="tel:8324460705">+1 (210) 897-3276</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
                     </td></tr>
                 </table>
             </div>
@@ -730,7 +796,7 @@ class EmailService {
                         </div>
                         <div class="contact-section">
                             <h3>Questions Before Your Consultation?</h3>
-                            <p><a href="tel:8324460705">(832) 446-0705</a><br/>Available 24/7 for urgent needs</p>
+                            <p><a href="tel:8324460705">+1 (210) 897-3276</a><br/>Available 24/7 for urgent needs</p>
                             <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>Our Care Coordinators are standing by</p>
                         </div>
                     </td></tr>
@@ -739,7 +805,7 @@ class EmailService {
                     <tr><td class="footer">
                         <p><strong>${Admin_Name}</strong></p>
                         <p>Licensed • Insured • Trusted</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
+                        <p><a href="tel:8324460705">+1 (210) 897-3276</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
                     </td></tr>
                 </table>
             </div>
@@ -751,84 +817,114 @@ class EmailService {
 
     generateReferralConfirmationHTML(formData) {
         return `
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You for Your Referral - Journey of Care</title>
-    <style type="text/css">
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-        .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-        .header { background-color: #1a1a1a; padding: 40px 30px; text-align: center; }
-        .header h1 { color: #ffffff; font-size: 28px; margin: 0 0 10px 0; font-weight: bold; }
-        .header p { color: #cccccc; font-size: 16px; margin: 0; }
-        .content { padding: 40px 30px; background-color: #ffffff; }
-        .thank-you-section { text-align: center; margin-bottom: 30px; }
-        .thank-you-icon { font-size: 48px; margin-bottom: 20px; }
-        .thank-you-title { color: #1a1a1a; font-size: 24px; font-weight: bold; margin: 0 0 15px 0; }
-        .thank-you-text { color: #666666; font-size: 16px; line-height: 24px; margin: 0; }
-        .referral-highlight { background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-left: 4px solid #ffc107; padding: 25px; margin: 30px 0; text-align: center; }
-        .next-steps { background-color: #e3f2fd; border-radius: 8px; padding: 25px; margin: 30px 0; }
-        .appreciation-section { background-color: #d4edda; border-left: 4px solid #28a745; padding: 25px; margin: 30px 0; text-align: center; }
-        .contact-section { background-color: #f8f9fa; border-radius: 8px; padding: 25px; text-align: center; margin: 30px 0; }
-        .footer { background-color: #1a1a1a; padding: 30px; text-align: center; }
-        .footer p { color: #cccccc; font-size: 14px; margin: 5px 0; }
-        .footer a { color: #ffffff; text-decoration: none; font-weight: bold; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Referral - ${Admin_Name}</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
 </head>
-<body>
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-        <tr><td>
-            <div class="email-container">
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr><td class="header">
-                        <h1>Thank You for Your Referral!</h1>
-                        <p>${Admin_Name} - Expanding Our Circle of Care</p>
-                    </td></tr>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">Thank You for Your Referral!</h1>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">${Admin_Name} - Expanding Our Circle of Care</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 30px;">
+                            
+                            <!-- Thank You Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; text-align: center;">
+                                <tr>
+                                    <td>
+                                        <div style="font-size: 48px; margin-bottom: 20px;">🤝</div>
+                                        <h2 style="color: #1a1a1a; font-size: 24px; font-weight: bold; margin: 0 0 15px 0; font-family: Arial, sans-serif;">Your Referral Matters</h2>
+                                        <p style="color: #666666; font-size: 16px; line-height: 24px; margin: 0; font-family: Arial, sans-serif;">Thank you for referring someone to ${Admin_Name}. Your trust in our services means everything to us.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Referral Highlight -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; background-color: #fff3cd; border-radius: 8px; overflow: hidden; border: 1px solid #ffeaa7;">
+                                <tr>
+                                    <td style="padding: 25px; text-align: center;">
+                                        <h3 style="margin: 0 0 15px 0; font-size: 18px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">🎯 Referral Received</h3>
+                                        <p style="margin: 0; font-size: 16px; color: #1a1a1a; font-family: Arial, sans-serif;">You've referred <strong>${formData.clientName || 'a potential client'}</strong> for care services.<br/>Our team will reach out to them within 24 hours.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Next Steps -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; background-color: #e3f2fd; border-radius: 8px; overflow: hidden;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="margin: 0 0 20px 0; font-size: 18px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">🎯 What Happens Next</h3>
+                                        <ol style="margin: 0; padding-left: 20px; color: #1a1a1a; font-size: 16px; line-height: 24px; font-family: Arial, sans-serif;">
+                                            <li style="margin-bottom: 10px;"><strong>Contact:</strong> Our referral team will call ${formData.clientName || 'them'} within 24 hours</li>
+                                            <li style="margin-bottom: 10px;"><strong>Consultation:</strong> We'll schedule a free in-home assessment</li>
+                                            <li style="margin-bottom: 10px;"><strong>Care Plan:</strong> A personalized care plan will be developed</li>
+                                            <li style="margin-bottom: 10px;"><strong>Updates:</strong> We'll keep you informed of the progress (with permission)</li>
+                                            <li style="margin-bottom: 0;"><strong>Appreciation:</strong> You'll receive a thank-you gift once services begin</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Appreciation Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; background-color: #d4edda; border-radius: 8px; overflow: hidden; border: 1px solid #c3e6cb;">
+                                <tr>
+                                    <td style="padding: 25px; text-align: center;">
+                                        <h3 style="margin: 0 0 15px 0; font-size: 18px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">🎁 Our Referral Appreciation Program</h3>
+                                        <p style="margin: 0 0 15px 0; font-size: 16px; color: #1a1a1a; font-family: Arial, sans-serif;">As a token of our gratitude, you'll receive a special thank-you gift once your referral begins services with us.</p>
+                                        <p style="margin: 0; font-size: 16px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">Thank you for being a ${Admin_Name} advocate!</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Contact Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #f8f9fa; border-radius: 8px; overflow: hidden;">
+                                <tr>
+                                    <td style="padding: 25px; text-align: center;">
+                                        <h3 style="margin: 0 0 20px 0; font-size: 18px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">Questions About Your Referral?</h3>
+                                        <p style="margin: 0 0 10px 0; font-size: 16px; color: #1a1a1a; font-family: Arial, sans-serif;"><a href="tel:8324460705" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a><br/>Referral Team - Available 24/7</p>
+                                        <p style="margin: 0; font-size: 16px; color: #1a1a1a; font-family: Arial, sans-serif;"><a href="mailto:${Admin_Email}" style="color: #1a1a1a; text-decoration: none; font-weight: bold;">${Admin_Email}</a><br/>Dedicated referral support</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;"><strong>${Admin_Name}</strong></p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">Building Trust, One Family at a Time</p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;"><a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a> | <a href="mailto:${Admin_Email}" style="color: #ffffff; text-decoration: none; font-weight: bold;">${Admin_Email}</a></p>
+                        </td>
+                    </tr>
+                    
                 </table>
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr><td class="content">
-                        <div class="thank-you-section">
-                            <div class="thank-you-icon">🤝</div>
-                            <h2 class="thank-you-title">Your Referral Matters</h2>
-                            <p class="thank-you-text">Thank you for referring someone to ${Admin_Name}. Your trust in our services means everything to us.</p>
-                        </div>
-                        <div class="referral-highlight">
-                            <h3>🎯 Referral Received</h3>
-                            <p>You've referred <strong>${formData.clientName || 'a potential client'}</strong> for care services.<br/>Our team will reach out to them within 24 hours.</p>
-                        </div>
-                        <div class="next-steps">
-                            <h3>🎯 What Happens Next</h3>
-                            <ol>
-                                <li><strong>Contact:</strong> Our referral team will call ${formData.clientName || 'them'} within 24 hours</li>
-                                <li><strong>Consultation:</strong> We'll schedule a free in-home assessment</li>
-                                <li><strong>Care Plan:</strong> A personalized care plan will be developed</li>
-                                <li><strong>Updates:</strong> We'll keep you informed of the progress (with permission)</li>
-                                <li><strong>Appreciation:</strong> You'll receive a thank-you gift once services begin</li>
-                            </ol>
-                        </div>
-                        <div class="appreciation-section">
-                            <h3>🎁 Our Referral Appreciation Program</h3>
-                            <p>As a token of our gratitude, you'll receive a special thank-you gift once your referral begins services with us.</p>
-                            <p><strong>Thank you for being a ${Admin_Name} advocate!</strong></p>
-                        </div>
-                        <div class="contact-section">
-                            <h3>Questions About Your Referral?</h3>
-                            <p><a href="tel:8324460705">(832) 446-0705</a><br/>Referral Team - Available 24/7</p>
-                            <p><a href="mailto:${Admin_Email}">${Admin_Email}</a><br/>Dedicated referral support</p>
-                        </div>
-                    </td></tr>
-                </table>
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr><td class="footer">
-                        <p><strong>${Admin_Name}</strong></p>
-                        <p>Building Trust, One Family at a Time</p>
-                        <p><a href="tel:8324460705">(832) 446-0705</a> | <a href="mailto:${Admin_Email}">${Admin_Email}</a></p>
-                    </td></tr>
-                </table>
-            </div>
-        </td></tr>
+            </td>
+        </tr>
     </table>
 </body>
 </html>`;
@@ -853,7 +949,7 @@ ${formData.message || 'No message provided'}
 
 ---
 ${Admin_Name}
-(832) 446-0705
++1 (210) 897-3276
 ${Admin_Email}
 `;
     }
@@ -896,7 +992,7 @@ Additional Information: ${formData.additionalInfo || 'None provided'}
 
 ---
 ${Admin_Name}
-(832) 446-0705
++1 (210) 897-3276
 ${Admin_Email}
 `;
     }
@@ -930,7 +1026,7 @@ Terms Agreed: ${formData.agreeToTerms ? 'Yes' : 'No'}
 
 ---
 ${Admin_Name}
-(832) 446-0705
++1 (210) 897-3276
 ${Admin_Email}
 `;
     }
@@ -956,7 +1052,7 @@ WHAT HAPPENS NEXT:
 4. Care Plan: Together, we'll create a personalized care plan that's right for you
 
 NEED IMMEDIATE ASSISTANCE?
-Phone: (832) 446-0705 - Available 24/7 for emergencies
+Phone: +1 (210) 897-3276 - Available 24/7 for emergencies
 Email: ${Admin_Email} - We respond within 24 hours
 
 ${Admin_Name}
@@ -986,7 +1082,7 @@ WHAT TO EXPECT NEXT:
 4. Care start: Begin services as soon as the next business day if needed
 
 QUESTIONS BEFORE YOUR CONSULTATION?
-Phone: (832) 446-0705 - Available 24/7 for urgent needs
+Phone: +1 (210) 897-3276 - Available 24/7 for urgent needs
 Email: ${Admin_Email} - Our Care Coordinators are standing by
 
 ${Admin_Name}
@@ -1020,7 +1116,7 @@ As a token of our gratitude, you'll receive a special thank-you gift once your r
 Thank you for being a ${Admin_Name} advocate!
 
 QUESTIONS ABOUT YOUR REFERRAL?
-Phone: (832) 446-0705 - Referral Team, Available 24/7
+Phone: +1 (210) 897-3276 - Referral Team, Available 24/7
 Email: ${Admin_Email} - Dedicated referral support
 
 ${Admin_Name}
@@ -1216,7 +1312,7 @@ San Antonio, TX & Surrounding Communities
                     <!-- Footer -->
                     <tr>
                         <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
-                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | ${Admin_Email}</p>
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
                             <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>New newsletter subscriber added to mailing list</em></p>
                         </td>
                     </tr>
@@ -1240,7 +1336,7 @@ Date: ${new Date().toLocaleString()}
 
 ---
 ${Admin_Name}
-(832) 446-0705
++1 (210) 897-3276
 ${Admin_Email}
 `;
     }

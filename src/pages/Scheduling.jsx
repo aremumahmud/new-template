@@ -543,9 +543,7 @@ function Scheduling() {
                                             name="zipCode"
                                             value={formData.zipCode}
                                             onChange={handleInputChange}
-                                            required
                                             placeholder={schedulingCopy.form.step4.fields.zipCode.placeholder}
-                                      
                                             disabled={isSubmitting}
                                         />
                                     </div>
