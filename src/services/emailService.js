@@ -1,6 +1,6 @@
 // Email service using Brevo API (formerly Sendinblue)
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
-const REACT_APP_BREVO_API_KEY = "";
+const REACT_APP_BREVO_API_KEY = "xsmtpsib-7773b4b6c081ce5a0ee3ec6e7159029f857812a95b478d9561ffb4f95e647c8b-X6wD9cEMHJynF24Y";
 
 class EmailService {
     constructor(apiKey) {
@@ -181,68 +181,124 @@ class EmailService {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Contact Form Submission</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #1a1a1a; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background-color: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
-        .urgency-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; }
-        .urgent { background-color: #dc3545; color: white; }
-        .soon { background-color: #fd7e14; color: white; }
-        .planning { background-color: #28a745; color: white; }
-        .immediate { background-color: #dc3545; color: white; animation: pulse 2s infinite; }
-        .field { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #1a1a1a; }
-        .value { margin-top: 5px; padding: 10px; background-color: white; border-radius: 4px; border-left: 4px solid #1a1a1a; }
-        .footer { text-align: center; margin-top: 30px; padding: 20px; background-color: #1a1a1a; color: white; border-radius: 8px; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-    </style>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
 </head>
-<body>
-    <div class="header">
-        <h1>🏥 New Contact Form Submission</h1>
-        <p>Journey of Care - Contact Request</p>
-    </div>
-    
-    <div class="content">
-        <div class="urgency-badge ${formData.urgency || 'planning'}">
-            ⏰ ${this.formatUrgency(formData.urgency)}
-        </div>
-        
-        <div class="field">
-            <div class="label">👤 Name:</div>
-            <div class="value">${formData.name || 'Not provided'}</div>
-        </div>
-        
-        <div class="field">
-            <div class="label">📧 Email:</div>
-            <div class="value"><a href="mailto:${formData.email}">${formData.email || 'Not provided'}</a></div>
-        </div>
-        
-        <div class="field">
-            <div class="label">📞 Phone:</div>
-            <div class="value"><a href="tel:${formData.phone}">${formData.phone || 'Not provided'}</a></div>
-        </div>
-        
-        <div class="field">
-            <div class="label">🏥 Service Interested:</div>
-            <div class="value">${this.formatService(formData.service) || 'Not specified'}</div>
-        </div>
-        
-        <div class="field">
-            <div class="label">💬 Message:</div>
-            <div class="value">${(formData.message || 'No message provided').replace(/\n/g, '<br>')}</div>
-        </div>
-        
-        <div class="field">
-            <div class="label">📅 Submitted:</div>
-            <div class="value">${new Date().toLocaleString()}</div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>Journey of Care | <a href="tel:8324460705" style="color: white;">(832) 446-0705</a> | Info@journey-of-care.com</p>
-        <p><em>Please respond within 24 hours for urgent requests</em></p>
-    </div>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">🏥 New Contact Form Submission</h1>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">Journey of Care - Contact Request</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 30px;">
+                            
+                            <!-- Urgency Badge -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="display: inline-block; padding: 8px 20px; border-radius: 25px; font-weight: bold; margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; background-color: ${this.getUrgencyColor(formData.urgency)}; color: #ffffff;">⏰ ${this.formatUrgency(formData.urgency)}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Full Name Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">👤 Full Name</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">${formData.name || 'Not provided'}</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Email Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">📧 Email Address</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">
+                                        <a href="mailto:${formData.email}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.email || 'Not provided'}</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Phone Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">📞 Phone Number</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">
+                                        <a href="tel:${formData.phone}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.phone || 'Not provided'}</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Service Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">🏥 Service of Interest</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">${this.formatService(formData.service) || 'Not specified'}</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Message Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">💬 Message</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">
+                                        ${(formData.message || 'No message provided').replace(/\n/g, '<br>')}
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Submission Date Field -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 14px; font-family: Arial, sans-serif;">📅 Submission Date</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; margin: 0; background-color: #ffffff; font-size: 16px; line-height: 1.5; font-family: Arial, sans-serif;">${new Date().toLocaleString()}</td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">Journey of Care | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">(832) 446-0705</a> | Info@journey-of-care.com</p>
+                            <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>Please respond within 24 hours for urgent requests</em></p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>`;
     }
@@ -255,27 +311,21 @@ class EmailService {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Consultation Request</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #1a1a1a; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background-color: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
-        .section { margin-bottom: 30px; padding: 20px; background-color: white; border-radius: 8px; border-left: 4px solid #1a1a1a; }
-        .section-title { color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid #e9ecef; padding-bottom: 5px; }
-        .urgency-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; }
-        .urgent { background-color: #dc3545; color: white; }
-        .soon { background-color: #fd7e14; color: white; }
-        .planning { background-color: #28a745; color: white; }
-        .immediate { background-color: #dc3545; color: white; animation: pulse 2s infinite; }
-        .field { margin-bottom: 12px; display: flex; flex-wrap: wrap; }
-        .label { font-weight: bold; color: #1a1a1a; min-width: 150px; }
-        .value { flex: 1; min-width: 200px; }
-        .services-list { list-style: none; padding: 0; }
-        .services-list li { background-color: #e9ecef; margin: 5px 0; padding: 8px 12px; border-radius: 4px; }
-        .footer { text-align: center; margin-top: 30px; padding: 20px; background-color: #1a1a1a; color: white; border-radius: 8px; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-    </style>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
 </head>
-<body>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
     <div class="header">
         <h1>📅 New Consultation Request</h1>
         <p>Journey of Care - Care Consultation</p>
@@ -408,24 +458,15 @@ class EmailService {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Referral Submission</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #1a1a1a; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
-        .content { background-color: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
-        .section { margin-bottom: 30px; padding: 20px; background-color: white; border-radius: 8px; border-left: 4px solid #1a1a1a; }
-        .section-title { color: #1a1a1a; font-size: 18px; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid #e9ecef; padding-bottom: 5px; }
-        .urgency-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 20px; }
-        .urgent { background-color: #dc3545; color: white; }
-        .soon { background-color: #fd7e14; color: white; }
-        .planning { background-color: #28a745; color: white; }
-        .immediate { background-color: #dc3545; color: white; animation: pulse 2s infinite; }
-        .field { margin-bottom: 12px; display: flex; flex-wrap: wrap; }
-        .label { font-weight: bold; color: #1a1a1a; min-width: 150px; }
-        .value { flex: 1; min-width: 200px; }
-        .referral-highlight { background-color: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin-bottom: 20px; }
-        .footer { text-align: center; margin-top: 30px; padding: 20px; background-color: #1a1a1a; color: white; border-radius: 8px; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-    </style>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
 </head>
 <body>
     <div class="header">
@@ -963,6 +1004,16 @@ Conroe, TX & Surrounding Communities
     }
 
     // Helper methods for formatting
+    getUrgencyColor(urgency) {
+        const colorMap = {
+            'immediate': '#dc3545',
+            'urgent': '#dc3545',
+            'soon': '#fd7e14',
+            'planning': '#28a745'
+        };
+        return colorMap[urgency] || '#28a745';
+    }
+
     formatUrgency(urgency) {
         const urgencyMap = {
             'immediate': 'IMMEDIATE (Within 24 hours)',
