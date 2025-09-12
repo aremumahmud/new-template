@@ -353,126 +353,193 @@ class EmailService {
         <tr>
             <td align="center" style="padding: 20px;">
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="700" style="max-width: 700px; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <div class="header">
-        <h1>📅 New Consultation Request</h1>
-        <p>${Admin_Name} - Care Consultation</p>
-    </div>
-    
-    <div class="content">
-        <div class="urgency-badge ${formData.urgency || 'planning'}">
-            ⏰ ${this.formatUrgency(formData.urgency)}
-        </div>
-        
-        <div class="section">
-            <div class="section-title">👤 Contact Information</div>
-            <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">${formData.firstName || ''} ${formData.lastName || ''}</div>
-            </div>
-            <div class="field">
-                <div class="label">Email:</div>
-                <div class="value"><a href="mailto:${formData.email}">${formData.email || 'Not provided'}</a></div>
-            </div>
-            <div class="field">
-                <div class="label">Phone:</div>
-                <div class="value"><a href="tel:${formData.phone}">${formData.phone || 'Not provided'}</a></div>
-            </div>
-            <div class="field">
-                <div class="label">Relationship:</div>
-                <div class="value">${this.formatRelationship(formData.relationship) || 'Not specified'}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">🏥 Care Recipient Information</div>
-            <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">${formData.recipientName || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Age:</div>
-                <div class="value">${formData.recipientAge || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Gender:</div>
-                <div class="value">${formData.recipientGender || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Medical Conditions:</div>
-                <div class="value">${(formData.recipientConditions || 'None specified').replace(/\n/g, '<br>')}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">🛡️ Service Requirements</div>
-            <div class="field">
-                <div class="label">Services Needed:</div>
-                <div class="value">
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; color: #ffffff; padding: 30px 20px; text-align: center;">
+                            <h1 style="margin: 0 0 10px 0; font-size: 28px; color: #ffffff; font-family: Arial, sans-serif;">📅 New Consultation Request</h1>
+                            <p style="margin: 0; opacity: 0.9; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">${Admin_Name} - Care Consultation</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="background-color: #f8f9fa; padding: 30px;">
+                            
+                            <!-- Urgency Badge -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px;">
+                                <tr>
+                                    <td align="center">
+                                        <div style="display: inline-block; padding: 8px 20px; border-radius: 25px; font-weight: bold; margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; background-color: ${this.getUrgencyColor(formData.urgency)}; color: #ffffff;">⏰ ${this.formatUrgency(formData.urgency)}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Contact Information Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">👤 Contact Information</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Name:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.firstName || ''} ${formData.lastName || ''}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Email:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;"><a href="mailto:${formData.email}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.email || 'Not provided'}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Phone:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;"><a href="tel:${formData.phone}" style="color: #1a1a1a; text-decoration: none; font-weight: 500;">${formData.phone || 'Not provided'}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Relationship:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatRelationship(formData.relationship) || 'Not specified'}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Care Recipient Information Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">🏥 Care Recipient Information</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Name:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.recipientName || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Age:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.recipientAge || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Gender:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.recipientGender || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Medical Conditions:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${(formData.recipientConditions || 'None specified').replace(/\n/g, '<br>')}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Service Requirements Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">🛡️ Service Requirements</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Services Needed:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">
                     ${formData.services && formData.services.length > 0 
-                        ? `<ul class="services-list">${formData.services.map(service => `<li>${this.formatService(service)}</li>`).join('')}</ul>`
+                                                        ? `<ul style="margin: 0; padding-left: 20px; color: #1a1a1a; font-size: 14px; font-family: Arial, sans-serif;">${formData.services.map(service => `<li style="margin-bottom: 5px;">${this.formatService(service)}</li>`).join('')}</ul>`
                         : 'No specific services selected'
                     }
-                </div>
-            </div>
-            <div class="field">
-                <div class="label">Care Level:</div>
-                <div class="value">${this.formatCareLevel(formData.careLevel) || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Frequency:</div>
-                <div class="value">${this.formatFrequency(formData.frequency) || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Duration:</div>
-                <div class="value">${this.formatDuration(formData.duration) || 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Start Date:</div>
-                <div class="value">${formData.startDate ? new Date(formData.startDate).toLocaleDateString() : 'Not specified'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Preferred Time:</div>
-                <div class="value">${this.formatPreferredTime(formData.preferredTime) || 'Not specified'}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">📍 Location & Additional Info</div>
-            <div class="field">
-                <div class="label">Address:</div>
-                <div class="value">${formData.address || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">City:</div>
-                <div class="value">${formData.city || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Zip Code:</div>
-                <div class="value">${formData.zipCode || 'Not provided'}</div>
-            </div>
-            <div class="field">
-                <div class="label">Special Requests:</div>
-                <div class="value">${(formData.specialRequests || 'None').replace(/\n/g, '<br>')}</div>
-            </div>
-            <div class="field">
-                <div class="label">Additional Information:</div>
-                <div class="value">${(formData.additionalInfo || 'None provided').replace(/\n/g, '<br>')}</div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">📅 Submission Details</div>
-            <div class="field">
-                <div class="label">Submitted:</div>
-                <div class="value">${new Date().toLocaleString()}</div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>${Admin_Name} | <a href="tel:8324460705" style="color: white;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
-        <p><em>Please schedule consultation within 24-48 hours</em></p>
-    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Care Level:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatCareLevel(formData.careLevel) || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Frequency:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatFrequency(formData.frequency) || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Duration:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatDuration(formData.duration) || 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Start Date:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.startDate ? new Date(formData.startDate).toLocaleDateString() : 'Not specified'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Preferred Time:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${this.formatPreferredTime(formData.preferredTime) || 'Not specified'}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Location & Additional Info Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 25px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">📍 Location & Additional Info</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Address:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.address || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">City:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.city || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Zip Code:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${formData.zipCode || 'Not provided'}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Special Requests:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${(formData.specialRequests || 'None').replace(/\n/g, '<br>')}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Additional Info:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${(formData.additionalInfo || 'None provided').replace(/\n/g, '<br>')}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Submission Details Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
+                                <tr>
+                                    <td style="font-weight: bold; color: #ffffff; background-color: #1a1a1a; padding: 12px 15px; margin: 0; font-size: 16px; font-family: Arial, sans-serif;">📅 Submission Details</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="width: 30%; font-weight: bold; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">Submitted:</td>
+                                                <td style="width: 70%; color: #1a1a1a; padding: 8px 0; font-size: 14px; font-family: Arial, sans-serif;">${new Date().toLocaleString()}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="text-align: center; padding: 25px 20px; background-color: #1a1a1a; color: #ffffff;">
+                            <p style="margin: 5px 0; font-family: Arial, sans-serif;">${Admin_Name} | <a href="tel:8324460705" style="color: #ffffff; text-decoration: none; font-weight: bold;">+1 (210) 897-3276</a> | ${Admin_Email}</p>
+                            <p style="margin: 5px 0; opacity: 0.8; font-size: 14px; font-family: Arial, sans-serif;"><em>Please schedule consultation within 24-48 hours</em></p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>`;
     }
@@ -860,7 +927,7 @@ class EmailService {
                                         <p style="color: #666666; font-size: 16px; line-height: 24px; margin: 0; font-family: Arial, sans-serif;">Thank you for referring someone to ${Admin_Name}. Your trust in our services means everything to us.</p>
                                     </td>
                                 </tr>
-                            </table>
+                </table>
                             
                             <!-- Referral Highlight -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; background-color: #fff3cd; border-radius: 8px; overflow: hidden; border: 1px solid #ffeaa7;">
@@ -883,10 +950,10 @@ class EmailService {
                                             <li style="margin-bottom: 10px;"><strong>Care Plan:</strong> A personalized care plan will be developed</li>
                                             <li style="margin-bottom: 10px;"><strong>Updates:</strong> We'll keep you informed of the progress (with permission)</li>
                                             <li style="margin-bottom: 0;"><strong>Appreciation:</strong> You'll receive a thank-you gift once services begin</li>
-                                        </ol>
+                            </ol>
                                     </td>
                                 </tr>
-                            </table>
+                </table>
                             
                             <!-- Appreciation Section -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 30px; background-color: #d4edda; border-radius: 8px; overflow: hidden; border: 1px solid #c3e6cb;">
@@ -897,7 +964,7 @@ class EmailService {
                                         <p style="margin: 0; font-size: 16px; font-weight: bold; color: #1a1a1a; font-family: Arial, sans-serif;">Thank you for being a ${Admin_Name} advocate!</p>
                                     </td>
                                 </tr>
-                            </table>
+                </table>
                             
                             <!-- Contact Section -->
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 20px; background-color: #f8f9fa; border-radius: 8px; overflow: hidden;">
