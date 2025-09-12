@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import GooeyBtn from './gooeybtn'
 import './hero.css'
 import { BsArrowUpRight, BsArrowUpLeft } from 'react-icons/bs'
-import GradientBlinds from '../../backgrounds/GradientBlinds/GradientBlinds'
+// import GradientBlinds from '../../backgrounds/GradientBlinds/GradientBlinds'
 import homeCopy from '../../copy/home.json'
 
 function Hero() {
