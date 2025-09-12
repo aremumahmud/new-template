@@ -3,6 +3,9 @@ const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 const REACT_APP_BREVO_API_KEY = import.meta.env.VITE_API_KEY;
 const Admin_Email = import.meta.env.VITE_Admin_Email;
 const Admin_Name = import.meta.env.VITE_Admin_Name;
+
+console.log('Admin_Email:', Admin_Email);
+console.log('Admin_Name:', Admin_Name);
 // Validate API key
 console.log('API Key loaded:', REACT_APP_BREVO_API_KEY ? 'Yes' : 'No');
 if (!REACT_APP_BREVO_API_KEY) {
