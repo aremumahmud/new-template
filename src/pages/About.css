@@ -381,7 +381,7 @@
 /* Call to Action Section */
 .about-cta-section {
   width: 100%;
-  background: var(--bg-gradient-hero);
+  background-color: var( --color-secondary-500);
   padding: 100px 0;
   color: var(--text-light);
   text-align: center;

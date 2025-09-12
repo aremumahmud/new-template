@@ -1,9 +1,9 @@
 {
   "images": {
     "jobImages": {
-      "personal-care-assistant-full-time": "/assets/p1.jpg",
-      "personal-care-assistant-part-time": "/assets/p1.jpg",
-      "personal-care-assistant-weekend": "/assets/p1.jpg"
+      "personal-care-assistant-full-time": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651528/istockphoto-2047480956-612x612_ghepml.jpg",
+      "personal-care-assistant-part-time": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651526/istockphoto-2197953344-612x612_aafwiv.jpg",
+      "personal-care-assistant-weekend": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651536/istockphoto-2185020253-612x612_ir8lka.jpg"
     }
   },
   "hero": {

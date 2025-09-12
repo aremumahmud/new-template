@@ -4,8 +4,8 @@
       "main": "/assets/pic.jpg",
       "gallery": [
         "/assets/p1.jpg",
-        "/assets/p2.jpg",
-        "/assets/p3.jpg"
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651536/istockphoto-2185020253-612x612_ir8lka.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1753007261/pexels-kampus-7551617_2_rilfqn.jpg"
       ]
     },
     "founder": {

@@ -1,15 +1,18 @@
 import './Blog.css'
+import { Link } from 'react-router-dom'
+import { blogsData } from '../data/blogsData'
 import homeCopy from '../../copy/home.json'
 
 function Blog() {
-    const articles = homeCopy.blog.articles.map((article, index) => ({
-        id: index + 1,
+    // Use the same data structure as Blogs.jsx but limit to 6 articles for home page
+    const articles = blogsData.slice(0, 6).map((article, index) => ({
+        id: article.id,
         title: article.title,
         category: article.category,
         date: article.date,
         readTime: article.readTime,
         excerpt: article.excerpt,
-        image: homeCopy.images.blog.articleImages[index]
+        image: homeCopy.images.blog.articleImages[index] || article.image
     }));
 
     return (
@@ -46,19 +49,19 @@ function Blog() {
                                 
                                 <p className="blog-excerpt">{article.excerpt}</p>
                                 
-                                <button className="blog-read-more">
+                                <Link to={`/blogs/${article.id}`} className="blog-read-more">
                                     {homeCopy.blog.readMoreButton}
                                     <span className="arrow">→</span>
-                                </button>
+                                </Link>
                             </div>
                         </article>
                     ))}
                 </div>
 
                 <div className="blog-footer" data-aos="fade-up" data-aos-delay="700">
-                    <button className="view-all-btn">
+                    <Link to="/blogs" className="view-all-btn">
                         {homeCopy.blog.viewAllButton}
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

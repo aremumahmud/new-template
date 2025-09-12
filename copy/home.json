@@ -12,7 +12,7 @@
       "decor": "/assets/download.svg"
     },
     "about": {
-      "main": "/assets/test3.jpg"
+      "main": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651526/istockphoto-2197953344-612x612_aafwiv.jpg"
     },
     "services": {
       "serviceImages": [
@@ -27,27 +27,27 @@
     },
     "testimonials": {
       "profileImages": [
-        "/assets/p1.jpg",
-        "/assets/p2.jpg",
-        "/assets/p3.jpg",
-        "/assets/test1.jpg",
-        "/assets/test2.jpg",
-        "/assets/test3.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1741565448/pexels-justin-shaifer-501272-1222271_uq2yo8.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1744211718/pexels-cristian-rojas-8460370_jmjmux.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1741494115/client2_att5pf.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1741565451/pexels-hannah-nelson-390257-1065084_ayajb2.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1741494116/about-img-6_su8uor.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1741494115/client1_s2bo1v.jpg",
         "/assets/pic.jpg"
       ]
     },
     "blog": {
       "articleImages": [
-        "/assets/p1.jpg",
-        "/assets/p2.jpg",
-        "/assets/p3.jpg",
-        "/assets/test1.jpg",
-        "/assets/test2.jpg",
-        "/assets/test3.jpg"
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757652518/pexels-olly-3791664_skfn2f.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651528/istockphoto-2047480956-612x612_ghepml.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757651536/istockphoto-2185020253-612x612_ir8lka.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1753007261/pexels-kampus-7551617_2_rilfqn.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1753007241/pexels-olly-3768131_rjvx7r.jpg",
+        "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648020/pexels-mike-jones-8805864_tpce8a.jpg"
       ]
     },
     "refer": {
-      "main": "/assets/test2.jpg"
+      "main": "https://res.cloudinary.com/dvauarkh6/image/upload/v1757648078/pexels-kampus-7551646_mznizh.jpg"
     }
   },
   "header": {

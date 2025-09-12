@@ -1,9 +1,4 @@
-import profileImg1 from '../assets/p1.jpg'
-import profileImg2 from '../assets/p2.jpg'
-import profileImg3 from '../assets/p3.jpg'
-import profileImg4 from '../assets/test1.jpg'
-import profileImg5 from '../assets/test2.jpg'
-import pic from '../assets/pic.jpg'
+import homeCopy from '../../copy/home.json'
 
 export const blogCategories = [
     'All',
@@ -24,7 +19,7 @@ export const blogsData = [
         date: "January 15, 2024",
         readTime: "8 min read",
         excerpt: "Learn essential home modifications and safety tips to prevent falls and accidents while maintaining independence for elderly family members.",
-        image: profileImg1,
+        image: homeCopy.images.blog.articleImages[0],
         content: `Creating a safe home environment for seniors is one of the most important steps you can take to ensure their well-being and independence. As we age, our physical abilities may change, making certain areas of the home potentially hazardous. However, with proper planning and modifications, you can create a space that promotes both safety and comfort.
 
 Falls are the leading cause of injury among seniors, with one in four adults aged 65 and older experiencing a fall each year. The good news is that many of these accidents are preventable with the right home modifications and safety measures.
@@ -52,7 +47,7 @@ Creating a safe home environment is an ongoing process, not a one-time project. 
         author: {
             name: "Dr. Sarah Johnson",
             title: "Occupational Therapist & Home Safety Specialist",
-            image: profileImg2
+            image: homeCopy.images.testimonials.profileImages[1]
         }
     },
     {
@@ -62,7 +57,7 @@ Creating a safe home environment is an ongoing process, not a one-time project. 
         date: "January 12, 2024",
         readTime: "12 min read",
         excerpt: "A detailed guide to understanding Alzheimer's disease, its stages, symptoms, and how families can provide the best support and care for their loved ones.",
-        image: profileImg3,
+        image: homeCopy.images.blog.articleImages[1],
         content: `Alzheimer's disease affects millions of families worldwide, yet many people don't fully understand what it is or how it progresses. This comprehensive guide will help you understand the disease and learn how to provide the best possible care and support for your loved one.
 
 Alzheimer's disease is a progressive brain disorder that slowly destroys memory and thinking skills. It's the most common cause of dementia, accounting for 60-80% of all dementia cases. The disease is named after Dr. Alois Alzheimer, who first described it in 1906 after examining the brain tissue of a woman who had died of an unusual mental illness.
@@ -94,7 +89,7 @@ Every person's journey with Alzheimer's is unique, and there's no single right w
         author: {
             name: "Dr. Michael Chen",
             title: "Neurologist & Dementia Care Specialist",
-            image: profileImg4
+            image: homeCopy.images.testimonials.profileImages[3]
         }
     },
     {
@@ -104,7 +99,7 @@ Every person's journey with Alzheimer's is unique, and there's no single right w
         date: "January 10, 2024",
         readTime: "6 min read",
         excerpt: "Discover how companion care services can significantly improve quality of life, provide emotional support, and reduce social isolation among elderly adults.",
-        image: pic,
+        image: homeCopy.images.blog.articleImages[2],
         content: `Loneliness among seniors has reached epidemic proportions, with serious consequences for both physical and mental health. Studies show that social isolation can be as harmful to health as smoking 15 cigarettes a day. Companion care offers a powerful solution to this growing problem, providing not just practical support but meaningful human connection.
 
 As we age, many factors can contribute to social isolation. Friends and family members may move away or pass away, mobility issues can make it difficult to get out and socialize, and health problems may limit social activities. The COVID-19 pandemic has further exacerbated these issues, leaving many seniors feeling more isolated than ever.
@@ -136,7 +131,7 @@ If you're considering companion care for a loved one, start by having an open co
         author: {
             name: "Lisa Rodriguez",
             title: "Licensed Social Worker & Aging Specialist",
-            image: profileImg1
+            image: homeCopy.images.testimonials.profileImages[0]
         }
     },
     {
@@ -146,7 +141,7 @@ If you're considering companion care for a loved one, start by having an open co
         date: "January 8, 2024",
         readTime: "7 min read",
         excerpt: "Learn about important dietary considerations, meal planning strategies, and nutritional needs specific to older adults to maintain health and vitality.",
-        image: profileImg5,
+        image: homeCopy.images.blog.articleImages[3],
         content: `Proper nutrition becomes increasingly important as we age, yet many seniors face unique challenges when it comes to maintaining a healthy diet. Changes in taste, smell, appetite, and physical abilities can all impact eating habits. Understanding these challenges and knowing how to address them is crucial for maintaining health, energy, and quality of life in later years.
 
 As we age, our nutritional needs change in several important ways. Calorie needs typically decrease due to reduced activity levels and slower metabolism, but the need for certain nutrients actually increases. Seniors need more protein to maintain muscle mass, more calcium and vitamin D for bone health, and more B vitamins to support brain function.
@@ -186,7 +181,7 @@ If you're caring for a senior who is struggling with nutrition, don't hesitate t
         author: {
             name: "Jennifer Adams, RD",
             title: "Registered Dietitian & Nutrition Specialist",
-            image: profileImg3
+            image: homeCopy.images.testimonials.profileImages[2]
         }
     },
     {
@@ -196,7 +191,7 @@ If you're caring for a senior who is struggling with nutrition, don't hesitate t
         date: "January 5, 2024",
         readTime: "5 min read",
         excerpt: "Understanding the importance of respite care and how it can help prevent caregiver burnout while ensuring continuous quality care for your loved one.",
-        image: profileImg2,
+        image: homeCopy.images.blog.articleImages[4],
         content: `Caring for an aging or disabled family member can be one of the most rewarding experiences in life, but it can also be physically and emotionally exhausting. Family caregivers often put their own needs aside to focus on their loved one's care, leading to stress, burnout, and health problems. Respite care offers a vital solution, providing temporary relief for caregivers while ensuring their loved one continues to receive quality care.
 
 Respite care is exactly what it sounds like – a break or rest from caregiving responsibilities. It can range from a few hours of care to allow for errands or personal time, to several days or weeks for vacation or to address personal health needs. The key is that it provides professional, reliable care for your loved one while giving you the opportunity to rest and recharge.
@@ -234,7 +229,7 @@ If you're a family caregiver, don't wait until you're overwhelmed to seek respit
         author: {
             name: "Maria Santos",
             title: "Family Care Coordinator & Support Specialist",
-            image: profileImg5
+            image: homeCopy.images.testimonials.profileImages[4]
         }
     },
     {
@@ -244,7 +239,7 @@ If you're a family caregiver, don't wait until you're overwhelmed to seek respit
         date: "January 3, 2024",
         readTime: "9 min read",
         excerpt: "Discover safe and effective exercise strategies for seniors that can improve strength, balance, flexibility, and overall health while maintaining independence.",
-        image: profileImg4,
+        image: homeCopy.images.blog.articleImages[5],
         content: `Regular physical activity is one of the most important things seniors can do to maintain their health, independence, and quality of life. Despite common misconceptions, age is not a barrier to exercise – in fact, staying active becomes even more crucial as we get older. The right exercise program can help prevent chronic diseases, improve mental health, maintain cognitive function, and reduce the risk of falls.
 
 The benefits of exercise for seniors are extensive and well-documented. Regular physical activity can help manage or prevent chronic conditions like heart disease, diabetes, arthritis, and osteoporosis. It can improve cardiovascular health, strengthen bones and muscles, enhance balance and coordination, and boost immune function.
@@ -292,7 +287,7 @@ Exercise is truly one of the best medicines available for healthy aging. With pr
         author: {
             name: "Dr. Robert Kim",
             title: "Geriatrician & Exercise Medicine Specialist",
-            image: profileImg1
+            image: homeCopy.images.testimonials.profileImages[0]
         }
     },
     {
@@ -302,7 +297,7 @@ Exercise is truly one of the best medicines available for healthy aging. With pr
         date: "December 28, 2023",
         readTime: "6 min read",
         excerpt: "Learn essential strategies for safe medication management, avoiding dangerous interactions, and ensuring proper adherence to medication regimens.",
-        image: profileImg3,
+        image: homeCopy.images.blog.articleImages[1],
         content: `Managing multiple medications safely is one of the biggest challenges facing seniors and their caregivers today. With age comes an increased likelihood of chronic conditions that require medication management, and many seniors take multiple prescription and over-the-counter medications daily. While these medications can be life-saving and improve quality of life, they also present risks if not managed properly.
 
 Medication errors are unfortunately common among seniors and can have serious consequences. Studies show that medication-related problems are responsible for thousands of hospitalizations each year among older adults. The good news is that most of these problems are preventable with proper medication management strategies.
@@ -352,7 +347,7 @@ Safe medication management is a team effort involving the patient, caregivers, h
         author: {
             name: "Dr. Patricia Wilson, PharmD",
             title: "Clinical Pharmacist & Medication Safety Specialist",
-            image: profileImg4
+            image: homeCopy.images.testimonials.profileImages[3]
         }
     },
     {
@@ -362,7 +357,7 @@ Safe medication management is a team effort involving the patient, caregivers, h
         date: "December 25, 2023",
         readTime: "8 min read",
         excerpt: "Explore how modern technology can enhance independence, safety, and social connection for seniors, with practical tips for getting started.",
-        image: profileImg5,
+        image: homeCopy.images.blog.articleImages[3],
         content: `Technology has revolutionized how we communicate, access information, and manage our daily lives. For seniors, embracing technology can open up new possibilities for staying connected with family and friends, accessing healthcare services, managing home safety, and maintaining independence. While the digital world can seem overwhelming at first, the right approach can help seniors harness technology's benefits while avoiding its pitfalls.
 
 The digital divide between generations has been steadily narrowing as more seniors recognize the value of technology in their daily lives. According to recent studies, internet usage among seniors has grown dramatically in recent years, with many now using smartphones, tablets, and computers regularly. However, many seniors still feel intimidated by new technologies or worry about making mistakes.
@@ -410,7 +405,7 @@ The digital world offers tremendous opportunities for seniors to stay connected,
         author: {
             name: "Tom Anderson",
             title: "Senior Technology Specialist & Digital Literacy Instructor",
-            image: pic
+            image: homeCopy.images.testimonials.profileImages[6]
         }
     }
 ];

@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../assets/p2.jpg') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dvauarkh6/image/upload/v1753009404/pexels-kampus-8949908_plv6t0.jpg') center/cover no-repeat;
   opacity: 0.1;
   z-index: 1;
 }

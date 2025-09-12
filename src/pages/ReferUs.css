@@ -22,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('../assets/test2.jpg') center/cover no-repeat;
+    background: url('https://res.cloudinary.com/dvauarkh6/image/upload/v1747920252/pexels-vlada-karpovich-5790817_ikr99j.jpg') center/cover no-repeat;
     opacity: 0.1;
     z-index: 1;
 }

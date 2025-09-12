@@ -61,7 +61,7 @@
   --bg-primary: #FFFFFF;
   --bg-secondary: #f8fafc;
   --bg-dark: #264653;
-  --bg-gradient-hero: linear-gradient(135deg, #0e0f0f8b 0%, #161918 100%);
+  --bg-gradient-hero: linear-gradient(135deg, #00000042 0%, #000000 100%);
   --bg-gradient-card: linear-gradient(135deg, #FFFFFF 0%, #f8fafc 100%);
   --bg-overlay: rgba(42, 157, 143, 0.1);
 
