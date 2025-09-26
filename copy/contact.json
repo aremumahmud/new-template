@@ -22,9 +22,9 @@
       {
         "icon": "📞",
         "title": "Call Us",
-        "details": "+1 (210) 897-3276",
+        "details": "+1 (210) 975-7482",
         "subtext": "Available during business hours",
-        "link": "tel:+12108973276"
+        "link": "tel:+12109757482"
       },
       {
         "icon": "📧",
@@ -50,7 +50,7 @@
     ],
     "emergencyNotice": {
       "title": "Emergency Situations",
-      "text": "For immediate Personal Assistance Services needs or emergencies, please call us directly at +1 (210) 897-3276"
+      "text": "For immediate Personal Assistance Services needs or emergencies, please call us directly at +1 (210) 975-7482"
     }
   },
   "contactForm": {
